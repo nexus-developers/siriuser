@@ -1,9 +1,10 @@
 import React from 'react';
 
+// Image
 import FavIcon from './assets/favicon.png'
 
+// Dependecies
 import { Link } from 'react-router-dom'
-
 import styled from 'styled-components'
 
 export default function Sidebar() {
