@@ -1,0 +1,13 @@
+.sidebar{
+    z-index: -1;
+}
+
+.sidebar-sticky{
+    position: relative;
+    top: 0;
+    height: 100vh;
+}
+
+::-webkit-input-placeholder {
+    color: red;
+}
