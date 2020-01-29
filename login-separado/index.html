@@ -22,7 +22,7 @@
                 <div style="height: 100vh; width: 30vw; display: flex; flex-direction: row; justify-content: center; align-items: center">
                     <div class="">
                         <img src="./Logo-Site.png" alt="" class="img-fluid" style="width: 350px; margin-bottom: 20px;">
-                        <form>
+                        <form method="POST" id="login-form">
                             <div class="form-group">
                               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username or Email Address" style="width: 100%; padding: 20px;">
                               <small id="emailHelp" class="form-text text-muted ml-2">Nós nunca compartilhamos seu endereço com ninguém.</small>
@@ -30,7 +30,7 @@
                             <div class="form-group">
                               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" style="width: 100%; padding: 20px;">
                             </div>
-                            <button type="submit" class="mb-3" style="background-color: #32d11d; border: none; outline: none; color: #fff; padding: 10px; border-radius: 4px; font-weight: bold; width: 100%;">ENTRAR</button>
+                            <button id="btn-entrar" type="submit" class="mb-3" style="background-color: #32d11d; border: none; outline: none; color: #fff; padding: 10px; border-radius: 4px; font-weight: bold; width: 100%;">ENTRAR</button>
                           </form>
                           <a href="" class="" style="text-decoration: none; color: #32d11d;">Esqueceu a senha?</a>
 
@@ -92,5 +92,11 @@
             </div>
         </div>
     </div>
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
