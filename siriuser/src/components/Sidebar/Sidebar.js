@@ -1,57 +1,122 @@
 import React from 'react';
 
-// Image
+import { Link } from 'react-router-dom'
 import FavIcon from './assets/favicon.png'
 
-// Dependecies
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { IoIosAddCircle, IoIosArchive, IoIosOptions } from 'react-icons/io'
+import { FaUserAlt } from 'react-icons/fa'
+
+import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages } from './styles'
+
 
 export default function Sidebar() {
-
   return (
-    <Sidebardiv className='container-fluid fixed-top'>
-        <div className="row">
-            <div className="col-md-2 bg-light sidebar"  style={{backgroundColor: 'rgb(190, 190, 190)'}}>
-                <StickySidebar>
-                    <ul className="nav flex-column">
-                      <li className="nav-item">
-                        <Link className="nav-link active" href="#" style={{color: 'rgb(51, 51, 51)', marginTop: '85px', fontWeight: 'bold'}} >
-                        <img src={ FavIcon } alt="" style={{width: '25px'}}/>
-                          DashBoard
-                        </Link>
-                        <hr/>
-                      </li>
-                      <li className="nav-item">
-                          <Link className="nav-link active" to='' style={{color: 'rgb(8, 8, 8)', textDecoration: 'none', fontWeight: 'bold'}}>
-                            <span><i className="fas fa-shopping-cart mr-3" style={{color: '#5D5D5D'}}></i></span>Products
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link active" to='' style={{color: 'rgb(8, 8, 8)', textDecoration: 'none', fontWeight: 'bold'}}>
-                          <span><i className="far fa-file mr-3 ml-1" style={{color: '#5D5D5D'}}></i></span>Projects
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active" to='' style={{color: 'rgb(8, 8, 8)', textDecoration: 'none', fontWeight: 'bold'}}>
-                            <span><i className="fas fa-sliders-h mr-3 ml-1" style={{color: '#5D5D5D'}}></i></span>Settings
-                        </Link>
-                      </li>
-                    </ul>
-                </StickySidebar>
-            </div>
-        </div>
-    </Sidebardiv>
+    <Container >
+      <Row>
+        <Sidebarr className='bg-light'>
+        <StickySidebar>
+          <UlBrand>
+            <li>
+              <Link to='/' className='text-center'>
+                <span>
+                  <img src={FavIcon} width={25} style={{ marginRight: '10px' }}/>
+                </span>
+                  DashBoard
+              </Link>
+            </li>
+          </UlBrand>
+          <hr/>
+          <UlPages>
+          <li>
+            <Link to='/projects'>
+                <span className='mr-3'>
+                    <IoIosArchive size={20} />
+                  </span>
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/contacts'>
+                    <span className='mr-3'>
+                      <FaUserAlt size={19} />
+                    </span>
+                    Contatos
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/products'>
+                    <span className='mr-3'>
+                      <IoIosAddCircle size={20} />
+                    </span>
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/settings'>
+                    <span className='mr-3'>
+                      <IoIosOptions size={20} />
+                    </span>
+                    Settings
+                  </Link>
+                </li>
+          </UlPages>
+        </StickySidebar>
+        </Sidebarr>
+      </Row>
+    </Container>
+
+    // <div className='container-fluid fixed-top' style={{ zIndex: '-1' }}>
+    //   <div className='row'>
+    //     <div className='col-lg-2 bg-light sidebar'>
+    //       <div className='sticky-sidebar'>
+    //         <ul className='ul-brand'>
+    //           <li>
+    //             <Link to='/' className='text-center'>
+    //               <span>
+    //                 <img src={FavIcon} width={25} style={{ marginRight: '10px' }}/>
+    //               </span>
+    //               DashBoard
+    //             </Link>
+    //           </li>
+    //         </ul>
+    //         <hr/>
+    //         <ul className='ul-pages'>
+    //           <li>
+    //               <Link to='/projects'>
+    //                 <span className='mr-3'>
+    //                   <IoIosArchive size={20} />
+    //                 </span>
+    //                 Projects
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link to='/contacts'>
+    //                 <span className='mr-3'>
+    //                   <FaUserAlt size={19} />
+    //                 </span>
+    //                 Contatos
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link to='/products'>
+    //                 <span className='mr-3'>
+    //                   <IoIosAddCircle size={20} />
+    //                 </span>
+    //                 Products
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link to='/settings'>
+    //                 <span className='mr-3'>
+    //                   <IoIosOptions size={20} />
+    //                 </span>
+    //                 Settings
+    //               </Link>
+    //             </li>
+    //         </ul>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
-
-const StickySidebar = styled.div`
-position: relative;
-top: 0;
-height: 100vh;
-`
-const Sidebardiv = styled.div`
-z-index: -1
-
-`
-

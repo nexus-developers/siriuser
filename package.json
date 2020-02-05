@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/nexus-developers/siriuser.git",
   "author": "Geraldo Domingos <geraldo.dsn2000@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "react-icons": "^3.9.0"
+  }
 }
