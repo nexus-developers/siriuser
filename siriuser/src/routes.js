@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
-import Dashboard from  './pages/Dashboard'
-import Projects from './pages/Projects'
+import Dashboard from  './pages/Dashboard/Dashboard'
+import Projects from './pages/Projects/Projects'
+import Contatcs from './pages/Contacts/Contacts'
 
 export default function routes() {
   return (
-    <Router>
-        <Switch>
-            <Route path='/' exact  component={Dashboard}/>
-            <Route path='/projects' component={Projects}/> 
-        </Switch>
-    </Router>
+    <Switch>
+        <Route path='/' exact  component={Dashboard}/>
+        <Route path='/projects' component={Projects}/> 
+        <Route path='/contacts' component={Contatcs}/>
+    </Switch>
   );
 }
