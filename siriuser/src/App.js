@@ -10,9 +10,8 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 import firebase from './firebase';
 
-function App() {
-export default function App() {
 
+export default function App() {
   return (
     <>
       <BrowserRouter>
@@ -23,5 +22,4 @@ export default function App() {
       <GlobalStyle/>
     </>
   );
-}
-
+  }
