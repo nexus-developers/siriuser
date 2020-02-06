@@ -40,7 +40,7 @@ export default function Sidebar() {
                     <span className='mr-3'>
                       <FaUserAlt size={19} />
                     </span>
-                    Contatos
+                    Contacts
                   </Link>
                 </li>
                 <li>
