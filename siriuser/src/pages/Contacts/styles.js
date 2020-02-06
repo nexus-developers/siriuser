@@ -62,3 +62,38 @@ export const SecondContainer = styled.div`
     display: flex;
     justify-content: space-around;
 `
+
+export const UlClients = styled.ul`
+    flex: 1;
+        
+        
+        ul{
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            margin: 20px 0;
+            text-align: center;
+            align-items: center;
+            
+            
+            button{
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 27px;
+                color: red;
+                transition: opacity .2s;
+
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+            
+
+            & + ul {
+                border-top: 3px solid #eee;
+            }
+        }
+ 
+`
+

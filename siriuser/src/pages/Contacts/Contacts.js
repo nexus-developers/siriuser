@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import { Container } from '../../styles/Container';
-import { SecondContainer ,Contact, AddContact, Form } from "./styles.js";
+import { SecondContainer ,Contact, AddContact, Form, UlClients } from "./styles.js";
+
+import { TiDeleteOutline } from "react-icons/ti";
 
 export default class Contacts extends Component {
   state = {
@@ -32,6 +34,15 @@ export default class Contacts extends Component {
           <Contact className='col-md-8'>
             <h1 className='text-center'>Seus clientes</h1>
             <p className='text-center'>Nós da Sirius, prezamos pelo sua interação com os clientes!</p>
+            <UlClients>
+              <ul>
+                <button><TiDeleteOutline/></button>
+                <li>Geraldo Domingos</li>
+                <li>107.191.934-27</li>
+                <li>Empresarial</li>
+                <li>(81)99245-4451</li>
+              </ul>
+            </UlClients>
           </Contact>
           <AddContact className='col-md-4'>
               <h1>Adicionar Clientes</h1>

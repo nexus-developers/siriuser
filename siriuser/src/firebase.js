@@ -1,3 +1,5 @@
+import firebase from 'firebase'
+
 const firebaseConfig = {
     apiKey: "AIzaSyD7_bPvT5h2rMlVMADZwvPJoaydPsUBnJ8",
     authDomain: "sirius-teste.firebaseapp.com",
