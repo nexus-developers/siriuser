@@ -7,13 +7,39 @@ import firebase from '../../firebase'
 
 export default class pages extends Component {
   state = {
-    cliente: '',
+    clients: [],
     etapa: '',
     consumo: '',
     tensao: '',
     kits: '',
     fases: '',
+    projects: [],
   }
+
+  //requisitar clientes
+  getUserData = () => {
+    const ref = firebase.database().ref('/');
+    ref.on('value', snapshot => {
+      const state = snapshot.val(); 
+      this.setState(state);
+    });
+  }
+
+  //gravar projetos
+  writeProjects(){
+    firebase.database().ref('projects').set(this.state.projects);
+    console.log('salvou so pra saber no console');
+  }
+
+  componentDidMount(){
+    this.getUserData();
+  }
+
+  // componentDidUpdate(_, prevState){
+  //   if(prevState !== this.state){
+  //     this.calculator();
+  //   }
+  // }
 
   cliente = event => {
     this.setState({
@@ -30,7 +56,22 @@ export default class pages extends Component {
   consumo = event => {
     this.setState({
       consumo: event.target.value 
-    })
+    });
+
+    //calculo temporario de kits
+    const { consumo } = this.state;
+    if(consumo <= 150){
+      this.setState({ kits: 'Kit1' });
+    }
+    else if(consumo > 150 && consumo <= 250){
+      this.setState({ kits: 'Kit2' });
+    }
+    else if(consumo > 250 && consumo <= 350){
+      this.setState({ kits: 'Kit3' });
+    }
+    else if(consumo > 350 && consumo <= 450){
+      this.setState({ kits: 'Kit3' });
+    }
   }
 
   tensao = event => {
@@ -51,17 +92,65 @@ export default class pages extends Component {
     })
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const uid = this.refs.uid.value;
+    const client = this.refs.client.value;
+    const etapa = this.refs.categoria.value;
+    const consumo = this.refs.consumo.value;
+    const tensao = this.refs.tensao.value;
+    const kit = this.refs.kit.value;
+    const fase = this.refs.fase.value;
+
+    if(uid && client && etapa && consumo && tensao && kit && fase){
+      const { projects } = this.state;
+      const projectIndex = projects.findIndex(data => {
+        return data.uid = uid;
+      });
+      projects[projectIndex].client = client;
+      projects[projectIndex].etapa = etapa;
+      projects[projectIndex].consumo = consumo;
+      projects[projectIndex].tensao = tensao;
+      projects[projectIndex].kit = kit;
+      projects[projectIndex].fase = fase;
+    }
+    else if(client && etapa && consumo && tensao && kit && fase){
+      const uid = new Date().getTime().toString();
+      const { projects } = this.state;
+      projects.push({ uid, client, etapa, consumo, tensao, kit, fase });
+      this.setState({ projects });
+    }
+
+    this.writeProjects();
+
+    this.refs.uid.value = '';
+    this.refs.client.value = '';
+    this.refs.categoria.value = '';
+    this.refs.consumo.value = '';
+    this.refs.tensao.value = '';
+    this.refs.kit.value = '';
+    this.refs.fase.value = '';
+  }
 
   render() {
+      const { clients } = this.state;
       return (
         <Container className='row'>
           <InternContainer className='col-md-7'>
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
+                  <input 
+                    type='hidden'
+                    ref='uid' />
                   <label>Cliente:</label>
                   <small>Os clientes devem estar cadastrados no sistema.</small>
-                  <select className="form-control" onChange={this.cliente}>
-                    <option value='Geraldo Domingos'>Geraldo Domingos</option>
-                    <option value='Gabriel Almeida'>Gabriel Almeida</option>
+                  <select  className="form-control" onChange={this.cliente} ref='client'>
+                  <option value=''></option>
+                    {
+                      clients.map(client => 
+                          <option key={client.uid} value={ client.name }>{ client.name }</option>
+                        )
+                    }
                   </select>
 
                   <label>Etapa de Venda:</label>
@@ -76,18 +165,19 @@ export default class pages extends Component {
                     type='text' 
                     className='form-control'
                     placeholder='150'
+                    ref='consumo'
                     value={this.state.consumo}
                     onChange={this.consumo}
                   />
 
                   <label>Tensão:</label>
-                  <select className="form-control" ref='categoria' onChange={this.tensao}>
+                  <select className="form-control" ref='tensao' onChange={this.tensao}>
                     <option value='127 / 220'>127 / 220</option>
                     <option value='127 / 220'>127 / 220</option>
                   </select>
 
                   <label>Kits:</label>
-                  <select className="form-control" ref='categoria' onChange={this.kits}>
+                  <select className="form-control" ref='kit' onChange={this.kits}>
                     <option value='Kit1'>KIT 1</option>
                     <option value='Kit2'>KIT 2</option>
                     <option value='kit3'>KIT 3</option>
@@ -95,7 +185,7 @@ export default class pages extends Component {
                   </select>
 
                   <label>Fases:</label>
-                  <select className="form-control" ref='categoria' onChange={this.fases}>
+                  <select className="form-control" ref='fase' onChange={this.fases}>
                     <option value='Bifásico'>Bifásico</option>
                     <option value='Bifásico'>Bifásico</option>
                   </select>
