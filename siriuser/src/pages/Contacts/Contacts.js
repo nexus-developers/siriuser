@@ -29,6 +29,7 @@ export default class Contacts extends Component {
       const state = snapshot.val();
       this.setState(state);
     });
+
   }
   
   componentDidMount() {

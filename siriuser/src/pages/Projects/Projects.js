@@ -35,12 +35,6 @@ export default class pages extends Component {
     this.getUserData();
   }
 
-  // componentDidUpdate(_, prevState){
-  //   if(prevState !== this.state){
-  //     this.calculator();
-  //   }
-  // }
-
   cliente = event => {
     this.setState({
       cliente: event.target.value
@@ -72,6 +66,7 @@ export default class pages extends Component {
     else if(consumo > 350 && consumo <= 450){
       this.setState({ kits: 'Kit3' });
     }
+    })
   }
 
   tensao = event => {
@@ -138,6 +133,7 @@ export default class pages extends Component {
       return (
         <Container className='row'>
           <InternContainer className='col-md-7'>
+
             <Form onSubmit={this.handleSubmit}>
                   <input 
                     type='hidden'
@@ -151,6 +147,14 @@ export default class pages extends Component {
                           <option key={client.uid} value={ client.name }>{ client.name }</option>
                         )
                     }
+
+            <Form>
+                  <label>Cliente:</label>
+                  <small>Os clientes devem estar cadastrados no sistema.</small>
+                  <select className="form-control" onChange={this.cliente}>
+                    <option value='Geraldo Domingos'>Geraldo Domingos</option>
+                    <option value='Gabriel Almeida'>Gabriel Almeida</option>
+
                   </select>
 
                   <label>Etapa de Venda:</label>
@@ -165,19 +169,29 @@ export default class pages extends Component {
                     type='text' 
                     className='form-control'
                     placeholder='150'
+
                     ref='consumo'
+
+
                     value={this.state.consumo}
                     onChange={this.consumo}
                   />
 
                   <label>Tensão:</label>
+
                   <select className="form-control" ref='tensao' onChange={this.tensao}>
+                  <select className="form-control" ref='categoria' onChange={this.tensao}>
+
                     <option value='127 / 220'>127 / 220</option>
                     <option value='127 / 220'>127 / 220</option>
                   </select>
 
                   <label>Kits:</label>
+
                   <select className="form-control" ref='kit' onChange={this.kits}>
+
+                  <select className="form-control" ref='categoria' onChange={this.kits}>
+
                     <option value='Kit1'>KIT 1</option>
                     <option value='Kit2'>KIT 2</option>
                     <option value='kit3'>KIT 3</option>
@@ -185,7 +199,10 @@ export default class pages extends Component {
                   </select>
 
                   <label>Fases:</label>
+
                   <select className="form-control" ref='fase' onChange={this.fases}>
+                  <select className="form-control" ref='categoria' onChange={this.fases}>
+
                     <option value='Bifásico'>Bifásico</option>
                     <option value='Bifásico'>Bifásico</option>
                   </select>
