@@ -29,7 +29,7 @@ export default class Contacts extends Component {
       const state = snapshot.val();
       this.setState(state);
     });
-    console.log('dados recuperados');
+
   }
   
   componentDidMount() {
