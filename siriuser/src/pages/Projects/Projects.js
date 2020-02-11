@@ -63,8 +63,8 @@ export default class pages extends Component {
     else if(consumo > 250 && consumo <= 350){
       this.setState({ kits: 'Kit3' });
     }
-    else if(consumo > 350 && consumo <= 450){
-      this.setState({ kits: 'Kit3' });
+    else{
+      this.setState({ kits: 'Kit4' });
     }
   }
 
@@ -151,6 +151,7 @@ export default class pages extends Component {
                   <label>Etapa de Venda:</label>
                   <small>Etapa de venda Integrador Cliente.</small>
                   <select className="form-control" ref='categoria' onChange={this.etapa}>
+                    <option ></option>
                     <option value='Proposta Enviada'>Proposta Enviada</option>
                     <option value='Proposta Negociada'>Proposta Negociada</option>
                   </select>
@@ -171,6 +172,7 @@ export default class pages extends Component {
                   <label>Tensão:</label>
 
                   <select className="form-control" ref='tensao' onChange={this.tensao}>
+                    <option ></option>
                     <option value='127 / 220'>127 / 220</option>
                     <option value='127 / 220'>127 / 220</option>
                   </select>
@@ -178,6 +180,7 @@ export default class pages extends Component {
                   <label>Kits:</label>
 
                   <select className="form-control" ref='kit' onChange={this.kits}>
+                    <option ></option>
                     <option value='Kit1'>KIT 1</option>
                     <option value='Kit2'>KIT 2</option>
                     <option value='kit3'>KIT 3</option>
@@ -187,6 +190,7 @@ export default class pages extends Component {
                   <label>Fases:</label>
 
                   <select className="form-control" ref='fase' onChange={this.fases}>
+                    <option ></option>
                     <option value='Bifásico'>Bifásico</option>
                     <option value='Bifásico'>Bifásico</option>
                   </select>
