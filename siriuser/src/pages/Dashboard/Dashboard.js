@@ -34,17 +34,12 @@ export default class pages extends Component {
     let rejeitado = 0;
     projects.forEach(contador);
     function contador(item){
-      const ref = firebase.database().ref('/projects/' + id);
-      ref.once('value', snapshot => {
-        const state = snapshot.val().etapa;
-        if(state == "Proposta Negociada"){
-          aprovado++;
-        }
-        else{
-          rejeitado++;
-        }
-      });
-      id++;
+      if(item.etapa == "Proposta Negociada"){
+        aprovado++;
+      }
+      else{
+        rejeitado++;
+      }
     }
 
     //contador cliente
@@ -53,17 +48,12 @@ export default class pages extends Component {
     let empresariais = 0;
     clients.forEach(clientes);
     function clientes(item){
-      const ref = firebase.database().ref('/clients/' + clientId);
-      ref.once('value', snapshot => {
-        const state = snapshot.val().categoria;
-        if(state == "Pessoal"){
-          pessoais++;
-        }
-        else{
-          empresariais++;
-        }
-      });
-      clientId++;
+      if(item.categoria == "Pessoal"){
+        pessoais++;
+      }
+      else{
+        empresariais++;
+      }
     }
 
     return (
