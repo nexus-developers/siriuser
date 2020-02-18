@@ -8,38 +8,29 @@ import { TiDeleteOutline } from "react-icons/ti";
 import firebase from '../../firebase';
 
 export default class Contacts extends Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      clients: []
-    }
+  state = {
+    clients: []
   }
 
   //gravar firebase
   writeUserData = () => {
-    firebase.database().ref('/').set(this.state);
-    console.log('salvou so pra saber no console');
+    const { clients } = this.state;
+    firebase.database().ref().child('clients').set(this.state);
+    
+    localStorage.setItem('clients', JSON.stringify(clients));
   }
 
   //requisição firebase
   getUserData = () => {
-    const ref = firebase.database().ref('/');
-    ref.on('value', snapshot => {
-      const state = snapshot.val();
-      this.setState(state);
-    });
-
+    const clients = localStorage.getItem('clients');
+    
+    if(clients){
+      this.setState({ clients: JSON.parse(clients) });
+    }
   }
   
   componentDidMount() {
     this.getUserData();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if(prevState !== this.state){
-      this.writeUserData();
-    }
   }
 
   handleSubmit = e => {
@@ -68,6 +59,8 @@ export default class Contacts extends Component {
       clients.push({ uid, name, cpf, categoria, telefone });
       this.setState({ clients });
     }
+
+    this.writeUserData();
 
     this.refs.uid.value = '';
     this.refs.name.value = '';

@@ -16,19 +16,27 @@ export default class pages extends Component {
     projects: [],
   }
 
-  //requisitar clientes
+  // requisitar clientes
   getUserData = () => {
-    const ref = firebase.database().ref('/');
-    ref.on('value', snapshot => {
-      const state = snapshot.val(); 
-      this.setState(state);
-    });
+    const clients = localStorage.getItem('clients');
+    
+    if(clients){
+      this.setState({ clients: JSON.parse(clients) });
+    }
+    
+    const projects = localStorage.getItem('projects');
+    
+    if(projects){
+      this.setState({ projects: JSON.parse(projects) });
+    }
   }
 
   //gravar projetos
   writeProjects(){
-    firebase.database().ref('projects').set(this.state.projects);
-    console.log('salvou so pra saber no console');
+    const { projects } = this.state;
+    firebase.database().ref().child('projects').set(this.state.projects);
+    
+    localStorage.setItem('projects', JSON.stringify(projects));
   }
 
   componentDidMount(){
@@ -109,10 +117,10 @@ export default class pages extends Component {
       projects[projectIndex].kit = kit;
       projects[projectIndex].fase = fase;
     }
-    else if(client && etapa && consumo && tensao && kit && fase){
+     else if(uid ,client && etapa && consumo && tensao && kit && fase){
       const uid = new Date().getTime().toString();
       const { projects } = this.state;
-      projects.push({ uid, client, etapa, consumo, tensao, kit, fase });
+      projects.push({ uid ,client, etapa, consumo, tensao, kit, fase });
       this.setState({ projects });
     }
 
