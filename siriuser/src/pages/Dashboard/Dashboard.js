@@ -24,12 +24,23 @@ export default class pages extends Component {
     this.getUserData();
   }
 
+  componentDidUpdate(_,prevState){
+    const { projects, clients } = this.state;
+
+    if(prevState.projects !== projects){
+      localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    if(prevState.clients !== clients){
+      localStorage.setItem('clients', JSON.stringify(clients));
+    }
+  }
+
 
   render() {
     const { projects, clients } = this.state;
 
     //contador proposta
-    let id = 0;
     let aprovado = 0;
     let rejeitado = 0;
     projects.forEach(contador);
@@ -43,7 +54,6 @@ export default class pages extends Component {
     }
 
     //contador cliente
-    let clientId = 0;
     let pessoais = 0;
     let empresariais = 0;
     clients.forEach(clientes);
@@ -158,8 +168,3 @@ export default class pages extends Component {
     );
   }
 }
-
-
-
-
-

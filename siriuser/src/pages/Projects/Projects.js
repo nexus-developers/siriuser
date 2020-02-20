@@ -16,19 +16,27 @@ export default class pages extends Component {
     projects: [],
   }
 
-  //requisitar clientes
+  // requisitar clientes
   getUserData = () => {
-    const ref = firebase.database().ref('/');
-    ref.on('value', snapshot => {
-      const state = snapshot.val(); 
-      this.setState(state);
-    });
+    const clients = localStorage.getItem('clients');
+    
+    if(clients){
+      this.setState({ clients: JSON.parse(clients) });
+    }
+    
+    const projects = localStorage.getItem('projects');
+    
+    if(projects){
+      this.setState({ projects: JSON.parse(projects) });
+    }
   }
 
   //gravar projetos
   writeProjects(){
-    firebase.database().ref('projects').set(this.state.projects);
-    console.log('salvou so pra saber no console');
+    const { projects } = this.state;
+    firebase.database().ref().child('projects').set(this.state.projects);
+    
+    localStorage.setItem('projects', JSON.stringify(projects));
   }
 
   componentDidMount(){
@@ -63,8 +71,8 @@ export default class pages extends Component {
     else if(consumo > 250 && consumo <= 350){
       this.setState({ kits: 'Kit3' });
     }
-    else if(consumo > 350 && consumo <= 450){
-      this.setState({ kits: 'Kit3' });
+    else{
+      this.setState({ kits: 'Kit4' });
     }
   }
 
@@ -109,10 +117,10 @@ export default class pages extends Component {
       projects[projectIndex].kit = kit;
       projects[projectIndex].fase = fase;
     }
-    else if(client && etapa && consumo && tensao && kit && fase){
+     else if(uid ,client && etapa && consumo && tensao && kit && fase){
       const uid = new Date().getTime().toString();
       const { projects } = this.state;
-      projects.push({ uid, client, etapa, consumo, tensao, kit, fase });
+      projects.push({ uid ,client, etapa, consumo, tensao, kit, fase });
       this.setState({ projects });
     }
 
@@ -151,6 +159,7 @@ export default class pages extends Component {
                   <label>Etapa de Venda:</label>
                   <small>Etapa de venda Integrador Cliente.</small>
                   <select className="form-control" ref='categoria' onChange={this.etapa}>
+                    <option ></option>
                     <option value='Proposta Enviada'>Proposta Enviada</option>
                     <option value='Proposta Negociada'>Proposta Negociada</option>
                   </select>
@@ -171,6 +180,7 @@ export default class pages extends Component {
                   <label>Tensão:</label>
 
                   <select className="form-control" ref='tensao' onChange={this.tensao}>
+                    <option ></option>
                     <option value='127 / 220'>127 / 220</option>
                     <option value='127 / 220'>127 / 220</option>
                   </select>
@@ -178,6 +188,7 @@ export default class pages extends Component {
                   <label>Kits:</label>
 
                   <select className="form-control" ref='kit' onChange={this.kits}>
+                    <option ></option>
                     <option value='Kit1'>KIT 1</option>
                     <option value='Kit2'>KIT 2</option>
                     <option value='kit3'>KIT 3</option>
@@ -187,6 +198,7 @@ export default class pages extends Component {
                   <label>Fases:</label>
 
                   <select className="form-control" ref='fase' onChange={this.fases}>
+                    <option ></option>
                     <option value='Bifásico'>Bifásico</option>
                     <option value='Bifásico'>Bifásico</option>
                   </select>
