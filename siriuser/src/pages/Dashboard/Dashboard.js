@@ -5,6 +5,8 @@ import { Cards, ProjectHistory, Card, CardBody, CardTitle, CardText, RowCards, C
 
 import firebase from '../../firebase';
 
+import BarChart from '../../components/Charts/BarChart'
+
 export default class pages extends Component {
   state = {
     projects: [],
@@ -53,7 +55,7 @@ export default class pages extends Component {
       }
     }
 
-    //contador cliente
+    // contador cliente
     let pessoais = 0;
     let empresariais = 0;
     clients.forEach(clientes);
@@ -95,20 +97,10 @@ export default class pages extends Component {
   
           <Cards className='col-sm-12'>
             <CardFull className='card shadow bg light'>
-                    <CardTitle className='card-header text-center'>
-                      Tipos de Clientes
-                    </CardTitle>
-                    <CardBody className='card-body'>
-                      <ul>
-                        <li>
-                          <CardText className='card-text text-center'>Clientes Pessoais: { pessoais } Clientes.</CardText>
-                        </li>
-                        <li>
-                        <CardText className='card-text text-center'>Clientes Empresariais: { empresariais } Clientes.</CardText>
-                        </li>
-                      </ul>
-                    
-                    </CardBody>
+              <BarChart
+                  pessoal={pessoais}
+                  empresariais={empresariais}
+              />
               </CardFull>
             </Cards>
   
@@ -138,7 +130,7 @@ export default class pages extends Component {
         </Cards>
   
         
-        <ProjectHistory className='col-md-7'>
+        {/* <ProjectHistory className='col-md-7'>
           <RowCards>
           <Cards className='col-sm-12'>
             <CardFull className='card shadow bg light'>
@@ -163,7 +155,7 @@ export default class pages extends Component {
               </CardFull>
             </Cards>
           </RowCards>
-        </ProjectHistory>
+        </ProjectHistory> */}
       </Container>
     );
   }
