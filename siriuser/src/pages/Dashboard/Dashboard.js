@@ -47,7 +47,7 @@ export default class pages extends Component {
     let rejeitado = 0;
     projects.forEach(contador);
     function contador(item){
-      if(item.etapa == "Proposta Negociada"){
+      if(item.etapa === "Proposta Negociada"){
         aprovado++;
       }
       else{
@@ -60,7 +60,7 @@ export default class pages extends Component {
     let empresariais = 0;
     clients.forEach(clientes);
     function clientes(item){
-      if(item.categoria == "Pessoal"){
+      if(item.categoria === "Pessoal"){
         pessoais++;
       }
       else{

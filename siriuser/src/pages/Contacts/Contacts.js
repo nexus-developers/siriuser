@@ -9,13 +9,14 @@ import firebase from '../../firebase';
 
 export default class Contacts extends Component {
   state = {
-    clients: []
+    clients: [],
+    projects: [],
   }
 
   //gravar firebase
   writeUserData = () => {
     const { clients } = this.state;
-    firebase.database().ref().child('clients').set(this.state);
+    firebase.database().ref('/').set(this.state);
     
     localStorage.setItem('clients', JSON.stringify(clients));
   }
@@ -27,12 +28,24 @@ export default class Contacts extends Component {
     if(clients){
       this.setState({ clients: JSON.parse(clients) });
     }
+
+    const projects = localStorage.getItem('projects');
+    
+    if(projects){
+      this.setState({ projects: JSON.parse(projects) });
+    }
   }
   
   componentDidMount() {
     this.getUserData();
   }
 
+  componentDidUpdate(_,prevState){
+    if(this.state !== prevState){
+      this.writeUserData();
+    }
+  }
+  
   handleSubmit = e => {
     e.preventDefault();
 
