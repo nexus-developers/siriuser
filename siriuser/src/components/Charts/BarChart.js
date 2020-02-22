@@ -41,7 +41,7 @@ export default class BarCharts extends Component {
             <XAxis dataKey="name"/>
             <YAxis dataKey='value'/>
             <Tooltip/>
-            <Legend />
+            {/* <Legend /> */}
             <Bar dataKey="uv" fill="#8884d8" />
             <Bar dataKey="pv" fill="#82ca9d" />
         </BarChart>
