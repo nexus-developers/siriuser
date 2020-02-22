@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import { Container } from '../../styles/Container'
-import { Cards, ProjectHistory, Card, CardBody, CardTitle, CardText, RowCards, CardFull } from './styles'
+import { Cards, Card, RowCards, CardFull, Divisor, BtnGroup, ChartInformation, Title, InformationCard, Badge } from './styles'
+
+import { GoCheck, GoCalendar } from 'react-icons/go'
 
 import firebase from '../../firebase';
 
@@ -70,92 +72,196 @@ export default class pages extends Component {
 
     return (
       <Container className='row'>
-        <Cards className='col-md-5' >
+       <Title>
+        <GoCheck size={35} color='#6DEA0F'/>
+        <h2>DASHBOARD</h2>
+       </Title>
+
+        <Cards className='col-12' >
           <RowCards className='row'>
-            <Cards className='col-sm-6'>
-              <Card className='card shadow bg-light'>
-                  <CardTitle className='card-header text-center'>
-                    Projetos Criados
-                  </CardTitle>
-                  <CardBody className='card-body'>
-                  <CardText className='card-text text-center'>{projects.length} projetos criados</CardText>
-                </CardBody>
+            <Cards className='col-md-4'>
+              <Card className='shadow'>
+                <header>
+                  <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
+                </header>
+                <div>
+                  <h1 className='text-center'>
+                    {projects.length}
+                  </h1>
+                </div>
               </Card>
             </Cards>
   
-            <Cards className='col-sm-6'>
-              <Card className='card shadow bg-light'>
-                  <CardTitle className='card-header text-center'>
-                    Valor Total das Propostas
-                  </CardTitle>
-                  <CardBody className='card-body'>
-                  <CardText className='card-text text-center'>R$ 123.231.21</CardText>
-                </CardBody>
+            <Cards className='col-sm-4'>
+              <Card className='shadow'>
+                <header>
+                  <h5 className='text-center'>VALOR TOTAL:</h5>
+                </header>
+                <div>
+                  <p className='text-center'>
+                    R$ 123.123.22
+                  </p>
+                </div>
               </Card>
             </Cards>
-  
+
+            <Cards className='col-sm-4'>
+              <Card className='shadow'>
+                <header>
+                  <h5 className='text-center'>POTÊNCIA TOTAL:</h5>
+                </header>
+                <div>
+                  <p className='text-center'>
+                    345.40 kWp
+                  </p>
+                </div>
+              </Card>
+            </Cards>
   
           <Cards className='col-sm-12'>
-            <CardFull className='card shadow bg light'>
-              <BarChart
+              <CardFull className='shadow'>
+                <div>
+                  <div>
+                    <header>
+                      <h5>
+                        Histórico de Propostas Emitidas
+                      </h5>
+                    </header>
+                  </div>
+                    <Divisor>
+                      <select class="custom-select">
+                        <option selected>2020</option>
+                        <option value="1">2019</option>
+                        <option value="2">2018</option>
+                        <option value="3">2017</option>
+                      </select>
+
+                      <BtnGroup class="btn-group btn-group-sm">
+                        <button type="button" class="btn">Ano</button>
+                        <button type="button" class="btn">Mês</button>
+                      </BtnGroup>
+                    </Divisor>
+                </div>
+              <hr/>
+              <ChartInformation>
+                <BarChart
                   pessoal={pessoais}
                   empresariais={empresariais}
-              />
+                />
+                <div>
+                  <h1 className='text-center'>1</h1>
+                  <p className='text-center'>Propostas Emitidas</p>
+
+                  <h1 className='text-center'>R$123.123.22</h1>
+                  <p className='text-center'>Valor das Propostas</p>
+
+                  <h1 className='text-center'>123,34 kWp</h1>
+                  <p className='text-center'>Potência das Propostas</p>
+                </div>
+              </ChartInformation>
               </CardFull>
             </Cards>
-  
-  
-            <Cards className='col-sm-6'>
-              <Card className='card shadow bg-success text-white'>
-                  <CardTitle className='card-header text-center'>
-                    Projetos Aprovados
-                  </CardTitle>
-                  <CardBody className='card-body'>
-                  <CardText className='card-text text-center'> { aprovado } Projetos Aprovados</CardText>
-                </CardBody>
-              </Card>
+            
+            <Title>
+              <GoCheck size={35} color='#6DEA0F'/>
+              <h2>NOTÍCIAS</h2>
+            </Title>
+
+            <Cards className='col-12' >
+              <RowCards className='row'>
+                <Cards className='col-md-3'>
+                  <InformationCard className='shadow'>
+                    <header>
+                      <h5 className='text-center'>Que tal financiar seu kit...</h5>
+                    </header>
+                      <p>
+                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                      </p>
+
+                      <div>
+                        <div>
+                          <GoCalendar size={20} color='#999999'/>
+                          <span>12/12/2020 12:40</span>
+                        </div>
+                        <div>
+                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
+                        </div>
+                      </div>
+                  </InformationCard>
+                </Cards>
+
+                  <Cards className='col-md-3'>
+                    <InformationCard className='shadow'>
+                      <header>
+                        <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
+                      </header>
+
+                      <p>
+                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                      </p>
+
+                      <div>
+                        <div>
+                          <GoCalendar size={20} color='#999999'/>
+                          <span>12/12/2020 12:40</span>
+                        </div>
+                        <div>
+                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
+                        </div>
+                      </div>
+
+                    </InformationCard>
+                  </Cards>
+
+                  <Cards className='col-md-3'>
+                    <InformationCard className='shadow'>
+                      <header>
+                        <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
+                      </header>
+
+                      <p>
+                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                      </p>
+
+                      <div>
+                        <div>
+                          <GoCalendar size={20} color='#999999'/>
+                          <span>12/12/2020 12:40</span>
+                        </div>
+                        <div>
+                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
+                        </div>
+                      </div>
+
+                    </InformationCard>
+                  </Cards>
+
+                  <Cards className='col-md-3'>
+                    <InformationCard className='shadow'>
+                      <header>
+                        <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
+                      </header>
+                      <p>
+                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                      </p>
+
+                      <div>
+                        <div>
+                          <GoCalendar size={20} color='#999999'/>
+                          <span>12/12/2020 12:40</span>
+                        </div>
+                        <div>
+                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
+                        </div>
+                      </div>
+                    </InformationCard>
+                  </Cards>
+
+              </RowCards>
             </Cards>
-  
-            <Cards className='col-sm-6'>
-              <Card className='card shadow bg-danger text-white'>
-                  <CardTitle className='card-header text-center'>
-                    Projetos Reprovados
-                  </CardTitle>
-                  <CardBody className='card-body'>
-                  <CardText className='card-text text-center'>{ rejeitado } Projetos Rejeitados</CardText>
-                </CardBody>
-              </Card>
-            </Cards>
+
           </RowCards>
         </Cards>
-  
-        
-        {/* <ProjectHistory className='col-md-7'>
-          <RowCards>
-          <Cards className='col-sm-12'>
-            <CardFull className='card shadow bg light'>
-                    <CardTitle className='card-header text-center'>
-                      Histórico de Projetos
-                    </CardTitle>
-                    <CardBody className='card-body'>
-                      {
-                        projects.map(project =>
-                          <ul key={project.uid}>
-                            <li>{ project.client }</li>
-                            <li>{ project.etapa }</li>
-                            <li>{ project.consumo } kWh</li>
-                            <li>{ project.tensao }</li>
-                            <li>{ project.kit }</li>
-                            <li>{ project.fase }</li>
-                          </ul>
-                          )
-                      }
-                      
-                    </CardBody>
-              </CardFull>
-            </Cards>
-          </RowCards>
-        </ProjectHistory> */}
       </Container>
     );
   }

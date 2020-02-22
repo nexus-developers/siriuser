@@ -1,0 +1,8 @@
+@font-face{
+    font-family: Avenir;
+    src: url('./AvenirLTStd-Roman.otf');
+}
+
+body{
+    font-family: Avenir, sans-serif;
+}

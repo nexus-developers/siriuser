@@ -8,7 +8,6 @@ export default function Cards({ title, description }) {
           <div className='col-md-3'>
             <Card className='shadow'>
             <CardTitle className='text-center'>{title}</CardTitle>
-                <hr></hr>
             <CardDescription className='text-center'>{description}</CardDescription>
             </Card>
           </div>
