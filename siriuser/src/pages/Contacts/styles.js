@@ -97,3 +97,33 @@ export const UlClients = styled.ul`
  
 `
 
+export const TableHead = styled.thead`
+    background-color: #6DEA0F;
+    color: #fff;
+    margin-right: 20px;
+`
+
+export const ButtonClients = styled.button`
+    border: none;
+    outline: none;
+    background: transparent;
+`
+
+export const ButtonAddClients = styled.button`
+    margin: 20px 0;
+    background-color: #FCCC2D;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+
+    color: #fff;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    svg{
+        margin-right: 10px;
+    }
+`

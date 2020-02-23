@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { Container } from '../../styles/Container';
-import { SecondContainer ,Contact, AddContact, Form, UlClients } from "./styles.js";
+import { SecondContainer ,Contact, UlClients, TableHead, ButtonClients, ButtonAddClients } from "./styles.js";
 
-import { TiDeleteOutline } from "react-icons/ti";
+import { MdDelete, MdPersonAdd } from "react-icons/md";
 
 import firebase from '../../firebase';
 
@@ -96,25 +96,47 @@ export default class Contacts extends Component {
     return(
       <Container>
         <SecondContainer className='row'>
-          <Contact className='col-md-8'>
+          <Contact className='col-md-12'>
             <h1 className='text-center'>Seus clientes</h1>
             <p className='text-center'>Nós da Sirius, prezamos pelo sua interação com os clientes!</p>
+            <ButtonAddClients>
+              <MdPersonAdd/>
+              <span>Adicionar Clientes</span>
+            </ButtonAddClients>
             <UlClients>
-              {
-                clients.map(client => 
-                  <ul key={client.uid}>
-                    <button onClick={ () => this.removeData(client) }><TiDeleteOutline/></button>
-                    <li>{ client.name }</li>
-                    <li>{ client.cpf }</li>
-                    <li>{ client.categoria }</li>
-                    <li>{ client.telefone }</li>
-                  </ul>
-                  )
-              }
-              
+            <table class="table">
+              <TableHead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">NOME</th>
+                  <th scope="col">CPF/CNPJ</th>
+                  <th scope="col">CATEGORIA</th>
+                  <th scope="col">TELEFONE</th>
+                  <th scope="col">DEL</th>
+                </tr>
+              </TableHead>
+              <tbody>
+                  {
+                    clients.map(client =>  (
+                      <tr key={client.id} >
+                        <td>{ client.id }</td>
+                        <td>{ client.name }</td>
+                        <td>{ client.cpf }</td>
+                        <td>{ client.categoria }</td>
+                        <td>{ client.telefone }</td>
+                        <td>
+                          <ButtonClients onClick={ () => this.removeData(client) }>
+                            <MdDelete size={25} color='#FF0000'/>
+                          </ButtonClients>
+                        </td>
+                      </tr>
+                    ))
+                  }
+              </tbody>
+              </table>
             </UlClients>
           </Contact>
-          <AddContact className='col-md-4'>
+          {/* <AddContact className='col-md-4'>
               <h1>Adicionar Clientes</h1>
             <Form onSubmit={this.handleSubmit}>
                 <div class="form-group">
@@ -154,7 +176,7 @@ export default class Contacts extends Component {
                 </div>
                 <button type='submit'>Cadastrar Cliente</button>
             </Form>
-          </AddContact>
+          </AddContact> */}
         </SecondContainer>
       </Container>
     )
