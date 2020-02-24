@@ -127,3 +127,5 @@ export const ButtonAddClients = styled.button`
         margin-right: 10px;
     }
 `
+
+export const CloseModalButton  = styled.button``
