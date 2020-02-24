@@ -8,9 +8,10 @@ import GlobalStyle from './styles/global'
 import Routes from './routes'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
+import Modal from './pages/Modal/Modal'
 
 
-import firebase from './firebase';
+// import firebase from './firebase';
 
 
 export default function App() {
