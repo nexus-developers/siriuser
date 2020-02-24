@@ -13,13 +13,13 @@ Tenha o controle em suas mãos com a plataforma Sirius Trade, e um Gerente de Co
 
 ## Vantagens
 
-### 1. Liberdade
+### 1. Liberdade 🚀
 Você têm a liberdade para formar seus próprios preços, partindo do preço base fornecido pela Sirius. Você também opta pela melhor forma de faturamento e entrega.
 
-### 2. Suporte
+### 2. Suporte 👥
 Temos em nosso DNA a excelência no atendimento, seja por telefone, e-mail, WhatsApp, presencialmente, da maneira mais ágil e prestativa possível. Tudo para facilitar e agilizar suas necessidades, sempre!
 
-### 3. Pontuação
+### 3. Pontuação 💘
 Suas compras acumulam pontos, que podem ser trocados por equipamentos Sirius. Quanto mais você compra, mais pontos acumula.
 
 ## Developers
