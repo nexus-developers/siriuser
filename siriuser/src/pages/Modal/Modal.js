@@ -17,6 +17,7 @@ export default class Modal extends Component {
     state = {
         closeModal: true,
         clients: [],
+        projects: [],
     }
 
     writeUserData = () => {
@@ -31,6 +32,24 @@ export default class Modal extends Component {
           this.writeUserData();
         }
     }
+
+    getUserData = () => {
+        const clients = localStorage.getItem('clients');
+        
+        if(clients){
+          this.setState({ clients: JSON.parse(clients) });
+        }
+    
+        const projects = localStorage.getItem('projects');
+        
+        if(projects){
+          this.setState({ projects: JSON.parse(projects) });
+        }
+      }
+
+    componentDidMount() {
+        this.getUserData();
+      }
 
     handleSubmit = e => {
         e.preventDefault();
