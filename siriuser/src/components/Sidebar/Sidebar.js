@@ -3,8 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import FavIcon from './assets/favicon.png'
 
-import { IoIosAddCircle, IoIosArchive, IoIosOptions } from 'react-icons/io'
-import { FaUserAlt } from 'react-icons/fa'
+import { IoIosOptions, IoMdSpeedometer, IoMdFiling, IoMdCalculator } from 'react-icons/io'
+
+import { MdSettingsInputComponent } from 'react-icons/md'
+
+import { FaUserAlt, FaMedal } from 'react-icons/fa'
+
+import { AiOutlineDownload } from 'react-icons/ai' 
 
 import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages } from './styles'
 
@@ -13,42 +18,56 @@ export default function Sidebar() {
   return (
     <Container >
       <Row>
-        <Sidebarr className='bg-light'>
+        <Sidebarr className=''>
         <StickySidebar>
-          <UlBrand>
-            <li>
+          <UlBrand/>
+          <UlPages>
+          <li>
               <Link to='/' className='text-center'>
-                <span>
-                  <img src={FavIcon} width={25} style={{ marginRight: '10px' }}/>
+                <span className='mr-3'>
+                <IoMdSpeedometer size={20} />
                 </span>
                   DashBoard
               </Link>
             </li>
-          </UlBrand>
-          <hr/>
-          <UlPages>
-          <li>
+            <li>
+              <Link to='/contacts'>
+                  <span className='mr-3'>
+                      <FaUserAlt size={19} />
+                  </span>
+                    Clientes
+              </Link>
+            </li>
+            <li>
             <Link to='/projects'>
                 <span className='mr-3'>
-                    <IoIosArchive size={20} />
+                    <IoMdFiling size={20} />
                   </span>
-                    Projects
-                  </Link>
-                </li>
+                    Negócios
+                </Link>
+            </li>
                 <li>
-                  <Link to='/contacts'>
+                  <Link to='/products'>
                     <span className='mr-3'>
-                      <FaUserAlt size={19} />
+                      <MdSettingsInputComponent size={20} />
                     </span>
-                    Contacts
+                    Componentes
                   </Link>
                 </li>
                 <li>
                   <Link to='/products'>
                     <span className='mr-3'>
-                      <IoIosAddCircle size={20} />
+                      <IoMdCalculator size={20} />
                     </span>
-                    Products
+                    Orçamentos
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/products'>
+                    <span className='mr-3'>
+                      <AiOutlineDownload size={20} />
+                    </span>
+                    Arquivos
                   </Link>
                 </li>
                 <li>
@@ -56,9 +75,18 @@ export default function Sidebar() {
                     <span className='mr-3'>
                       <IoIosOptions size={20} />
                     </span>
-                    Settings
+                    Configurações
                   </Link>
                 </li>
+                <li>
+                  <Link to='/products'>
+                    <span className='mr-3'>
+                      <FaMedal size={20} />
+                    </span>
+                    Pontuação
+                  </Link>
+                </li>
+
           </UlPages>
         </StickySidebar>
         </Sidebarr>

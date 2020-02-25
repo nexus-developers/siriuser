@@ -10,8 +10,9 @@ export const Row = styled.div`
     flex-direction: row;
 `
 export const Sidebarr = styled.div`
-    background-color: rgb(190, 190, 190);
+    background-color: #FFF;
     width: 250px;
+    border-right: 1px solid #C7F8B2;
 `
 export const StickySidebar = styled.div`
     top: 0;
@@ -25,26 +26,6 @@ export const StickySidebar = styled.div`
 `
 export const UlBrand = styled.ul`
     margin-top: 90px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    margin-left: 40px;
-
-    li{
-
-        &:hover{
-                color: #32d11d;
-        }
-        a{
-            text-decoration: none;
-            color: rgb(51, 51, 51);
-            font-weight: bold;
-            font-size: 18px;
-        }
-    }
-    
 `
 export const UlPages = styled.ul`
     list-style: none;
@@ -57,10 +38,13 @@ export const UlPages = styled.ul`
     li {
         margin-bottom: 15px;
         font-size: 16px;
+        padding: 8px;
+
+
 
         &:hover{
+                background-color: #FBFAF8;
             a {
-                color: #32d11d;
             }
         }
 
