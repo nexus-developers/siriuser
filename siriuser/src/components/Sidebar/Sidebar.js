@@ -7,7 +7,7 @@ import { IoIosOptions, IoMdSpeedometer, IoMdFiling, IoMdCalculator } from 'react
 
 import { MdSettingsInputComponent } from 'react-icons/md'
 
-import { FaUserAlt, FaMedal } from 'react-icons/fa'
+import { FaUserAlt, FaMedal, FaFileSignature } from 'react-icons/fa'
 
 import { AiOutlineDownload } from 'react-icons/ai' 
 
@@ -39,11 +39,19 @@ export default function Sidebar() {
               </Link>
             </li>
             <li>
-            <Link to='/projects'>
+            <Link to='/negocios'>
                 <span className='mr-3'>
                     <IoMdFiling size={20} />
                   </span>
                     Negócios
+                </Link>
+            </li>
+            <li>
+            <Link to='/projects'>
+                <span className='mr-3'>
+                    <FaFileSignature size={20} />
+                  </span>
+                    Projetos
                 </Link>
             </li>
                 <li>
