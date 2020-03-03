@@ -245,5 +245,5 @@ class pages extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs')
+  apiKey: ('****')
 })(pages)
