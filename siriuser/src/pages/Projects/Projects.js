@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import { Container } from '../../styles/Container'
 import { InternContainer, InternContainer2, Form, FormPreView } from './styles';
 
+import Maps from '../../components/Map/Map'
+
 import firebase from '../../firebase'
 
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-class pages extends Component {
+export default class pages extends Component {
   state = {
     clients: [],
     etapa: '',
@@ -140,10 +141,10 @@ class pages extends Component {
   render() {
       const { clients } = this.state;
       return (
-        <Container className='row'>
-          <InternContainer className='col-md-7'>
-
-            <Form onSubmit={this.handleSubmit}>
+        <Container className=''>
+        <Maps/>
+         <InternContainer> 
+                <Form onSubmit={this.handleSubmit}> 
                   <input 
                     type='hidden'
                     ref='uid' />
@@ -177,7 +178,7 @@ class pages extends Component {
 
                     value={this.state.consumo}
                     onChange={this.consumo}
-                  />
+                  /> 
 
                   <label>Tensão:</label>
 
@@ -205,12 +206,12 @@ class pages extends Component {
                     <option value='Bifásico'>Bifásico</option>
                   </select>
 
-                  <button type='submit'>Criar Projeto</button>
+                  <button type='submit'>Criar Projeto</button> 
 
-            </Form>
+            </Form>  
           </InternContainer>
 
-          <InternContainer2 className='col-md-4'>
+         <InternContainer2>
             <FormPreView>
                 <ul className='list-group'>
                 <h5>Pré-Visualização dos dados cadastrados.</h5>
@@ -223,27 +224,8 @@ class pages extends Component {
                 </ul>
             </FormPreView>
           </InternContainer2>
-
-          {/* Inicio google maps */}
-          <div>
-          <Map google={this.props.google} zoom={14}>
- 
-            <Marker onClick={this.onMarkerClick}
-                    name={'Current location'} />
-
-            <InfoWindow onClose={this.onInfoWindowClose}>
-                <div>
-                  {/* <h1>{this.state.selectedPlace.name}</h1> */}
-                </div>
-            </InfoWindow>
-          </Map>
-          </div>
-          {/* fim google maps */}
-        </Container>
+        </Container> 
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ('****')
-})(pages)
