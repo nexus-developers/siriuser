@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom'
 
@@ -13,9 +14,9 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 import Logo from '../../styles/GlobalAssets/logo.png'
 
-export default class Modal extends Component {
+class Modal extends Component {
     state = {
-        closeModal: true,
+        modalClose: true,
         clients: [],
         projects: [],
     }
@@ -87,20 +88,23 @@ export default class Modal extends Component {
         this.refs.telefone.value = '';
       }
 
-    closeModalButton = () => {
-        this.setState({
-            closeModal: false
+      closeModal = () => {
+        this.setState({modalClose: false});
+        const { dispatch } = this.props;
+    
+        dispatch({
+          type: 'MODAL',
         })
-    }
+      };
     
   render() {
 
-    const { closeModal } = this.state 
+    const { modalClose } = this.state 
 
     return (
         <>
             {
-                closeModal ? (
+                modalClose ? (
                     <Container>
                         <ModalContainer>
                         <InternContainer>
@@ -109,7 +113,7 @@ export default class Modal extends Component {
 
                                 <Link to='/contacts' refresh='true'>
                                     <button
-                                        onClick={() => this.closeModalButton()}
+                                        onClick={() => this.closeModal()}
                                     >
                                         <AiOutlineClose size={25}/>
                                     </button>
@@ -166,3 +170,9 @@ export default class Modal extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+    modalClose: state.modal
+});
+
+export default connect(mapStateToProps)(Modal);
