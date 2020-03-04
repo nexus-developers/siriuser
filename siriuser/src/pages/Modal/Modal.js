@@ -16,7 +16,7 @@ import Logo from '../../styles/GlobalAssets/logo.png'
 
 class Modal extends Component {
     state = {
-        modalClose: true,
+        // modalClose: true,
         clients: [],
         projects: [],
     }
@@ -89,17 +89,17 @@ class Modal extends Component {
       }
 
       closeModal = () => {
-        this.setState({modalClose: false});
+        // this.setState({modalClose: false});
         const { dispatch } = this.props;
     
         dispatch({
-          type: 'MODAL',
+          type: 'MODAL_CLOSE',
         })
       };
     
   render() {
 
-    const { modalClose } = this.state 
+    const { modalClose } = this.props 
 
     return (
         <>

@@ -1,9 +1,10 @@
-export default function modal(state = false, action) {
+const INITIAL_STATE = false;
+export default function modal(state = INITIAL_STATE, action) {
    switch(action.type){
        case 'MODAL':
-           return [ !state ];
-        // case 'CLOSE_MODAL':
-        //     return [ {state: false} ];
+           return [ state = true ];
+        case 'MODAL_CLOSE':
+            return INITIAL_STATE;
         default:
             return state;
    }
