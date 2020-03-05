@@ -80,6 +80,11 @@ export default class Header extends Component {
                               </li>
                               <li>
                                 <Link>
+                                  Configurações
+                                </Link>
+                              </li>
+                              <li>
+                                <Link>
                                   Meus Orçamentos
                                 </Link>
                               </li>

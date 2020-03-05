@@ -70,8 +70,8 @@ export default class Sidebar extends Component {
             <li>
             <Link>
                 <button className='mr-3' onClick={() => this.showMenu()} style={{ outline: 'none', border: 'none',  background: 'transparent',  fontWeight: 'bold', color: 'rgb(51, 51, 51)' }}>
-                    <FaFileSignature size={20} style={{marginRight: '15px'}} />
-                      Projetos 
+                    <IoMdCalculator size={20} style={{marginRight: '15px'}} />
+                      Orçamentos
                       <span style={{ marginLeft: '10px' }}> 
                         {
                           showMenu ? ( 
@@ -110,14 +110,14 @@ export default class Sidebar extends Component {
                     Componentes
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to='/products'>
                     <span className='mr-3'>
                       <IoMdCalculator size={20} />
                     </span>
                     Orçamentos
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to='/products'>
                     <span className='mr-3'>
@@ -126,14 +126,14 @@ export default class Sidebar extends Component {
                     Arquivos
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to='/settings'>
                     <span className='mr-3'>
                       <IoIosOptions size={20} />
                     </span>
                     Configurações
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to='/products'>
                     <span className='mr-3'>

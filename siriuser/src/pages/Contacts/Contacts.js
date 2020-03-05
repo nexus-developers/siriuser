@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { Container } from '../../styles/Container';
-import { SecondContainer ,Contact, UlClients, TableHead, ButtonClients, ButtonAddClients } from "./styles.js";
+import { SecondContainer ,Contact, UlClients, TableHead, ButtonClients, ButtonAddClients, SearchCamp, Divisor } from "./styles.js";
 
-import { MdDelete, MdPersonAdd } from "react-icons/md";
+import { MdDelete, MdPersonAdd, MdSearch } from "react-icons/md";
 
 import firebase from '../../firebase';
 
@@ -114,13 +114,21 @@ class Contacts extends Component {
         <SecondContainer className='row'>
           <Contact className='col-md-12'>
             <h1 className='text-center'>Seus clientes!</h1>
-            <p className='text-center'>Nós da Sirius, prezamos pelo sua interação com os clientes.</p>
-            <ButtonAddClients
-                onClick={() => this.openModal()}
-            >
-              <MdPersonAdd/>
-              <span>Adicionar Clientes</span>
-            </ButtonAddClients>
+            <p className='text-center'>Nós da Sirius, prezamos pela sua interação com os clientes.</p>
+            <Divisor>
+              <ButtonAddClients
+                  onClick={() => this.openModal()}
+              >
+                <MdPersonAdd/>
+                <span>Adicionar Clientes</span>
+              </ButtonAddClients>
+              <SearchCamp>
+                  <span>
+                    <MdSearch size={20}/>
+                  </span>
+                <input className='' type='text'/>
+              </SearchCamp>
+            </Divisor>
             <UlClients>
             <table class="table">
               <TableHead>

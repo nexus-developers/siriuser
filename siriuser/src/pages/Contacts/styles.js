@@ -129,3 +129,24 @@ export const ButtonAddClients = styled.button`
 `
 
 export const CloseModalButton  = styled.button``
+
+export const SearchCamp = styled.div`
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input{
+        border: none;
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+    }
+
+`
+
+export const Divisor =  styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+`
