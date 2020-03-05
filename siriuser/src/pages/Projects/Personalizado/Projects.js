@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import { Container } from '../../styles/Container'
-import { InternContainer, InternContainer2, Form, FormPreView } from './styles';
+import { Container } from '../../../styles/Container'
+import { Title, Divisor, InternContainer, InternContainer2, Form, FormPreView } from './styles';
 
-import Maps from '../../components/Map/Map'
+import Maps from '../../../components/Map/Map'
 
-import firebase from '../../firebase'
+import firebase from '../../../firebase'
 
 
 export default class pages extends Component {
@@ -143,75 +143,90 @@ export default class pages extends Component {
       return (
         <Container className=''>
         <Maps/>
+
          <InternContainer> 
+        <hr style={{ width: '95%' }}/>
                 <Form onSubmit={this.handleSubmit}> 
                   <input 
                     type='hidden'
                     ref='uid' />
-                  <label>Cliente:</label>
-                  <small>Os clientes devem estar cadastrados no sistema.</small>
-                  <select  className="form-control" onChange={this.cliente} ref='client'>
-                  <option value=''></option>
-                    {
-                      clients.map(client => 
-                          <option key={client.uid} value={ client.name }>{ client.name }</option>
-                        )
-                    }
-                  </select>
+                    <Title> Informações do Cliente </Title>
 
-                  <label>Etapa de Venda:</label>
-                  <small>Etapa de venda Integrador Cliente.</small>
-                  <select className="form-control" ref='categoria' onChange={this.etapa}>
-                    <option ></option>
-                    <option value='Proposta Enviada'>Proposta Enviada</option>
-                    <option value='Proposta Negociada'>Proposta Negociada</option>
-                  </select>
+                    <Divisor>
+                      <div>
+                        <label>Cliente:</label>
+                        <small>Os clientes devem estar cadastrados no sistema.</small>
+                        <select  className="form-control" onChange={this.cliente} ref='client'>
+                        <option value=''></option>
+                          {
+                            clients.map(client => 
+                                <option key={client.uid} value={ client.name }>{ client.name }</option>
+                              )
+                          }
+                        </select>
+                      </div>
+                      <div>
+                        <label>Etapa de Venda:</label>
+                        <small>Etapa de venda Integrador Cliente.</small>
+                        <select className="form-control" ref='categoria' onChange={this.etapa}>
+                          <option ></option>
+                          <option value='Proposta Enviada'>Proposta Enviada</option>
+                          <option value='Proposta Negociada'>Proposta Negociada</option>
+                        </select>
+                      </div>
+                    </Divisor>
+                    
+                    <Divisor>
+                      
+                      <div>
+                        <label>Consumo Mensal: ( kWh )</label>
+                        <input 
+                          type='text' 
+                          className='form-control'
+                          placeholder='150'
 
-                  <label>Consumo Mensal: ( kWh )</label>
-                  <input 
-                    type='text' 
-                    className='form-control'
-                    placeholder='150'
-
-                    ref='consumo'
+                          ref='consumo'
 
 
-                    value={this.state.consumo}
-                    onChange={this.consumo}
-                  /> 
+                          value={this.state.consumo}
+                          onChange={this.consumo}
+                          style={{width: '230px'}}
+                        /> 
+                      </div>
 
-                  <label>Tensão:</label>
+                      <div>
+                        <label>Tensão:</label>
+                        <select className="form-control" ref='tensao' onChange={this.tensao} style={{width: '230px'}}>
+                          <option ></option>
+                          <option value='127 / 220'>127 / 220</option>
+                          <option value='127 / 220'>127 / 220</option>
+                        </select>
+                      </div>
 
-                  <select className="form-control" ref='tensao' onChange={this.tensao}>
-                    <option ></option>
-                    <option value='127 / 220'>127 / 220</option>
-                    <option value='127 / 220'>127 / 220</option>
-                  </select>
+                      <div>
+                        <label>Kits:</label>
+                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '230px'}}>
+                          <option ></option>
+                          <option value='Kit1'>KIT 1</option>
+                          <option value='Kit2'>KIT 2</option>
+                          <option value='kit3'>KIT 3</option>
+                          <option value='kit4'>KIT 4</option>
+                        </select>
+                      </div>
 
-                  <label>Kits:</label>
-
-                  <select className="form-control" ref='kit' onChange={this.kits}>
-                    <option ></option>
-                    <option value='Kit1'>KIT 1</option>
-                    <option value='Kit2'>KIT 2</option>
-                    <option value='kit3'>KIT 3</option>
-                    <option value='kit4'>KIT 4</option>
-                  </select>
-
-                  <label>Fases:</label>
-
-                  <select className="form-control" ref='fase' onChange={this.fases}>
-                    <option ></option>
-                    <option value='Bifásico'>Bifásico</option>
-                    <option value='Bifásico'>Bifásico</option>
-                  </select>
-
-                  <button type='submit'>Criar Projeto</button> 
-
+                      <div>
+                        <label>Fases:</label>
+                        <select className="form-control" ref='fase' onChange={this.fases} style={{width: '240px'}}>
+                          <option ></option>
+                          <option value='Bifásico'>Bifásico</option>
+                          <option value='Bifásico'>Bifásico</option>
+                        </select>
+                      </div>
+                    </Divisor> 
             </Form>  
           </InternContainer>
 
-         <InternContainer2>
+          <hr style={{ width: '95%' }}/>
             <FormPreView>
                 <ul className='list-group'>
                 <h5>Pré-Visualização dos dados cadastrados.</h5>
@@ -222,8 +237,9 @@ export default class pages extends Component {
                   <li className='list-group-item'><strong>KIT</strong>: {this.state.kits} </li>
                   <li className='list-group-item'><strong>Fases</strong>: {this.state.fases} </li>
                 </ul>
+                <h3>Total Estimado: R$ 4500,00</h3>
+                <button type='submit'>Criar Projeto</button>
             </FormPreView>
-          </InternContainer2>
         </Container> 
     );
   }

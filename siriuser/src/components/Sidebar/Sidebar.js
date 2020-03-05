@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom'
-import FavIcon from './assets/favicon.png'
+
 
 import { IoIosOptions, IoMdSpeedometer, IoMdFiling, IoMdCalculator } from 'react-icons/io'
 
-import { MdSettingsInputComponent } from 'react-icons/md'
+import { MdSettingsInputComponent, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
 import { FaUserAlt, FaMedal, FaFileSignature } from 'react-icons/fa'
 
 import { AiOutlineDownload } from 'react-icons/ai' 
 
-import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages } from './styles'
+import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages, DropDownMenu } from './styles'
 
 
-export default function Sidebar() {
+export default class Sidebar extends Component {
+  state = {
+    showMenu: false
+  }
+
+  showMenu = () =>{
+    
+    this.setState({ showMenu: true }, () => {
+      document.addEventListener('click', this.closeMenu);
+    });
+  }
+  
+  closeMenu = () =>{
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener('click', this.closeMenu);
+    });
+  }
+
+  render(){
+
+    const { showMenu } = this.state
+
   return (
     <Container >
       <Row>
@@ -47,12 +68,39 @@ export default function Sidebar() {
                 </Link>
             </li>
             <li>
-            <Link to='/projects'>
-                <span className='mr-3'>
-                    <FaFileSignature size={20} />
-                  </span>
-                    Projetos
+            <Link>
+                <button className='mr-3' onClick={() => this.showMenu()} style={{ outline: 'none', border: 'none',  background: 'transparent',  fontWeight: 'bold', color: 'rgb(51, 51, 51)' }}>
+                    <FaFileSignature size={20} style={{marginRight: '15px'}} />
+                      Projetos 
+                      <span style={{ marginLeft: '10px' }}> 
+                        {
+                          showMenu ? ( 
+                            <MdKeyboardArrowUp />
+                           ) : (
+                            <MdKeyboardArrowDown  />
+                           )
+                        }
+                      </span>
+                  </button>
                 </Link>
+                {
+                  showMenu ? (
+                    <DropDownMenu>
+                      <li className='mt-3'>
+                        <Link to='/projects/personalizado'>
+                          Personalizado 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/projects/kits'>
+                          Por Kits 
+                        </Link>
+                      </li>
+                    </DropDownMenu>
+                  ) : (
+                    null
+                  )
+                }
             </li>
                 <li>
                   <Link to='/products'>
@@ -100,59 +148,6 @@ export default function Sidebar() {
         </Sidebarr>
       </Row>
     </Container>
-
-    // <div className='container-fluid fixed-top' style={{ zIndex: '-1' }}>
-    //   <div className='row'>
-    //     <div className='col-lg-2 bg-light sidebar'>
-    //       <div className='sticky-sidebar'>
-    //         <ul className='ul-brand'>
-    //           <li>
-    //             <Link to='/' className='text-center'>
-    //               <span>
-    //                 <img src={FavIcon} width={25} style={{ marginRight: '10px' }}/>
-    //               </span>
-    //               DashBoard
-    //             </Link>
-    //           </li>
-    //         </ul>
-    //         <hr/>
-    //         <ul className='ul-pages'>
-    //           <li>
-    //               <Link to='/projects'>
-    //                 <span className='mr-3'>
-    //                   <IoIosArchive size={20} />
-    //                 </span>
-    //                 Projects
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link to='/contacts'>
-    //                 <span className='mr-3'>
-    //                   <FaUserAlt size={19} />
-    //                 </span>
-    //                 Contatos
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link to='/products'>
-    //                 <span className='mr-3'>
-    //                   <IoIosAddCircle size={20} />
-    //                 </span>
-    //                 Products
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link to='/settings'>
-    //                 <span className='mr-3'>
-    //                   <IoIosOptions size={20} />
-    //                 </span>
-    //                 Settings
-    //               </Link>
-    //             </li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-  );
+    );
+  }
 }

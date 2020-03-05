@@ -56,3 +56,11 @@ export const UlPages = styled.ul`
         }
     }
 `
+
+export const DropDownMenu = styled.ul`
+    list-style: none;
+
+    & > li {
+        border-bottom: 1px solid rgb(51, 51, 51);
+    }
+`
