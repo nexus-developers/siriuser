@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { Container } from '../../styles/Container';
 import { SecondContainer ,Contact, UlClients, TableHead, ButtonClients, ButtonAddClients } from "./styles.js";
@@ -9,11 +10,11 @@ import firebase from '../../firebase';
 
 import Modal from '../Modal/Modal'
 
-export default class Contacts extends Component {
+class Contacts extends Component {
   state = {
     clients: [],
     projects: [],
-    modalOpen: false,
+    // modal: false,
   }
 
   // gravar firebase
@@ -94,14 +95,20 @@ export default class Contacts extends Component {
     this.setState({ clients: newState });
   }
 
-  openModal(){
-    this.setState({
-      modalOpen: true
+  openModal = () => {
+    // this.setState({modal: true});
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'MODAL',
+      // modal,
     })
-  }
+  };
 
   render() {
-    const { clients,  modalOpen } = this.state;
+    const { clients } = this.state;
+    const { modalOpen } = this.props;
+
     return(
       <Container>
         <SecondContainer className='row'>
@@ -153,6 +160,7 @@ export default class Contacts extends Component {
               <>
                 <Modal/>
               </>
+              
             ) : (
               null
             )
@@ -161,3 +169,9 @@ export default class Contacts extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  modalOpen: state.modal
+});
+
+export default connect(mapStateToProps)(Contacts);
