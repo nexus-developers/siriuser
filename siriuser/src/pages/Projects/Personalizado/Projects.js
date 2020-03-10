@@ -170,16 +170,27 @@ export default class pages extends Component {
                         <small>Etapa de venda Integrador Cliente.</small>
                         <select className="form-control" ref='categoria' onChange={this.etapa}>
                           <option ></option>
-                          <option value='Proposta Enviada'>Proposta Enviada</option>
-                          <option value='Proposta Negociada'>Proposta Negociada</option>
+                          <option value='Proposta Enviada'>Proposta Emitida</option>
+                          <option value='Proposta Apresentada'>Proposta Apresentada</option>
+                          <option value='Negociação'>Negociação</option>
+                          <option value='Projeto Cancelado'>Projeto Cancelado</option>
+                          <option value='Projeto Vendido'>Projeto Vendido</option>
                         </select>
                       </div>
                     </Divisor>
                     
                     <Divisor>
-                      
                       <div>
-                        <label>Consumo Mensal: ( kWh )</label>
+                      <label>Consumo / Potência</label>
+                        <select className="form-control" style={{width: '150px'}}>
+                          <option></option>
+                          <option>Consumo</option>
+                          <option>Potência</option>
+                        </select>
+                      </div>
+                      
+                      <div style={{ display: 'flex', flexDirection: 'column',   }}>
+                        <label>Mensal: ( kWh )</label>
                         <input 
                           type='text' 
                           className='form-control'
@@ -190,22 +201,22 @@ export default class pages extends Component {
 
                           value={this.state.consumo}
                           onChange={this.consumo}
-                          style={{width: '230px'}}
+                          style={{width: '150px'}}
                         /> 
                       </div>
 
                       <div>
                         <label>Tensão:</label>
-                        <select className="form-control" ref='tensao' onChange={this.tensao} style={{width: '230px'}}>
+                        <select className="form-control" ref='tensao' onChange={this.tensao} style={{width: '150px'}}>
                           <option ></option>
                           <option value='127 / 220'>127 / 220</option>
-                          <option value='127 / 220'>127 / 220</option>
+                          <option value='127 / 220'>220 / 380</option>
                         </select>
                       </div>
 
                       <div>
                         <label>Kits:</label>
-                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '230px'}}>
+                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '150px'}}>
                           <option ></option>
                           <option value='Kit1'>KIT 1</option>
                           <option value='Kit2'>KIT 2</option>
@@ -216,10 +227,10 @@ export default class pages extends Component {
 
                       <div>
                         <label>Fases:</label>
-                        <select className="form-control" ref='fase' onChange={this.fases} style={{width: '240px'}}>
+                        <select className="form-control" ref='fase' onChange={this.fases} style={{width: '150px'}}>
                           <option ></option>
                           <option value='Bifásico'>Bifásico</option>
-                          <option value='Bifásico'>Bifásico</option>
+                          <option value='Bifásico'>Trifásico</option>
                         </select>
                       </div>
                     </Divisor> 
