@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 
 import { Container } from '../../../styles/Container'
-import { Title, Divisor, InternContainer, InternContainer2, Form, FormPreView } from './styles';
+import { 
+  Title, 
+  Divisor, 
+  InternContainer,
+  Dispositions, 
+  Form, 
+  FormPreView, 
+  Quantity, 
+  DispositionsForm,
+  ModuleSelection,
+  DivisorButton,
+  Charts
+
+      } from './styles';
 
 import Maps from '../../../components/Map/Map'
 
 import firebase from '../../../firebase'
+
+import Vertical from './Assets/vertical.png'
+import Horizontal from './Assets/horizontal.png'
+
+import Barchart from '../../../components/Charts/BarChart'
 
 
 export default class pages extends Component {
@@ -239,18 +257,81 @@ export default class pages extends Component {
 
           <hr style={{ width: '95%' }}/>
             <FormPreView>
-                <ul className='list-group'>
-                <h5>Pré-Visualização dos dados cadastrados.</h5>
-                  <li className='list-group-item'><strong>Cliente</strong>: {this.state.cliente}</li>
-                  <li className='list-group-item'><strong>Etapa</strong>: {this.state.etapa}</li>
-                  <li className='list-group-item'><strong>Consumo</strong>: {this.state.consumo} </li>
-                  <li className='list-group-item'><strong>Tensão</strong>: {this.state.tensao} </li>
-                  <li className='list-group-item'><strong>KIT</strong>: {this.state.kits} </li>
-                  <li className='list-group-item'><strong>Fases</strong>: {this.state.fases} </li>
-                </ul>
-                <h3>Total Estimado: R$ 4500,00</h3>
-                <button type='submit'>Criar Projeto</button>
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Descrição do Produto</th>
+                    <th scope="col">Quantidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">001</td>
+                    <td>Descrição do produto que vem do estoque.</td>
+                    <td>
+                      <Quantity>
+                        <button>
+                          +
+                        </button>
+                        <label>10</label>
+                        <button>
+                          -
+                        </button>
+                      </Quantity>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </FormPreView>
+
+            <hr style={{ width: '95%' }}/>   
+
+            <Title>Disposição dos Módulos</Title>
+            <Dispositions>
+              <DispositionsForm>
+                <label>Número de Linhas:</label>
+                <input className='form-control' />
+
+                <label>Número de Módulos por Linha:</label>
+                <input className='form-control' />
+              </DispositionsForm>
+              <ModuleSelection>
+                <div>
+                  <DivisorButton>
+                    <label>Vertical</label>
+                    <button>
+                      <img src={Vertical} />
+                    </button>
+                  </DivisorButton>
+                  
+                  <DivisorButton>
+                    <label>Horizontal</label>
+                    <button selected>
+                      <img src={Horizontal} />
+                    </button>
+                  </DivisorButton>
+                </div>
+              </ModuleSelection>
+
+            </Dispositions>  
+          <button className='btn btn-danger mr-5'>Excluir</button>
+          <button className='btn btn-primary'>Recalcular</button>
+
+          <hr style={{ width: '95%' }}/>   
+          <Title>Resultado</Title>
+          <Charts>
+            <Barchart />
+            <div>
+              <ul className='list-group'>
+                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
+                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
+                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
+                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
+                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
+              </ul>
+            </div>                 
+          </Charts>
         </Container> 
     );
   }

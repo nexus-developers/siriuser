@@ -44,34 +44,78 @@ export const FormPreView = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     margin: 40px 0;
-
-
-    ul{
-    flex: 1;
     width: 95%;
 
-        h5{
-            margin-bottom: 20px;
+    table{
+        
+        thead{
+            background-color: #00E700;
+            padding: 20px;
         }
     }
+    
+`
 
-    h3{
-        text-align: end;
-        margin-top: 20px;
-        margin-right: 60px;
-    }
+export const Quantity = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 
     button{
-        
-        justify-content: flex-end;
-        background-color: #32d11d; 
-        border: none; 
-        outline: none; 
-        color: #fff; 
-        padding: 10px; 
-        border-radius: 4px; 
-        font-weight: bold; 
-        width: 500px;
-        margin-top: 20px;
+        outline: none;
+        border: none;
+        background-color: #00E700;
+        color: #fff;
+        padding: 0 8px;
+        border-radius: 4px;
+        font-weight: bold;
     }
+
+    label{
+        margin: 5px 10px 0 10px;
+    }
+`
+
+export const Dispositions = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+
+    
+`
+
+export const DispositionsForm = styled.div`
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+
+    label{
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input{
+        width: 250px;
+        height: 35px;
+    }
+`
+export const ModuleSelection = styled.div``
+
+export const DivisorButton = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    label{
+        text-align: center;
+        font-weight: bold;
+    }
+`
+
+export const Charts = styled.div`
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
 `
