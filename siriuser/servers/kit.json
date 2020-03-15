@@ -1,0 +1,59 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno",
+      "price": 630.30
+    },
+    {
+      "id": 2,
+      "title": "Micro Inversor Sirius / Deye de 1300 W de Potência, 4 MPPT",
+      "price": 1696.00
+    },
+    {
+      "id": 3,
+      "title": "Perfil De Suporte Do Módulo 3M Thunder - Solar Group",
+      "price": 44.88
+    },
+    {
+      "id": 4,
+      "title": "Grampo Intermediário Thunder - Solar Group",
+      "price": 6.42
+    },
+    {
+      "id": 5,
+      "title": "Grampo Terminal Thunder - Solar Group",
+      "price": 6.41
+    },
+    {
+      "id": 6,
+      "title": "Suporte Telha Cerâmica (Gancho) - Solar Group",
+      "price": 6.41
+    },
+    {
+      "id": 7,
+      "title": "Emenda U - Solar Group",
+      "price": 10.42
+    },
+    {
+      "id": 8,
+      "title": "Conector Ac Macho",
+      "price": 13.28
+    },
+    {
+      "id": 9,
+      "title": "Conector Ac Fêmea",
+      "price": 39.83
+    },
+    {
+      "id": 10,
+      "title": "Conector End Cap",
+      "price": 13.28
+    }
+  ],
+  "stock": [
+    {
+      
+    }
+  ]
+}
