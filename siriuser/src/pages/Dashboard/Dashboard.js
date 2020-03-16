@@ -43,7 +43,7 @@ export default class pages extends Component {
 
   render() {
     const { projects, clients } = this.state;
-
+    console.dir(projects);
     //contador proposta
     let aprovado = 0;
     let rejeitado = 0;
