@@ -2,14 +2,12 @@ import styled from 'styled-components';
 
 export const CardsContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 95%;
+    justify-content: center;
 `
 
 export const Card = styled.div`
     width: 350px;
-    height: 450px;
+    height: 460px;
     background: #fff;
     margin: 20px;
     padding: 20px;

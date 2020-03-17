@@ -34,11 +34,11 @@ export default class Kits extends Component {
 
     return (
       <Container>
-        <CardsContainer>
+        <CardsContainer className='row'>
 
           {
             products.map(product =>
-              <Card className='shadow' key={product.id}>
+              <Card className='shadow col-md-3' key={product.id}>
                 <ProductPhoto>
                   <img src={Painel} alt='Painel' width='200' height='230'/>
                 </ProductPhoto>
