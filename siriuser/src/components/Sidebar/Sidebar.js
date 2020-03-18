@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 
-import { IoIosOptions, IoMdSpeedometer, IoMdFiling, IoMdCalculator } from 'react-icons/io'
+import { IoMdSpeedometer, IoMdFiling, IoMdCalculator } from 'react-icons/io'
 
 import { MdSettingsInputComponent, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
-import { FaUserAlt, FaMedal, FaFileSignature } from 'react-icons/fa'
+import { FaUserAlt, FaMedal, FaCertificate } from 'react-icons/fa'
 
 import { AiOutlineDownload } from 'react-icons/ai' 
 
@@ -103,43 +103,35 @@ export default class Sidebar extends Component {
                 }
             </li>
                 <li>
-                  <Link to='/products'>
+                  <Link to='/componentes'>
                     <span className='mr-3'>
                       <MdSettingsInputComponent size={20} />
                     </span>
                     Componentes
                   </Link>
                 </li>
-                {/* <li>
-                  <Link to='/products'>
-                    <span className='mr-3'>
-                      <IoMdCalculator size={20} />
-                    </span>
-                    Orçamentos
-                  </Link>
-                </li> */}
                 <li>
-                  <Link to='/products'>
+                  <Link to='/arquivos'>
                     <span className='mr-3'>
                       <AiOutlineDownload size={20} />
                     </span>
                     Arquivos
                   </Link>
                 </li>
-                {/* <li>
-                  <Link to='/settings'>
-                    <span className='mr-3'>
-                      <IoIosOptions size={20} />
-                    </span>
-                    Configurações
-                  </Link>
-                </li> */}
                 <li>
-                  <Link to='/products'>
+                  <Link to='/pontuacao'>
                     <span className='mr-3'>
                       <FaMedal size={20} />
                     </span>
                     Pontuação
+                  </Link>
+                </li>
+                 <li>
+                  <Link to='/garantia'>
+                    <span className='mr-3'>
+                      <FaCertificate size={20} />
+                    </span>
+                    Garantias
                   </Link>
                 </li>
 
