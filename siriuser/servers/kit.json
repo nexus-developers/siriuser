@@ -2,93 +2,102 @@
   "products": [
     {
       "id": 1,
-      "img": "./img/Modulo.jpg",
+      "img": "https://i.imgur.com/He1KuiD.jpg",
       "title": "Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno",
-      "price": 630.30
+      "price": 630.30,
+      "provider": "Sirius"
     },
     {
       "id": 2,
-      "img": "./img/Microinversor.jpg",
+      "img": "https://i.imgur.com/s7F5V7I.jpg",
       "title": "Micro Inversor Sirius / Deye de 1300 W de Potência, 4 MPPT",
-      "price": 1696.00
+      "price": 1696.00,
+      "provider": "Sirius"
     },
     {
       "id": 3,
-      "img": "./img/Perfil-de-suporte.jpg",
+      "img": "https://i.imgur.com/dD49Ycl.jpg",
       "title": "Perfil De Suporte Do Módulo 3M Thunder - Solar Group",
-      "price": 44.88
+      "price": 44.88,
+      "provider": "Solar Group"
     },
     {
       "id": 4,
-      "img": "./img/GrampoIntermediárioThunder.jpg",
+      "img": "https://i.imgur.com/RN2YV9M.jpg",
       "title": "Grampo Intermediário Thunder - Solar Group",
-      "price": 6.42
+      "price": 6.42,
+      "provider": "Solar Group"
     },
     {
       "id": 5,
-      "img": "./img/GrampoTerminalThunder.jpg",
+      "img": "https://i.imgur.com/fpkP7oo.jpg",
       "title": "Grampo Terminal Thunder - Solar Group",
-      "price": 6.41
+      "price": 6.41,
+      "provider": "Solar Group"
     },
     {
       "id": 6,
-      "img": "./img/SuporteTelhaCerâmica(Gancho).jpg",
+      "img": "https://i.imgur.com/zgrFJIi.jpg",
       "title": "Suporte Telha Cerâmica (Gancho) - Solar Group",
-      "price": 6.41
+      "price": 6.41,
+      "provider": "Solar Group"
     },
     {
       "id": 7,
-      "img": "img/Emenda-U.jpg",
+      "img": "https://i.imgur.com/cpjyAB2.jpg",
       "title": "Emenda U - Solar Group",
-      "price": 10.42
+      "price": 10.42,
+      "provider": "Solar Group"
     },
     {
       "id": 8,
-      "img": "./img/Conector-AC-Macho.jpg",
+      "img": "https://i.imgur.com/hJLGRJz.jpg",
       "title": "Conector AC Macho",
       "price": 13.28
     },
     {
       "id": 9,
-      "img": "./img/Conector-AC-Fêmea.jpg",
+      "img": "https://i.imgur.com/LWs90ft.jpg",
       "title": "Conector AC Fêmea",
       "price": 39.83
     },
     {
       "id": 10,
-      "img": "./img/Conector-End-Cap.jpg",
+      "img": "https://i.imgur.com/BB9KNqV.jpg",
       "title": "Conector End Cap",
       "price": 13.28
     },
     {
       "id": 11,
-      "img": "./img/ParafusoAutobrocante.jpg",
+      "img": "https://i.imgur.com/rFu1ue9.jpg",
       "title": "Parafuso Autobrocante P/ Telha Metalica",
       "price": 0.56
     },
     {
       "id": 12,
-      "img": "./img/Triangulo Vertical.jpg",
+      "img": "https://i.imgur.com/hBBnmiW.jpg",
       "title": "Triangulo Vertical - Solar Group",
-      "price": 85.43
+      "price": 85.43,
+      "provider": "Solar Group"
     },
     {
       "id": 13,
-      "img": "./img/ParafusoEstruturalParaMadeira.jpg",
+      "img": "https://i.imgur.com/JsCN8VL.jpg",
       "title": "Parafuso Estrutural P/Madeira M10X250 Md 10-4,5 (Fibrocimento)",
       "price": 19.77
     },
     {
       "id": 14,
-      "img": "./img/Fita Epdm (Metro).jpg",
+      "img": "https://i.imgur.com/ulKsBeH.jpg",
       "title": "Espuma Adesiva Epdm (Metro)",
       "price": 2.94
     },
     {
       "id": 15,
-      "img": "./img/Mini Trilho 0,55m.jpg",
+      "img": "https://i.imgur.com/wKU7G3h.jpg",
       "title": "Mini Trilho 0,55m - Solar Group",
-      "price": 7.79
+      "price": 7.79,
+      "provider": "Solar Group"
     }
 
   ],
