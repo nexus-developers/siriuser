@@ -103,7 +103,67 @@
   ],
   "stock": [
     {
-      
+
+    }
+  ],
+  "details": [
+    {
+      "module": [
+        {
+
+        }
+      ],
+      "micro": [
+        {
+          "Características": [
+          {
+            "Compatibilidade": "60/72 células nas placas fotovoltaica",
+            "Comunicação": "Power line / WIFI",
+            "Certificados": "UL1741 / IEEE1547,G83 / VDE4105 AS3100,AS4777.2, AS4777.3 CAN/CSA-C22.2 NO.107.1 / IEC62109-IEC62109-2",
+            "Garantia": "10 anos"
+          }
+        ],
+          "Dados de Saída (CA)": [
+            {
+              "Potência de Saída Máxima (Pico)": "1300W",
+              "Potência de Saída Máxima": "1300W",
+              "Corrente Máxima de Saída": "6.25A / 5.416A",
+              "Voltagem Nominal / Faixa": "208V / 183~229V | 240V / 211~264V",
+              "Frequência Nominal / Faixa": "60.0/59.3-60.5Hz",
+              "Frequencia Extendida / Faixa": "60.0/55~65H",
+              "Fator de Potência": ">0,95",
+              "Máximo de Unidades em Série": "4"
+            }
+          ],
+          "Dados de Entradad (CC)": [
+            {
+              "Potência de Entrada Recomendada (STC)": "1300W",
+              "Tensão CC Máxima de Entrada": "60V",
+              "Faixa de Voltagem do MPPT": "25V~55V",
+              "Faixa Operacional de Tensão (CC)": "20V~60V",
+              "Corrente Máxima de Curto-circuito (CC)": "13A",
+              " Corrente Máxima de Entrada": "10,4 x 4"
+            }
+          ],
+          "Eficiência": [
+            {
+              "Eﬁciência Ponderada CEC": "95%",
+              "Eﬁciência de Pico do Inversor": "96,50%",
+              "Eﬁciência Estática do MPPT": "99%",
+              "Consumo Noturno": "50mW"
+            }
+          ],
+          "Dados Mecânicos": [
+            {
+              "Faixa de Temperatura Ambiente": "-40°C ~65°C",
+              "Dimensões (LxAxP)": "450mm x 455mm x 35mm (Sem cabo e suporte)",
+              "Peso": "6,5kg",
+              "Arrefecimento": "Convenção Natural - Sem ventilador",
+              "Grau de proteção": "Externo - NEMA6/IP67"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
