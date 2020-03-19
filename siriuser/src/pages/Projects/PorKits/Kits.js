@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import { Container } from '../../../styles/Container';
 
 import { MdCompareArrows } from 'react-icons/md'
 
 import { IoMdTrash } from 'react-icons/io'
+
+import Modal from '../../Modals/ProductModal'
 
 import { 
   CardsContainer, 
@@ -21,7 +25,7 @@ import {
   formatPrice 
 } from '../../../util/formt';
 
-export default class Kits extends Component {
+class Kits extends Component {
 
   state = {
     products: [],
@@ -38,8 +42,19 @@ export default class Kits extends Component {
     this.setState({products: data});
   }
 
+  openModal = () => {
+    // this.setState({modal: true});
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'MODAL',
+      // modal,
+    })
+  };
+
   render() {
     const { products } = this.state;
+    const { modalOpen } = this.props;
 
     return (
       <Container>
@@ -47,8 +62,12 @@ export default class Kits extends Component {
           {
             products.map(product =>
               <Card className='shadow col-md-3' key={product.id}>
+                <button
+                onClick={() => this.openModal()}>
+                  abrir
+                </button>
                 <ProductPhoto>
-                  <img src={product.img} alt='' width='200' height='230'/>
+                  <img src={product.img} alt='' width='190' height='210'/>
                 </ProductPhoto>
                 <hr/>
                 <ProductDescription>
@@ -70,6 +89,16 @@ export default class Kits extends Component {
                     </div>
                   </ProductActions>
                 </ProductDescription>
+                {
+                  modalOpen ? (
+                    <>
+                      <Modal/>
+                    </>
+                    
+                  ) : (
+                    null
+                  )
+                }
               </Card>
             )
           }
@@ -78,3 +107,9 @@ export default class Kits extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  modalOpen: state.modal
+});
+
+export default connect(mapStateToProps)(Kits);

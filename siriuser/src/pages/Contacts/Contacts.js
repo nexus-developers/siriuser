@@ -8,7 +8,7 @@ import { MdDelete, MdPersonAdd, MdSearch } from "react-icons/md";
 
 import firebase from '../../firebase';
 
-import Modal from '../Modal/Modal'
+import Modal from '../Modals/ContactModal'
 
 class Contacts extends Component {
   state = {
@@ -43,48 +43,6 @@ class Contacts extends Component {
   componentDidMount() {
     this.getUserData();
   }
-
-  // componentDidUpdate(_,prevState){
-  //   if(this.state !== prevState){
-  //     this.writeUserData();
-  //   }
-  // }
-  
-  // handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   const uid = this.refs.uid.value;
-  //   const name = this.refs.name.value;
-  //   const cpf = this.refs.cpf.value;
-  //   const categoria = this.refs.categoria.value;
-  //   const telefone = this.refs.telefone.value;
-
-  //   if(uid && name && cpf && categoria && telefone){
-  //     const { clients } = this.state;
-  //     const clientIndex = clients.findIndex(data => {
-  //       return data.uid == uid;
-  //     });
-  //     clients[clientIndex].name = name;
-  //     clients[clientIndex].cpf = cpf;
-  //     clients[clientIndex].categoria = categoria;
-  //     clients[clientIndex].telefone = telefone;
-  //     this.setState({ clients });
-  //   }
-  //   else if(name && cpf && categoria && telefone){
-  //     const uid = new Date().getTime().toString();
-  //     const { clients } = this.state;
-  //     clients.push({ uid, name, cpf, categoria, telefone });
-  //     this.setState({ clients });
-  //   }
-
-  //   this.writeUserData();
-
-  //   this.refs.uid.value = '';
-  //   this.refs.name.value = '';
-  //   this.refs.cpf.value = '';
-  //   this.refs.categoria.value = '';
-  //   this.refs.telefone.value = '';
-  // }
 
   //remover cliente
   removeData = (client) => {
