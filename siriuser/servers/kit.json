@@ -2,54 +2,70 @@
   "products": [
     {
       "id": 1,
+      "img": "./img/Módulo-375w.jpg",
       "title": "Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno",
       "price": 630.30
     },
     {
       "id": 2,
+      "img": "./img/Microinversor.jpg",
       "title": "Micro Inversor Sirius / Deye de 1300 W de Potência, 4 MPPT",
       "price": 1696.00
     },
     {
       "id": 3,
+      "img": "./img/Perfil-de-suporte.jpg",
       "title": "Perfil De Suporte Do Módulo 3M Thunder - Solar Group",
       "price": 44.88
     },
     {
       "id": 4,
+      "img": "./img/GrampoIntermediárioThunder.jpg",
       "title": "Grampo Intermediário Thunder - Solar Group",
       "price": 6.42
     },
     {
       "id": 5,
+      "img": "./img/GrampoTerminalThunder.jpg",
       "title": "Grampo Terminal Thunder - Solar Group",
       "price": 6.41
     },
     {
       "id": 6,
+      "img": "./img/SuporteTelhaCerâmica(Gancho).jpg",
       "title": "Suporte Telha Cerâmica (Gancho) - Solar Group",
       "price": 6.41
     },
     {
       "id": 7,
+      "img": "./img/Emenda-U.jpg",
       "title": "Emenda U - Solar Group",
       "price": 10.42
     },
     {
       "id": 8,
-      "title": "Conector Ac Macho",
+      "img": "./img/Conector-AC-Macho.jpg",
+      "title": "Conector AC Macho",
       "price": 13.28
     },
     {
       "id": 9,
-      "title": "Conector Ac Fêmea",
+      "img": "./img/Conector-AC-Fêmea.jpg",
+      "title": "Conector AC Fêmea",
       "price": 39.83
     },
     {
       "id": 10,
+      "img": "./img/Conector-End-Cap.jpg",
       "title": "Conector End Cap",
       "price": 13.28
-    }
+    },
+    {
+      "id": 11,
+      "img": "./img/Conector-End-Cap.jpg",
+      "title": "",
+      "price": 13.28
+    } 
   ],
   "stock": [
     {
