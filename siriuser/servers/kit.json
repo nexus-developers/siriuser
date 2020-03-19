@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "img": "./img/Módulo-375w.jpg",
+      "img": "./img/Modulo.jpg",
       "title": "Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno",
       "price": 630.30
     },
@@ -38,7 +38,7 @@
     },
     {
       "id": 7,
-      "img": "./img/Emenda-U.jpg",
+      "img": "img/Emenda-U.jpg",
       "title": "Emenda U - Solar Group",
       "price": 10.42
     },
@@ -62,10 +62,35 @@
     },
     {
       "id": 11,
-      "img": "./img/Conector-End-Cap.jpg",
-      "title": "",
-      "price": 13.28
-    } 
+      "img": "./img/ParafusoAutobrocante.jpg",
+      "title": "Parafuso Autobrocante P/ Telha Metalica",
+      "price": 0.56
+    },
+    {
+      "id": 12,
+      "img": "./img/Triangulo Vertical.jpg",
+      "title": "Triangulo Vertical - Solar Group",
+      "price": 85.43
+    },
+    {
+      "id": 13,
+      "img": "./img/ParafusoEstruturalParaMadeira.jpg",
+      "title": "Parafuso Estrutural P/Madeira M10X250 Md 10-4,5 (Fibrocimento)",
+      "price": 19.77
+    },
+    {
+      "id": 14,
+      "img": "./img/Fita Epdm (Metro).jpg",
+      "title": "Espuma Adesiva Epdm (Metro)",
+      "price": 2.94
+    },
+    {
+      "id": 15,
+      "img": "./img/Mini Trilho 0,55m.jpg",
+      "title": "Mini Trilho 0,55m - Solar Group",
+      "price": 7.79
+    }
+
   ],
   "stock": [
     {

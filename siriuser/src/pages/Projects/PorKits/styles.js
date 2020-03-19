@@ -27,6 +27,7 @@ export const ProductDescription = styled.div`
 export const ProductActions = styled.div`
     display: flex;
     flex-direction: row;
+    align-self: flex-end;
     justify-content: space-between;
 
     div{

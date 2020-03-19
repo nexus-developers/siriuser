@@ -6,11 +6,20 @@ import { MdCompareArrows } from 'react-icons/md'
 
 import { IoMdTrash } from 'react-icons/io'
 
-import { CardsContainer, Card, ProductPhoto, ProductDescription, ProductActions, Quantity } from './styles'
+import { 
+  CardsContainer, 
+  Card, 
+  ProductPhoto, 
+  ProductDescription, 
+  ProductActions, 
+  Quantity 
+} from './styles'
 
-import Painel from './Assets/painel.png'
 import api from '../../../services/api';
-import { formatPrice } from '../../../util/formt';
+
+import { 
+  formatPrice 
+} from '../../../util/formt';
 
 export default class Kits extends Component {
 
@@ -35,12 +44,11 @@ export default class Kits extends Component {
     return (
       <Container>
         <CardsContainer className='row'>
-
           {
             products.map(product =>
               <Card className='shadow col-md-3' key={product.id}>
                 <ProductPhoto>
-                  <img src={Painel} alt='Painel' width='200' height='230'/>
+                  <img src={product.img} alt='' width='200' height='230'/>
                 </ProductPhoto>
                 <hr/>
                 <ProductDescription>
@@ -65,85 +73,6 @@ export default class Kits extends Component {
               </Card>
             )
           }
-          
-          {/* <Card className='shadow'>
-            <ProductPhoto>
-              <img src={Painel} alt='Painel' width='200' height='230'/>
-            </ProductPhoto>
-            <hr/>
-            <ProductDescription>
-              <h5>
-              Painel Solar Fotovoltaico 335W - Upsolar UP-M335P
-              </h5>
-              <p>Quantidade:</p>
-              <ProductActions>
-                <Quantity>
-                  <input className='form-control' type='number'/>
-                </Quantity>
-                <div>
-                  <button className='btn btn-outline-success'>
-                    <MdCompareArrows size={25} />
-                  </button>
-                  <button className='btn btn-outline-danger'>
-                    <IoMdTrash size={25}/>
-                  </button>
-                </div>
-              </ProductActions>
-            </ProductDescription>
-          </Card>
-
-
-          <Card className='shadow'>
-            <ProductPhoto>
-              <img src={Painel} alt='Painel' width='200' height='230'/>
-            </ProductPhoto>
-            <hr/>
-            <ProductDescription>
-              <h5>
-              Painel Solar Fotovoltaico 335W - Upsolar UP-M335P
-              </h5>
-              <p>Quantidade:</p>
-              <ProductActions>
-                <Quantity>
-                  <input className='form-control' type='number'/>
-                </Quantity>
-                <div>
-                  <button className='btn btn-outline-success'>
-                    <MdCompareArrows size={25} />
-                  </button>
-                  <button className='btn btn-outline-danger'>
-                    <IoMdTrash size={25}/>
-                  </button>
-                </div>
-              </ProductActions>
-            </ProductDescription>
-          </Card>
-
-          <Card className='shadow'>
-            <ProductPhoto>
-              <img src={Painel} alt='Painel' width='200' height='230'/>
-            </ProductPhoto>
-            <hr/>
-            <ProductDescription>
-              <h5>
-              Painel Solar Fotovoltaico 335W - Upsolar UP-M335P
-              </h5>
-              <p>Quantidade:</p>
-              <ProductActions>
-                <Quantity>
-                  <input className='form-control' type='number'/>
-                </Quantity>
-                <div>
-                  <button className='btn btn-outline-success'>
-                    <MdCompareArrows size={25} />
-                  </button>
-                  <button className='btn btn-outline-danger'>
-                    <IoMdTrash size={25}/>
-                  </button>
-                </div>
-              </ProductActions>
-            </ProductDescription>
-          </Card> */}
         </CardsContainer>
       </Container>
     );
