@@ -6,20 +6,23 @@ export const ModalContainer = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 200px;
+
 `;
 
 
 export const InternContainer = styled.div`
     background-color: #FFF;
     width: 700px;
+    height: 600px;
     margin-top: 100px;
     padding: 20px;
     border-radius: 4px;
+    overflow: auto;
 
     header{
         display: flex;
@@ -70,5 +73,35 @@ export const Form = styled.form`
         font-weight: bold;
         padding: 10px;
         border-radius: 4px;
+    }
+`
+
+export const DetailsProduct = styled.div``
+
+export const FirstInformation = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    div{
+        h5{
+            font-size: 18px;
+        }
+    }
+`
+
+export const TablesInformation = styled.div`
+    
+    table{
+        
+        thead{
+            background-color: #32d11d;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        tbody{
+        }
     }
 `

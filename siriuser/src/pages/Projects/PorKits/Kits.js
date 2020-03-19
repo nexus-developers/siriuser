@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router-dom'
+
 import { Container } from '../../../styles/Container';
 
 import { MdCompareArrows } from 'react-icons/md'
@@ -61,45 +63,43 @@ class Kits extends Component {
         <CardsContainer className='row'>
           {
             products.map(product =>
-              <Card className='shadow col-md-3' key={product.id}>
-                <button
-                onClick={() => this.openModal()}>
-                  abrir
-                </button>
-                <ProductPhoto>
-                  <img src={product.img} alt='' width='190' height='210'/>
-                </ProductPhoto>
-                <hr/>
-                <ProductDescription>
-                  <h5>
-                  {product.title}
-                  </h5>
-                  <p>Quantidade:</p>
-                  <ProductActions>
-                    <Quantity>
-                      <input className='form-control' type='number'/>
-                    </Quantity>
-                    <div>
-                      <button className='btn btn-outline-success'>
-                        <MdCompareArrows size={25} />
-                      </button>
-                      <button className='btn btn-outline-danger'>
-                        <IoMdTrash size={25}/>
-                      </button>
-                    </div>
-                  </ProductActions>
-                </ProductDescription>
-                {
-                  modalOpen ? (
-                    <>
-                      <Modal/>
-                    </>
-                    
-                  ) : (
-                    null
-                  )
-                }
-              </Card>
+                <Card className='shadow col-md-3' key={product.id}>
+                  <ProductPhoto>
+                    <Link onClick={() => this.openModal()}>
+                    <img src={product.img} alt='' width='190' height='210'/>
+                    </Link>
+                  </ProductPhoto>
+                  <hr/>
+                  <ProductDescription>
+                    <h5>
+                    {product.title}
+                    </h5>
+                    <p>Quantidade:</p>
+                    <ProductActions>
+                      <Quantity>
+                        <input className='form-control' type='number'/>
+                      </Quantity>
+                      <div>
+                        <button className='btn btn-outline-success'>
+                          <MdCompareArrows size={25} />
+                        </button>
+                        <button className='btn btn-outline-danger'>
+                          <IoMdTrash size={25}/>
+                        </button>
+                      </div>
+                    </ProductActions>
+                  </ProductDescription>
+                  {
+                    modalOpen ? (
+                      <>
+                        <Modal/>
+                      </>
+                      
+                    ) : (
+                      null
+                    )
+                  }
+                </Card>
             )
           }
         </CardsContainer>
