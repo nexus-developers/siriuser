@@ -44,13 +44,13 @@ class Kits extends Component {
     this.setState({products: data});
   }
 
-  openModal = () => {
+  openModal = product => {
     // this.setState({modal: true});
     const { dispatch } = this.props;
 
     dispatch({
-      type: 'MODAL',
-      // modal,
+      type: 'MODAL_KITS',
+      product
     })
   };
 
@@ -65,7 +65,7 @@ class Kits extends Component {
             products.map(product =>
                 <Card className='shadow col-md-3' key={product.id}>
                   <ProductPhoto>
-                    <Link onClick={() => this.openModal()}>
+                    <Link onClick={() => this.openModal(product)}>
                     <img src={product.img} alt='' width='190' height='210'/>
                     </Link>
                   </ProductPhoto>
