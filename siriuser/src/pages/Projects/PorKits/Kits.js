@@ -31,6 +31,7 @@ class Kits extends Component {
 
   state = {
     products: [],
+    type: []
   }
 
   async componentDidMount(){
@@ -52,10 +53,14 @@ class Kits extends Component {
       type: 'MODAL_KITS',
       product
     })
+
+    const data = product.type;
+
+    this.setState({type: data})
   };
 
   render() {
-    const { products } = this.state;
+    const { products, type } = this.state;
     const { modalOpen } = this.props;
 
     return (
@@ -90,7 +95,7 @@ class Kits extends Component {
                     </ProductActions>
                   </ProductDescription>
                   {
-                    modalOpen ? (
+                    modalOpen && type ? (
                       <>
                         <Modal/>
                       </>
@@ -109,7 +114,7 @@ class Kits extends Component {
 }
 
 const mapStateToProps = state => ({
-  modalOpen: state.modal
+  modalOpen: state.modal[0],
 });
 
 export default connect(mapStateToProps)(Kits);
