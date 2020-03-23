@@ -5,14 +5,16 @@
       "img": "https://i.imgur.com/He1KuiD.jpg",
       "title": "Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno",
       "price": 630.30,
-      "provider": "Sirius"
+      "provider": "Sirius",
+      "type": "module"
     },
     {
       "id": 2,
       "img": "https://i.imgur.com/JbxRu93.png",
       "title": "Micro Inversor Sirius / Deye de 1300 W de Potência, 4 MPPT",
       "price": 1696.00,
-      "provider": "Sirius"
+      "provider": "Sirius",
+      "type": "micro"
     },
     {
       "id": 3,
@@ -99,69 +101,346 @@
       "price": 7.79,
       "provider": "Solar Group"
     }
-
   ],
   "stock": [
     {
 
     }
   ],
-  "details": [
+  "module": [
     {
-      "module": [
+      "id": 1,
+      "title": "Características de Temperatura",
+      "infos": [
         {
-
+          "id": 1,
+          "infoT": "NMOT",
+          "value": "45°C ±2°C"
+        },
+        {
+          "id": 2,
+          "infoT": "Coeficiente Temperatura Pmax",
+          "value": "-0,39%/K"
+        },
+        {
+          "id": 3,
+          "infoT": "Coeficiente Temperatura Você",
+          "value": "-0,29%/k"
+        },
+        {
+          "id": 4,
+          "infoT": "Coeficiente Temperatura Isc",
+          "value": "0,05%/K"
         }
-      ],
-      "micro": [
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Condição de Trabalho",
+      "infos": [
         {
-          "Características": [
-          {
-            "Compatibilidade": "60/72 células nas placas fotovoltaica",
-            "Comunicação": "Power line / WIFI",
-            "Certificados": "UL1741 / IEEE1547,G83 / VDE4105 AS3100,AS4777.2, AS4777.3 CAN/CSA-C22.2 NO.107.1 / IEC62109-IEC62109-2",
-            "Garantia": "10 anos"
-          }
-        ],
-          "Dados de Saída (CA)": [
-            {
-              "Potência de Saída Máxima (Pico)": "1300W",
-              "Potência de Saída Máxima": "1300W",
-              "Corrente Máxima de Saída": "6.25A / 5.416A",
-              "Voltagem Nominal / Faixa": "208V / 183~229V | 240V / 211~264V",
-              "Frequência Nominal / Faixa": "60.0/59.3-60.5Hz",
-              "Frequencia Extendida / Faixa": "60.0/55~65H",
-              "Fator de Potência": ">0,95",
-              "Máximo de Unidades em Série": "4"
-            }
-          ],
-          "Dados de Entradad (CC)": [
-            {
-              "Potência de Entrada Recomendada (STC)": "1300W",
-              "Tensão CC Máxima de Entrada": "60V",
-              "Faixa de Voltagem do MPPT": "25V~55V",
-              "Faixa Operacional de Tensão (CC)": "20V~60V",
-              "Corrente Máxima de Curto-circuito (CC)": "13A",
-              " Corrente Máxima de Entrada": "10,4 x 4"
-            }
-          ],
-          "Eficiência": [
-            {
-              "Eﬁciência Ponderada CEC": "95%",
-              "Eﬁciência de Pico do Inversor": "96,50%",
-              "Eﬁciência Estática do MPPT": "99%",
-              "Consumo Noturno": "50mW"
-            }
-          ],
-          "Dados Mecânicos": [
-            {
-              "Faixa de Temperatura Ambiente": "-40°C ~65°C",
-              "Dimensões (LxAxP)": "450mm x 455mm x 35mm (Sem cabo e suporte)",
-              "Peso": "6,5kg",
-              "Arrefecimento": "Convenção Natural - Sem ventilador",
-              "Grau de proteção": "Externo - NEMA6/IP67"
-            }
-          ]
+          "id": 1,
+          "infoT": "Tensão Máxima do Sitema",
+          "value": "1500 V DC"
+        },
+        {
+          "id": 2,
+          "infoT": "Temperatura Operecional",
+          "value": "-40°C~+85°C"
+        },
+        {
+          "id": 3,
+          "infoT": "Máximo Fusíveis da Série",
+          "value": "20 A"
+        },
+        {
+          "id": 4,
+          "infoT": "Máximo de Carga (Neve/Vento)",
+          "value": "5400 Pa / 2400 Pa"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Dados Elétronicos (NMOT)",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Potência Nominal Máxima (Wp)",
+          "value": "377,3"
+        },
+        {
+          "id": 2,
+          "infoT": "Tensão Operacional Ideal Vmpp (V)",
+          "value": "36,6"
+        },
+        {
+          "id": 3,
+          "infoT": "Corrente Operacional Ideal Immp (A)",
+          "value": "7,57"
+        },
+        {
+          "id": 4,
+          "infoT": "Tensão de Circuito Aberto Voc (V)",
+          "value": "44,7"
+        },
+        {
+          "id": 5,
+          "infoT": "Corrente de Curto-circuito Isc (A)",
+          "value": "8,06"
+        },
+        "NMOT (Temperatura operacional normal do módulo): irradiação de 800 W/m2, temperatura ambiente de 20°C, espectro AM 1,5, velocidade do vento 1 m/s./s.",
+        "Os dados acima são apenas para referêcia e os dados reais estão de acordo com os testes práticos."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Dados Elétronicos (STC)",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Potência Nominal Máxima Pmax (W)",
+          "value": "375"
+        },
+        {
+          "id": 2,
+          "infoT": "Tolerância de Potência Pmax (%)",
+          "value": "0~+3"
+        },
+        {
+          "id": 3,
+          "infoT": "Tensão Operacional Ideal Vmp (V)",
+          "value": "39.6"
+        },
+        {
+          "id": 4,
+          "infoT": "Corrente Operacional Ideal Imp (A)",
+          "value": "9.47"
+        },
+        {
+          "id": 5,
+          "infoT": "Tensão de Circuito Aberto Voc (V)",
+          "value": "48.3"
+        },
+        {
+          "id": 6,
+          "infoT": "Corrente de Curto-circuito Isc (A)",
+          "value": "9.97"
+        },
+        {
+          "id": 7,
+          "infoT": "Eficiência do Módulo",
+          "value": "18.71"
+        },
+        "Sob condções de teste padrão (STC) de irradiação de 1000 W/m2, temperatura de célula de 25°C e espectro AM 1,5.",
+        "Os dados acima são apenas referência e os dados reais estão de acordo com os testes práticos."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Dados Mecânicos",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Tipo de Célula",
+          "value": "Mono 158,75X158,75mm"
+        },
+        {
+          "id": 2,
+          "infoT": "Orientação das Células",
+          "value": "72(6x12)"
+        },
+        {
+          "id": 3,
+          "infoT": "Dimensões",
+          "value": "2000x1002x30mm"
+        },
+        {
+          "id": 4,
+          "infoT": "Peso",
+          "value": "26,5 kg"
+        },
+        {
+          "id": 5,
+          "infoT": "Vidro",
+          "value": "2.0mm + 2.0mm Vidro Temperado"
+        },
+        {
+          "id": 6,
+          "infoT": "Caixa Junção",
+          "value": "IP 68, 3 diodos"
+        },
+        {
+          "id": 7,
+          "infoT": "Cabos",
+          "value": "4mm2, 1000mm"
+        },
+        {
+          "id": 8,
+          "infoT": "Conectores",
+          "value": "Compatível com MC4"
+        }
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "id": 1,
+      "title": "Características",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Compatibilidade",
+          "value": "60/72 células nas placas fotovoltaica"
+        },
+        {
+          "id": 2,
+          "infoT": "Comunicação",
+          "value": "Power line / WIFI"
+        },
+        {
+          "id": 3,
+          "infoT": "Certificados",
+          "value": "UL1741 / IEEE1547,G83 / VDE4105 AS3100,AS4777.2, AS4777.3 CAN/CSA-C22.2 NO.107.1 / IEC62109-IEC62109-2"
+        },
+        {
+          "id": 4,
+          "infoT": "Garantia",
+          "value": "10 anos"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dados de Saída (CA)",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Potência de Saída Máxima (Pico)",
+          "value": "1300W"
+        },
+        {
+          "id": 2,
+          "infoT": "Potência de Saída Máxima",
+          "value": "1300W"
+        },
+        {
+          "id": 3,
+          "infoT": "Corrente Máxima de Saída",
+          "value": "6.25A / 5.416A"
+        },
+        {
+          "id": 4,
+          "infoT": "Voltagem Nominal / Faixa",
+          "value": "208V / 183~229V | 240V / 211~264V"
+        },
+        {
+          "id": 5,
+          "infoT": "Frequência Nominal / Faixa",
+          "value": "60.0/59.3-60.5Hz"
+        },
+        {
+          "id": 6,
+          "infoT": "Frequencia Extendida / Faixa",
+          "value": "60.0/55~65H"
+        },
+        {
+          "id": 7,
+          "infoT": "Fator de Potência",
+          "value": ">0,95"
+        },
+        {
+          "id": 8,
+          "infoT": "Máximo de Unidades em Série",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Dados de Entradad (CC)",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Potência de Entrada Recomendada (STC)",
+          "value": "1300W"
+        },
+        {
+          "id": 2,
+          "infoT": "Tensão CC Máxima de Entrada",
+          "value": "60V"
+        },
+        {
+          "id": 3,
+          "infoT": "Faixa de Voltagem do MPPT",
+          "value": "25V~55V"
+        },
+        {
+          "id": 4,
+          "infoT": "Faixa Operacional de Tensão (CC)",
+          "value": "20V~60V"
+        },
+        {
+          "id": 5,
+          "infoT": "Corrente Máxima de Entrada",
+          "value": "10,4 x 4"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Eficiência",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Eﬁciência Ponderada CEC",
+          "value": "95%"
+        },
+        {
+          "id": 2,
+          "infoT": "Eﬁciência de Pico do Inversor",
+          "value": "96,50%"
+        },
+        {
+          "id": 3,
+          "infoT": "Eﬁciência Estática do MPPT",
+          "value": "99%"
+        },
+        {
+          "id": 4,
+          "infoT": "Consumo Noturno",
+          "value": "50mW"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Dados Mecânicos",
+      "infos": [
+        {
+          "id": 1,
+          "infoT": "Faixa de Temperatura Ambiente",
+          "value": "-40°C ~65°C"
+        },
+        {
+          "id": 2,
+          "infoT": "Dimensões (LxAxP)",
+          "value": "450mm x 455mm x 35mm (Sem cabo e suporte)"
+        },
+        {
+          "id": 3,
+          "infoT": "Peso",
+          "value": "6,5kg"
+        },
+        {
+          "id": 4,
+          "infoT": "Arrefecimento",
+          "value": "Convenção Natural - Sem ventilador"
+        },
+        {
+          "id": 5,
+          "infoT": "Grau de proteção",
+          "value": "Externo - NEMA6/IP67"
         }
       ]
     }

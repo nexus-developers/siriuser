@@ -14,10 +14,25 @@ import Logo from '../../styles/GlobalAssets/logo.png'
 
 import Painel from './assets/painel.png'
 
+import api from '../../services/api';
+
+
  class ProductModal extends Component {
     state = {
         products: [],
+        module: [],
+        infos: []
+    }
 
+    async componentDidMount(){
+        const { type } = this.props;
+        const response = await api.get(type);
+        
+        const data = response.data.map(modolo => ({
+            ...modolo
+        }));
+        
+        this.setState({module: data});
     }
 
     closeModal = () => {
@@ -30,9 +45,8 @@ import Painel from './assets/painel.png'
 
   render() {
 
-    // const { products } = this.state;
-    const { modalClose } = this.props 
-
+    const { module } = this.state;
+    const { modalClose, type, title, img } = this.props
 
     return (
         <>
@@ -55,81 +69,36 @@ import Painel from './assets/painel.png'
                             <hr/>
                            <DetailsProduct>
                             <FirstInformation>
-                                <img src={Painel} alt='product' width='190' height='210'/>
+                                <img src={img} alt='product' width='190' height='210'/>
                                 <div>
-                                    <h5>DATASHEET MÓDULO 375W MONO 72 CELL</h5>
+                                    <h5>{title}</h5>
                                 </div>
                             </FirstInformation>
                             <hr/>
                             <TablesInformation>
-                             
-                                <table className='table table-sm'>
-                                    <thead class="">
-                                        <tr>
-                                            <th scope="col">DADOS ELÉTRICOS (STC)</th>
-                                            <th scope='col'>RESULTADOS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>Potência Nominal Máxima. Pmax (W)</th>
-                                            <th>375</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Tolerância de Potência. Pmax (%)</th>
-                                            <th> 0~+3 </th>
-                                        </tr>
-                                        <tr>
-                                            <th>Tensão Operacional Ideal Vmp (V)</th>
-                                            <th>39.6</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Corrente Operacional Ideal Imp (A)</th>
-                                            <th>9.47</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Tensão de Circuito Aberto Voc (V)</th>
-                                            <th>48.3</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Corrente de Curto-circuito Isc (A)</th>
-                                            <th>9.97</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Eﬁciência do Módulo</th>
-                                            <th>18.71</th>
-                                        </tr>
-                                    </tbody>
-
-                                    <thead class="">
-                                        <tr>
-                                            <th scope="col">DADOS ELÉTRICOS (NMOT) </th>
-                                            <th scope='col'>RESULTADOS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>Potência Nominal Máxima.(Wp)</th>
-                                            <th>377.3</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Tensão Operacional Ideal Vmp (V)</th>
-                                            <th>39.6</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Corrente Operacional Ideal Imp (A)</th>
-                                            <th>9.47</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Tensão de Circuito Aberto Voc (V)</th>
-                                            <th>48.3</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Corrente de Curto-circuito Isc (A)</th>
-                                            <th>9.97</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                {
+                                    module.map(item =>
+                                        <table className='table table-sm'>
+                                            <thead class="" key={item.id}>
+                                                <tr>
+                                                    <th scope="col">{item.title}</th>
+                                                    <th scope='col'>RESULTADOS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                item.infos.map(({id, infoT, value}) =>
+                                                    <tr key={id}>
+                                                        <th>{infoT}</th>
+                                                        <th>{value}</th>
+                                                    </tr>   
+                                                    )
+                                                }
+                                            </tbody>
+                                        </table>    
+                                    )
+                                }
+                                
                             </TablesInformation>
                            </DetailsProduct>
                            </InternContainer>
@@ -145,7 +114,10 @@ import Painel from './assets/painel.png'
 }
 
 const mapStateToProps = state => ({
-    modalClose: state.modal
+    modalClose: state.modal[0],
+    type: state.modal[1].type,
+    title: state.modal[1].title,
+    img: state.modal[1].img
 });
 
 export default connect(mapStateToProps)(ProductModal);
