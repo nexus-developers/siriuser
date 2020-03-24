@@ -1,26 +1,26 @@
-<p align="center">
-  <img src="https://trello.com/1/cards/5e70145a9e9daf0eb20b7f94/attachments/5e7014e012ed6d5f9da82b65/previews/download?backingUrl=https%3A%2F%2Ftrello-attachments.s3.amazonaws.com%2F5e70145a9e9daf0eb20b7f94%2F850x250%2F58693493e511c2a974910ceb9a4dcf06%2FNexus_Parking_-_Logo.png" height="150" width="600" alt="Unform" />
-</p>
+<p align="center">	
+  <img src="https://user-images.githubusercontent.com/49910898/75199072-e6355600-5740-11ea-823f-e45592f18f01.png" height="150" width="600" alt="Unform" />
+</p>	
+<h3 align="center">	
+  Energia Limpa para um futuro brilhante. ⚡	
+</h3>	
 
-<h3 align="center">
-  Pague menos com o Nexus Parking!
-</h3>
-<br>
+<br>	
 
-## Sobre a Aplicação
+## Sobre a Aplicação	
+Tenha o controle em suas mãos com a plataforma Sirius Trade, e um Gerente de Contas para atender individualmente suas necessidades de forma personalizada e objetiva. 	
 
+## Vantagens	
 
-## Vantagens
+### 1. Liberdade 🚀	
+Você têm a liberdade para formar seus próprios preços, partindo do preço base fornecido pela Sirius. Você também opta pela melhor forma de faturamento e entrega.	
 
-### 1. Liberdade 🚀
+### 2. Suporte 👥	
+Temos em nosso DNA a excelência no atendimento, seja por telefone, e-mail, WhatsApp, presencialmente, da maneira mais ágil e prestativa possível. Tudo para facilitar e agilizar suas necessidades, sempre!	
 
-
-### 2. Suporte 👥
-
-
-### 3. Pontuação 💘
-
-
-## Developers
+### 3. Pontuação 💘	
+Suas compras acumulam pontos, que podem ser trocados por equipamentos Sirius. Quanto mais você compra, mais pontos acumula.	
+## Developers	
 Projeto Desenvolvido pelos os desenvolvedores da [Nexus Developers](https://github.com/nexus-developers).
-
+1. [Neto Domingos](https://github.com/netodomingos)	
+2. [Gabriel Resente](https://github.com/Sprained)
