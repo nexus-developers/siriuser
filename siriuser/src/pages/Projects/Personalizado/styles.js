@@ -119,3 +119,27 @@ export const Charts = styled.div`
     display: flex;
     justify-content: space-between;
 `
+
+export const FinancialContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+`
+
+export const FinancialButton = styled.button`
+    height: 45px;
+    padding: 10px;
+    margin: 30px 0;
+    background-color: #00E700;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s;
+
+    &:hover{
+        background-color: #02CC02;
+    }
+`

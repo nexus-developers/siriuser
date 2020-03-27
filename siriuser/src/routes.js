@@ -12,7 +12,7 @@ import Garantia from './pages/Garantia/Garantia'
 import Pontuacao from './pages/Pontuacao/Pontuacao'
 import Arquivos from './pages/Arquivos/Arquivos'
 import Componentes from './pages/Componentes/Componentes.js'
-
+import Payment from './pages/Payment/Payment'
 // Navigation
 export default function routes() {
   return (
@@ -26,6 +26,7 @@ export default function routes() {
         <Route path='/pontuacao' component={Pontuacao}/>
         <Route path='/arquivos' component={Arquivos}/>
         <Route path='/componentes' component={Componentes}/>
+        <Route path='/payment' component={Payment} />
     </Switch>
   );
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom'
+
 import { Container } from '../../../styles/Container'
 import { 
   Title, 
@@ -12,9 +14,10 @@ import {
   DispositionsForm,
   ModuleSelection,
   DivisorButton,
-  Charts
-
-      } from './styles';
+  Charts,
+  FinancialContainer,
+  FinancialButton
+} from './styles';
 
 import Maps from '../../../components/Map/Map'
 
@@ -36,6 +39,7 @@ export default class pages extends Component {
     fases: '',
     projects: [],
   }
+
 
   // requisitar clientes
   getUserData = () => {
@@ -332,6 +336,13 @@ export default class pages extends Component {
               </ul>
             </div>                 
           </Charts>
+          <FinancialContainer>
+            <Link to='/payment'>
+              <FinancialButton>
+                Ir para Análise Financeira
+              </FinancialButton>
+            </Link>
+          </FinancialContainer>                 
         </Container> 
     );
   }
