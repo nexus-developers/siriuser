@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ReactSearchBox from 'react-search-box'
 import { Link } from 'react-router-dom'
 
 import { Container } from '../../../styles/Container'
@@ -38,6 +38,7 @@ export default class pages extends Component {
     kits: '',
     fases: '',
     projects: [],
+    data: []
   }
 
 
@@ -64,8 +65,16 @@ export default class pages extends Component {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  componentDidMount(){
-    this.getUserData();
+  async componentDidMount(){
+    await this.getUserData();
+
+    const { clients } = this.state;
+    const infos = clients.map(item => ({
+      ...item,
+      value: item.name
+    }))
+
+    this.setState({data: infos})
   }
 
   cliente = event => {
@@ -160,11 +169,20 @@ export default class pages extends Component {
     this.refs.fase.value = '';
   }
 
+  
+
   render() {
-      const { clients } = this.state;
+      const { clients, data } = this.state;
+      console.log(clients)
       return (
         <Container className=''>
-        <Maps/>
+          <div style={{width: '100vw'}}>
+            <Maps 
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places`} 
+              loadingElement={<div style={{ height: `100%` }} />} 
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}/>
+          </div>
 
          <InternContainer> 
         <hr style={{ width: '95%' }}/>
@@ -186,6 +204,11 @@ export default class pages extends Component {
                               )
                           }
                         </select>
+                        <ReactSearchBox
+                          placeholder="Teste"
+                          data={data}
+                          onSelect={record => console.log(record)}
+                          onChange={value => console.log(value)} />
                       </div>
                       <div>
                         <label>Etapa de Venda:</label>

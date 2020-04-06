@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Container, ContainerMap, InputMap, ButtonMap } from './styles'
 
-import {Map, InfoWindow,  GoogleApiWrapper} from 'google-maps-react';
+import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 
 class Maps extends Component{
     render(){
@@ -14,19 +14,20 @@ class Maps extends Component{
                         Buscar
                     </ButtonMap>
                 </ContainerMap>
-                <Map google={this.props.google} zoom={14}  style={mapStyles} >
-                
-                </Map>
+                <GoogleMap defaultZoom={14} defaultCenter={{lat: -8.124176, lng: -34.898745}} style = {mapStyles} />
 
 
             </Container>
         )
     }
 }
+const WrappedMap = withScriptjs(withGoogleMap(Maps));
 
-export default  GoogleApiWrapper({
-    apiKey: ('*****')
-})(Maps)
+export default WrappedMap;
+
+// export default GoogleApiWrapper({
+//     apiKey: ('AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs')
+// })(Maps)
 
 const mapStyles = {
     width: '95%',
