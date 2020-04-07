@@ -4,6 +4,7 @@ export const Container = styled.div`
     position: fixed;
     top: 0;
     height: 100vh;
+    overflow: hidden;
 `
 export const Row = styled.div`
     display: flex;

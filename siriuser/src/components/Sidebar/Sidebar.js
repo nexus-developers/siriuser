@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom'
 
-
-import { IoMdSpeedometer, IoMdFiling, IoMdCalculator } from 'react-icons/io'
-
-import { MdSettingsInputComponent, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
+import { IoMdSpeedometer,  IoMdCalculator } from 'react-icons/io'
 
 import { FaUserAlt, FaMedal, FaCertificate } from 'react-icons/fa'
 
 import { AiOutlineDownload } from 'react-icons/ai' 
 
-import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages, DropDownMenu } from './styles'
+import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages } from './styles'
 
 
 export default class Sidebar extends Component {
@@ -59,57 +56,14 @@ export default class Sidebar extends Component {
                     Clientes
               </Link>
             </li>
-            <li>
-            <Link to='/negocios'>
-                <span className='mr-3'>
-                    <IoMdFiling size={20} />
+              <li>
+                <Link to='/projects/personalizado'>
+                  <span className='mr-3'>
+                    <IoMdCalculator size={20} />
                   </span>
-                    Negócios
+                  Orçamentos
                 </Link>
-            </li>
-            <li>
-            <Link>
-                <button className='mr-3' onClick={() => this.showMenu()} style={{ outline: 'none', border: 'none',  background: 'transparent',  fontWeight: 'bold', color: 'rgb(51, 51, 51)' }}>
-                    <IoMdCalculator size={20} style={{marginRight: '15px'}} />
-                      Orçamentos
-                      <span style={{ marginLeft: '10px' }}> 
-                        {
-                          showMenu ? ( 
-                            <MdKeyboardArrowUp />
-                           ) : (
-                            <MdKeyboardArrowDown  />
-                           )
-                        }
-                      </span>
-                  </button>
-                </Link>
-                {
-                  showMenu ? (
-                    <DropDownMenu>
-                      <li className='mt-3'>
-                        <Link to='/projects/personalizado'>
-                          Personalizado 
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to='/projects/kits'>
-                          Por Kits 
-                        </Link>
-                      </li>
-                    </DropDownMenu>
-                  ) : (
-                    null
-                  )
-                }
-            </li>
-                <li>
-                  <Link to='/componentes'>
-                    <span className='mr-3'>
-                      <MdSettingsInputComponent size={20} />
-                    </span>
-                    Componentes
-                  </Link>
-                </li>
+              </li>
                 <li>
                   <Link to='/arquivos'>
                     <span className='mr-3'>
