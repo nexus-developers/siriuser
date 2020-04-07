@@ -176,7 +176,7 @@ export default class pages extends Component {
       console.log(clients)
       return (
         <Container className=''>
-          <div style={{width: '80vw'}}>
+          <div style={{width: '95%'}}>
             <Maps 
               googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs&libraries=places`} 
               loadingElement={<div style={{ height: `100%` }} />} 
