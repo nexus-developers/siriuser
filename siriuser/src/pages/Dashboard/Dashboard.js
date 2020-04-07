@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Container } from '../../styles/Container'
+
 import { Cards, Card, RowCards, CardFull, Divisor, BtnGroup, ChartInformation, Title, InformationCard, Badge } from './styles'
 
 import { GoCheck, GoCalendar } from 'react-icons/go'
@@ -71,7 +72,7 @@ export default class pages extends Component {
     }
 
     return (
-      <Container className='row'>
+      <Container style={{width: '85%'}}>
        <Title>
         <GoCheck size={35} color='#6DEA0F'/>
         <h2>DASHBOARD</h2>
@@ -256,10 +257,8 @@ export default class pages extends Component {
                       </div>
                     </InformationCard>
                   </Cards>
-
               </RowCards>
             </Cards>
-
           </RowCards>
         </Cards>
       </Container>
