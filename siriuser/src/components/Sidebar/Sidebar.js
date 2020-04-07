@@ -60,14 +60,6 @@ export default class Sidebar extends Component {
               </Link>
             </li>
             <li>
-            <Link to='/negocios'>
-                <span className='mr-3'>
-                    <IoMdFiling size={20} />
-                  </span>
-                    Negócios
-                </Link>
-            </li>
-            <li>
             <Link>
                 <button className='mr-3' onClick={() => this.showMenu()} style={{ outline: 'none', border: 'none',  background: 'transparent',  fontWeight: 'bold', color: 'rgb(51, 51, 51)' }}>
                     <IoMdCalculator size={20} style={{marginRight: '15px'}} />
@@ -102,14 +94,6 @@ export default class Sidebar extends Component {
                   )
                 }
             </li>
-                <li>
-                  <Link to='/componentes'>
-                    <span className='mr-3'>
-                      <MdSettingsInputComponent size={20} />
-                    </span>
-                    Componentes
-                  </Link>
-                </li>
                 <li>
                   <Link to='/arquivos'>
                     <span className='mr-3'>
