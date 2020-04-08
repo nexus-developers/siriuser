@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Container, ContainerMap, InputMap, ButtonMap } from './styles'
+import { Container, ContainerMap, InputMap, AutoComplete } from './styles'
 
 import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 
@@ -36,39 +36,30 @@ class Maps extends Component{
         return(
             <Container>
                 <ContainerMap>
-                    {/* <InputMap className="form-control shadow" placeholder='Digite o endereço'/> */}
-                    {/* <ButtonMap className='btn btn-success shadow'>
-                        Buscar
-                    </ButtonMap> */}
+                    <GoogleMap defaultZoom={14} center={{lat: this.state.lat, lng: this.state.lng}} style={{width: '100%', height: 100}}/>
                 </ContainerMap>
-                {/* Utilização google maps baseado em latitude e longitude */}
-                <GoogleMap defaultZoom={14} center={{lat: this.state.lat, lng: this.state.lng}} style = {mapStyles} />
-                <PlacesAutocomplete value={this.state.address} onChange={this.address} onSelect={this.handleSelect} ref='address'>
-                    {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
-                        <div>
-                            <p>Lat: {this.state.lat}</p>
-                            <p>Lng: {this.state.lng}</p>
-                            <InputMap className="form-control shadow" {...getInputProps({placeholder: 'Digite o endereço'})} />
-                            {/* <input {...getInputProps({ placeholder: "Type address" })} /> */}
-                            
+                <AutoComplete>
+                    <PlacesAutocomplete value={this.state.address} onChange={this.address} onSelect={this.handleSelect} ref='address'>
+                        {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
                             <div>
-                                {loading ? <div>...loading</div> : null}
+                                <InputMap {...getInputProps({placeholder: 'Digite o endereço'})} />
+                                <div>
+                                    {loading ? <div>...loading</div> : null}
 
-                                {
-                                    suggestions.map((suggestion => {
-                                        const style = {
-                                            backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
-                                        };
+                                    {
+                                        suggestions.map((suggestion => {
+                                            const style = {
+                                                backgroundColor: suggestion.active ? "#32d11d" : "#fff"
+                                            };
 
-                                        return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                    }))
-                                }
+                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                        }))
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    )}
-                </PlacesAutocomplete>
-
-
+                        )}
+                    </PlacesAutocomplete>
+                </AutoComplete>
             </Container>
         )
     }
@@ -80,8 +71,3 @@ export default WrappedMap;
 // export default GoogleApiWrapper({
 //     apiKey: ('AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs') AIzaSyD7_bPvT5h2rMlVMADZwvPJoaydPsUBnJ8
 // })(Maps)
-
-const mapStyles = {
-    width: '95%',
-    height: '300px',
-  };

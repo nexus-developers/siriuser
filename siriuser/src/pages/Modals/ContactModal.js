@@ -8,15 +8,14 @@ import firebase from '../../firebase';
 // Global Container
 import { Container } from '../../styles/Container';
 
-import { ModalContainer, InternContainer, Form } from './styles'
+import { ModalContainer, InternContainer, Form, FormDiv, Green1, Green2, ButtonsDiv, Cancel, MapsDiv, Register } from './styles'
 
 import { AiOutlineClose } from 'react-icons/ai'
 
-import Logo from '../../styles/GlobalAssets/logo.png'
+import Maps from '../../components/Map/Map'
 
 class Modal extends Component {
     state = {
-        // modalClose: true,
         clients: [],
         projects: [],
     }
@@ -106,10 +105,18 @@ class Modal extends Component {
             {
                 modalClose ? (
                     <Container>
-                        <ModalContainer>
-                        <InternContainer>
+                        <ModalContainer >
+                        <InternContainer className='shadow'>
                             <header>
-                                <img src={Logo} alt='Sirius Plataforma'/>
+                                <div>
+                                    <h5>Novo Cliente</h5>
+                                    <div>
+                                        <Green1/>
+                                        <Green2/>
+                                    </div>
+
+                                </div>
+
 
                                 <Link to='/contacts' refresh='true'>
                                     <button
@@ -119,45 +126,75 @@ class Modal extends Component {
                                     </button>
                                 </Link>
                             </header>
-                                <hr/>
                             <Form onSubmit={this.handleSubmit}>
                                     <input 
                                         type='hidden'
                                         ref='uid' 
                                     />
 
-                                    <label>Nome*:</label>
-                                    <input
-                                        type="text"
-                                        ref='name'
+                                <FormDiv>
+                                    <div>
+                                        <label>Nome do Cliente:</label>
+                                        <input
+                                            type="text"
+                                            ref='name'
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label>Email:</label>
+                                        <input
+                                            type="text"
+                                            ref='email'
+
+                                        />
+                                    </div>
+                                </FormDiv>
+
+                                <FormDiv>
+                                    <div>
+                                        <label>CPF/CNPJ*:</label>
+                                        <input
+                                            type="text"
+                                            ref='cpf'
+                                            style={{ width:'300px' }}
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label>Categoria:</label>
+                                        <select className="form-control" ref='categoria' style={{ width:'250px' }} >
+                                            <option value='Pessoal'>Cliente Empresarial</option>
+                                            <option value='Empresarial'>Cliente Pessoal</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label>Telefone:</label>
+                                        <input
+                                            type="text"
+                                            ref='telefone'
+                                            style={{ width:'300px' }}
+                                        />
+                                    </div>
+
+                                </FormDiv>
+
+                                <MapsDiv>
+                                    <Maps 
+                                        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs&libraries=places`} 
+                                        loadingElement={<div style={{ height: `100%` }} />} 
+                                        containerElement={<div style={{ height: `300px`}} />}
+                                        mapElement={<div style={{ height: `90%`, borderRadius: 8 }} />}
                                     />
+                                </MapsDiv>
 
-                                    <label>Email*:</label>
-                                    <input
-                                        type="text"
-                                        ref='email'
-
-                                    />
-
-                                    <label>Telefone:</label>
-                                    <input
-                                        type="text"
-                                        ref='telefone'
-                                    />
-
-                                    <label>CPF/CNPJ*:</label>
-                                    <input
-                                        type="text"
-                                        ref='cpf'
-                                    />
-
-                                    <label>Categoria:</label>
-                                    <select className="form-control" ref='categoria'>
-                                        <option value='Pessoal'>Cliente Empresarial</option>
-                                        <option value='Empresarial'>Cliente Pessoal</option>
-                                    </select>
-
-                                    <button type='submit'>Cadastrar Cliente</button>
+                                <ButtonsDiv
+                                    onClick={() => this.closeModal()}
+                                >
+                                    <Cancel className='btn btn-light'>Cancelar</Cancel>
+                                    <Register type='submit'>Cadastrar Cliente</Register>
+                                </ButtonsDiv>
                             </Form>
                         </InternContainer>
                         </ModalContainer>

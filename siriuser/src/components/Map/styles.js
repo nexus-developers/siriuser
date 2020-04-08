@@ -6,22 +6,21 @@ export const Container = styled.div`
     border-radius: 4px;
 `;
 
-
 export const ContainerMap  = styled.div`
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
 `
 export const InputMap = styled.input`
-    margin: 20px 20px 0 20px;
     width: 300px;
+    position: absolute;
+    top: -50px;
+    height: 45px;
 `
-export const ButtonMap = styled.button`
-    margin-top: 20px;
-    height: 40px;
-    width: 80px;
-    background-color: #65E213;
-    font-weight: bold;
+
+export const AutoComplete = styled.div`
+    position: absolute;
+    top: -210px;
+    left: 10px;
 `
+

@@ -3,39 +3,15 @@ import styled from "styled-components";
 export const Contact = styled.div`
     border-right: 3px solid #00e700;
     h1{
-        color: rgb(51, 51, 51);
+        color: #5E5E5E;
         justify-content: center;
         font-size: 35px;
+        font-weight: bold;
     }
 
     p{
-        color: #5e5e5e;
+        color: #BCBCBC;
         font-size: 15px;
-    }
-`
-
-export const Form  = styled.form`
-    display: flex;
-    flex-direction: column;
-    
-    div{
-
-        h5{
-            font-size: 18px;
-            color: rgb(51, 51, 51);
-            letter-spacing: 1px;
-        }
-        input{
-            flex: 1;
-            outline: none;
-            width: 80%;
-        }
-
-        
-    }
-    
-    select{
-        width: 80%;
     }
 `
 
@@ -65,8 +41,6 @@ export const SecondContainer = styled.div`
 
 export const UlClients = styled.ul`
     flex: 1;
-        
-        
         ul{
             display: flex;
             justify-content: space-evenly;
@@ -97,23 +71,11 @@ export const UlClients = styled.ul`
  
 `
 
-export const TableHead = styled.thead`
-    background-color: #6DEA0F;
-    color: #fff;
-    margin-right: 20px;
-`
-
-export const ButtonClients = styled.button`
-    border: none;
-    outline: none;
-    background: transparent;
-`
-
 export const ButtonAddClients = styled.button`
     margin: 20px 0;
-    background-color: #FCCC2D;
+    background-color: #65FF00;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 25px;
     border: none;
     outline: none;
 
@@ -126,9 +88,11 @@ export const ButtonAddClients = styled.button`
     svg{
         margin-right: 10px;
     }
-`
 
-export const CloseModalButton  = styled.button``
+    span{
+        font-weight: 100;
+    }
+`
 
 export const SearchCamp = styled.div`
     margin-right: 20px;
@@ -137,9 +101,14 @@ export const SearchCamp = styled.div`
     align-items: center;
 
     input{
+        width: 500px;
+    }
+
+    button{
+        width: 100px;
+        margin-left: 10px;
+        background-color: #6DEA0F;
         border: none;
-        border-bottom: 1px solid #ddd;
-        border-radius: 0;
     }
 
 `
@@ -148,5 +117,57 @@ export const Divisor =  styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+`
+
+export const Filter = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p{
+        text-align: center;
+        margin: 2px 10px 0 0;
+        font-size: 18px;
+        font-weight: bold;
+        color:#5e5e5e; 
+    }
+
+    select{
+        width: 250px;
+    }
+`
+
+export const CardClient = styled.div`
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    margin-right: 20px;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    h5{
+        font-size: 18px;
+        color: #5e5e5e;
+        font-weight: bold;
+    }
+
+    p{
+        color: #BCBCBC;
+    }
+
+    button{
+        border: none;
+        background-color: transparent;
+        margin-top: 12px;
+    }
+
+
 `
