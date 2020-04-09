@@ -28,6 +28,12 @@ import Horizontal from './Assets/horizontal.png'
 
 import Barchart from '../../../components/Charts/BarChart'
 
+// import { calculo } from './Calculo';
+
+import api from '../../../services/api';
+import { 
+  formatPrice 
+} from '../../../util/formt';
 
 export default class pages extends Component {
   state = {
@@ -38,7 +44,17 @@ export default class pages extends Component {
     kits: '',
     fases: '',
     projects: [],
-    data: []
+    data: [],
+    products: [],
+    type: [],
+    sistema: 0,
+    placa: 0,
+    placaW: 0
+  }
+
+  constructor(props){
+    super(props);
+    this.calculo = this.calculo.bind(this);
   }
 
 
@@ -66,15 +82,31 @@ export default class pages extends Component {
   }
 
   async componentDidMount(){
+    //importação clientes para tela de projetos
     await this.getUserData();
 
-    const { clients } = this.state;
+    const { clients, products } = this.state;
     const infos = clients.map(item => ({
       ...item,
       value: item.name
     }))
 
     this.setState({data: infos})
+
+    //importação componentes
+    const response = await api.get('products');
+
+    const data = await response.data.map(product => ({
+      ...product,
+      priceFormat: formatPrice(product.price)
+    }));
+
+    this.setState({products: data});
+
+    const placaW = data.map(product => ({
+      producao: product.producao
+    }))
+    this.setState({placaW: placaW[0]})
   }
 
   cliente = event => {
@@ -90,24 +122,11 @@ export default class pages extends Component {
   }
 
   consumo = event => {
+    // const {products} = this.state;
     this.setState({
       consumo: event.target.value 
     });
-
-    //calculo temporario de kits
-    const { consumo } = this.state;
-    if(consumo <= 150){
-      this.setState({ kits: 'Kit1' });
-    }
-    else if(consumo > 150 && consumo <= 250){
-      this.setState({ kits: 'Kit2' });
-    }
-    else if(consumo > 250 && consumo <= 350){
-      this.setState({ kits: 'Kit3' });
-    }
-    else{
-      this.setState({ kits: 'Kit4' });
-    }
+    this.calculo();
   }
 
   tensao = event => {
@@ -169,11 +188,24 @@ export default class pages extends Component {
     this.refs.fase.value = '';
   }
 
-  
+  calculo(){
+    const { placaW } = this.state;
+    const consumo = this.refs.consumo.value;
+    let sistema = 0;
+    let placas = 0;
+    // console.log('consumo', consumo)
+    // console.log('placaW', placaW)
+    while(consumo > sistema){
+      placas++;
+      sistema = sistema + placaW.producao;
+    }
+    console.log(placas)
+    this.setState({placa: placas});
+  }
 
   render() {
-      const { clients, data } = this.state;
-      console.log(clients)
+      const { clients, data, placa } = this.state;
+      console.log(placa)
       return (
         <Container className=''>
           <div style={{width: '95%'}}>
@@ -183,6 +215,7 @@ export default class pages extends Component {
               containerElement={<div style={{ height: `400px` }} />}
               mapElement={<div style={{ height: `100%` }} />}/>
           </div>
+         
 
          <InternContainer> 
         <hr style={{ width: '95%' }}/>
@@ -240,14 +273,12 @@ export default class pages extends Component {
                           type='text' 
                           className='form-control'
                           placeholder='150'
-
                           ref='consumo'
-
-
                           value={this.state.consumo}
                           onChange={this.consumo}
                           style={{width: '150px'}}
                         /> 
+                        <button onClick={this.calculo}>Calcular</button>
                       </div>
 
                       <div>
