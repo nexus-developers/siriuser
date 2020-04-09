@@ -267,11 +267,13 @@ export default class pages extends Component {
                       <div>
                         <label>Cliente:</label>
                         <small>Os clientes devem estar cadastrados no sistema.</small>
-                        <ReactSearchBox
-                          placeholder="Digite o nome do cliente"
-                          data={data}
-                          onSelect={record => console.log(record)}
-                          onChange={value => console.log(value)} />
+                        <div style={{ position: 'absolute'}}>
+                          <ReactSearchBox
+                            placeholder="Digite o nome do cliente"
+                            data={data}
+                            onSelect={record => console.log(record)}
+                            onChange={value => console.log(value)} />
+                        </div>
                         {/* <select  className="form-control" onChange={this.cliente} ref='client'>
                         <option value=''></option>
                           {
@@ -282,7 +284,7 @@ export default class pages extends Component {
                         </select> */}
                        
                       </div>
-                      <div>
+                      <div style={{ marginLeft: '240px' }}>
                         <label>Etapa de Venda:</label>
                         <small>Etapa de venda Integrador Cliente.</small>
                         <select className="form-control" ref='categoria' onChange={this.etapa}>

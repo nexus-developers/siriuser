@@ -63,7 +63,7 @@ class Modal extends Component {
         if(uid && name && cpf && categoria && telefone){
           const { clients } = this.state;
           const clientIndex = clients.findIndex(data => {
-            return data.uid == uid;
+            return data.uid === uid;
           });
           clients[clientIndex].name = name;
           clients[clientIndex].cpf = cpf;

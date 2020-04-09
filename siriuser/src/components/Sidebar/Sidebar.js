@@ -12,26 +12,7 @@ import { Container, Row, Sidebarr, StickySidebar, UlBrand, UlPages } from './sty
 
 
 export default class Sidebar extends Component {
-  state = {
-    showMenu: false
-  }
-
-  showMenu = () =>{
-    
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener('click', this.closeMenu);
-    });
-  }
-  
-  closeMenu = () =>{
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener('click', this.closeMenu);
-    });
-  }
-
   render(){
-
-    const { showMenu } = this.state
 
   return (
     <Container >
@@ -88,7 +69,6 @@ export default class Sidebar extends Component {
                     Garantias
                   </Link>
                 </li>
-
           </UlPages>
         </StickySidebar>
         </Sidebarr>

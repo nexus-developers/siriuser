@@ -2,10 +2,18 @@ import styled from 'styled-components';
 
 export const Table = styled.table`
     width: 95%;
+
+    th{
+        color: #FFF;
+        font-weight: bold
+    }
     
+    td{
+        font-weight: bold
+    }
 
     thead{
-        background-color: #00E700;
+        background-color: #65E213;
     }
 `
 export const TopNavigation = styled.div`
@@ -23,7 +31,7 @@ export const RouteName = styled.p`
 `
 
 export const HR1 = styled.hr`
-    width: 450px;
+    width: 490px;
     background-color: #00E700;
     height: 4px;
     border: none;
@@ -62,57 +70,70 @@ export const NavigationButton = styled.button`
 `
 
 export const Total = styled.h5`
-    text-align: end;
-    margin-right: 5%;
+    text-align: start;
+    color: #989898;
+    font-weight: bold;
+    font-size: 30px;
+`
+
+export const Title = styled.h1`
+    font-size: 25px;
+    margin-top: 60px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #000;
+`
+
+export const ButtonGreen = styled.button`
+    width: 300px;
+    background-color: #65E213;
+    font-weight: bold;
+    border-radius: 4px;
+    color: #FFF;
+    border: none;
+    height: 40px;
 `
 
 export const ContentInformation = styled.div`
-    border: 1px solid #00E700;
-    border-radius: 4px;
     width: 95%;
-    margin: 30px 0;
-    padding: 20px;
-
-    h5{
-        margin-top: 30px;
-    }
-
-    
-    h5:first-child {
-        margin-top: 0px;
-    }
-    
-
-    hr{
-        background-color: #00E700;
-    }
-
-    input{
-        width: 300px;
-        
-    }
-`
-export const Content = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    margin-top: 15px;
+    justify-content: space-between;
 
-    div{
+`
+export const Content = styled.div`
+    width: 590px;
+    padding: 30px;
+    height: 150px;
+    border-radius: 4px;
+    margin: 10px;
 
-        button{
-            height: 38px;
-            margin-left: 20px;
-            border-radius: 4px;
-            background-color: #00E700;
-            outline: none;
-            border: none;
-            padding: 8px;
-            margin-top: 2px;
-            text-align: center;
-            color: #FFF;
-            font-weight: bold
-        }
+    label{
+        font-size: 20px;
+        color: #000;
+        font-weight: bold;
     }
 
+`
+
+export const FreteResult = styled.div`
+    margin-top: 10px;
+    width: 600px;
+    height: 310px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    label{
+        font-size: 25px;
+        color: #000;
+        font-weight: bold;
+    }
+
+    h1{
+        color: #BCBCBC;
+        font-size: 80px;
+    }
 `

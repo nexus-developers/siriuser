@@ -81,7 +81,7 @@ export default function Arquivos() {
               <IoMdClose size={15} color ='#000'/>
             </button>
           </div>
-          <img src={Icon} />
+          <img alt='icon' src={Icon} />
           <p>Orçamento 06/04/2020</p>
           <small>Horário: 14:00</small>
           <button>
@@ -95,7 +95,7 @@ export default function Arquivos() {
               <IoMdClose size={15} color ='#000'/>
             </button>
           </div>
-          <img src={Icon} />
+          <img alt='icon' src={Icon} />
           <p>Orçamento 06/04/2020</p>
           <small>Horário: 14:00</small>
           <button>
@@ -109,7 +109,7 @@ export default function Arquivos() {
               <IoMdClose size={15} color ='#000'/>
             </button>
           </div>
-          <img src={Icon} />
+          <img alt='icon' src={Icon} />
           <p>Orçamento 06/04/2020</p>
           <small>Horário: 14:00</small>
           <button>
@@ -123,7 +123,7 @@ export default function Arquivos() {
               <IoMdClose size={15} color ='#000'/>
             </button>
           </div>
-          <img src={Icon} />
+          <img alt='icon' src={Icon} />
           <p>Orçamento 06/04/2020</p>
           <small>Horário: 14:00</small>
           <button>
@@ -137,7 +137,7 @@ export default function Arquivos() {
               <IoMdClose size={15} color ='#000'/>
             </button>
           </div>
-          <img src={Icon} />
+          <img alt='icon' src={Icon} />
           <p>Orçamento 06/04/2020</p>
           <small>Horário: 14:00</small>
           <button>
@@ -151,7 +151,7 @@ export default function Arquivos() {
               <IoMdClose size={15} color ='#000'/>
             </button>
           </div>
-          <img src={Icon} />
+          <img alt='icon' src={Icon} />
           <p>Orçamento 06/04/2020</p>
           <small>Horário: 14:00</small>
           <button>

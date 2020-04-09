@@ -4,9 +4,7 @@ import { Container } from '../../styles/Container'
 
 import { Link } from 'react-router-dom'
 
-import firebase from '../../firebase'
-
-import { Table, Total, ContentInformation, Content, TopNavigation, NavigationRoute, RouteName, NavigationButton, HR1, HR2 } from './styles';
+import { Table, Total, ContentInformation, Content, TopNavigation, NavigationRoute, RouteName, NavigationButton, HR1, HR2, Title, FreteResult, ButtonGreen } from './styles';
 
 export default class Personalizado extends Component {
     render(){
@@ -38,97 +36,186 @@ export default class Personalizado extends Component {
                 </NavigationRoute>
 
                 </TopNavigation>
-                <Table className='table table-bordered'>
-                    <thead>
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Preço Unitário</th>
-                            <th scope="col">Quantidade</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">123123</th>
-                            <td scope="row">Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
-                            <td scope="row">R$ 800,00</td>
-                            <td scope="row">19</td>
-                            <td scope="row">R$ 15,200</td>
-                        </tr>
-                    </tbody>
+                
+                <div className='shadow' style={{ width: '95%', borderRadius: '4px' }}>
+                    <Table className='table' >
+                        <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Preço Unitário</th>
+                                <th scope="col">Quantidade</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                            <tr>
+                                <td>123123</td>
+                                <td >Modulo Fotovoltaico SIRIUS 375Wp - 72 células - monocristalino - grafeno</td>
+                                <td style={{ color: '#989898'}}>R$ 800,00</td>
+                                <td style={{ color: '#989898'}}>19</td>
+                                <td style={{ color: '#989898'}}>R$ 15,200</td>
+                            </tr>
+                        </tbody>
                     </Table>
-                    <Total>Total: R$ 106.400</Total>
-                    
-                    <ContentInformation>
-                        <form>
-                            <h5>Frete</h5>
-                            <hr />
-                            <Content>
-                                <div>
-                                    <label>Digite CEP:</label>
-                                    <input 
-                                        className='form-control'
-                                        placeholder='Digite seu CEP'
-                                    />
-                                </div>
-                                <div>
-                                    <button>Calcular Frete</button>
-                                </div>
-                            </Content>
-                            
-                            <h5>Gerar Documento</h5>
-                            <hr />
-                            <Content>
-                                <div>
-                                    <label>Gerar Orçamento</label>
-                                    <button>Gerar orçamento</button>
-                                </div>
-                            </Content>
-                        </form>
+                </div>
+                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '95%' }}>
+                        <Total>Total: R$ 106.400</Total>
+                        <ButtonGreen>
+                            Editar itens
+                        </ButtonGreen>
+                    </div>
+
+                    <Title>Frete</Title>
+                    <ContentInformation  >
+                      <div>
+                        <Content className='shadow'>
+                            <label>Digite o Cep:</label>
+                            <input  className='form-control'/>
+                        </Content>
+                        <Content className='shadow'>
+                            <label>Opções de Entrega:</label>
+                            <select className='form-control'>
+                                <option></option>
+                                <option>Opção1</option>
+                                <option>Opção2</option>
+                                <option>Opção3</option>
+                                <option>Opção4</option>
+                            </select>
+                        </Content>
+                      </div>
+                        <FreteResult className='shadow'>
+                            <label>Valor do Frete</label>
+                            <h1>R$ 0,00</h1>
+                        </FreteResult>
                     </ContentInformation>
+                    <div style={{ marginTop: '30px', marginBottom: '30px' }}>
+                        <ButtonGreen >
+                            Calcular
+                        </ButtonGreen>
+                    </div>
+
+
+                    <Title>Meus Itens</Title>
+                    <ContentInformation style={{ width: '95%'}}>
+                        <div>
+                        <select className='form-control' style={{ width: '330px'}}>
+                                <option>Adicionar Itens</option>
+                                <option>Opção1</option>
+                                <option>Opção2</option>
+                                <option>Opção3</option>
+                                <option>Opção4</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <select className='form-control' style={{ width: '330px'}}>
+                                <option>Nenhum Item para Adicionar</option>
+                                <option>Opção1</option>
+                                <option>Opção2</option>
+                                <option>Opção3</option>
+                                <option>Opção4</option>
+                            </select>
+                        </div>
+
+                        <div>
+                           <input className='form-control' style={{ width: '150px', marginBottom: '20px'}} type='number' placeholder='Quantidade'/>
+                        </div>
+
+                        <div>
+                            <ButtonGreen >
+                                Salvar
+                            </ButtonGreen>
+                        </div>
+                    </ContentInformation>
+                    <div style={{ width: '95%'}}>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" style={{ color: '#65E213', fontWeight: 'bold' }}>Tipo</th>
+                                <th scope="col" style={{ color: '#65E213', fontWeight: 'bold' }}>Descrição</th>
+                                <th scope="col" style={{ color: '#65E213', fontWeight: 'bold' }}>Custo Unitário</th>
+                                <th scope="col" style={{ color: '#65E213', fontWeight: 'bold' }}>Preço Unitário</th>
+                                <th scope="col" style={{ color: '#65E213', fontWeight: 'bold' }}>Quantidade</th>
+                                <th scope="col" style={{ color: '#65E213', fontWeight: 'bold' }}>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th><span class="badge badge-primary">Serviço</span></th>
+                                <td style={{ color: '#989898'}}>Consulta</td>
+                                <td style={{ color: '#989898'}}>R$ 300,00</td>
+                                <td style={{ color: '#989898'}}>R$ 300,00</td>
+                                <td style={{ color: '#989898'}}>3</td>
+                                <td style={{ color: '#989898'}}>R$ 900,00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <Total>Total: R$ 106.400</Total>
+
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', width: '95%', marginBottom: '20px' }}>
+                        <ButtonGreen >
+                                Gerar Orçamento
+                        </ButtonGreen>
+                    </div>
             </Container>
         )
     }
