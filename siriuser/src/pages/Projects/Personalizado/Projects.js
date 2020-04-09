@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+
 import ReactSearchBox from 'react-search-box'
+
 import { Link } from 'react-router-dom'
 
+import { FiPlus } from 'react-icons/fi'
+
 import { Container } from '../../../styles/Container'
+
+import { MdDelete } from "react-icons/md";
+
 import { 
   Title, 
   Divisor, 
@@ -10,13 +17,22 @@ import {
   Dispositions, 
   Form, 
   FormPreView, 
-  Quantity, 
   DispositionsForm,
   ModuleSelection,
   DivisorButton,
-  Charts,
   FinancialContainer,
-  FinancialButton
+  FinancialButton,
+  TopNavigation,
+  NavigationRoute,
+  NavigationButton,
+  HR1,
+  HR2,
+  RouteName,
+  MapsDiv,
+  GeneratePreView,
+  ButtonAddModule,
+  ModuleQuantity,
+  ModuleButton
 } from './styles';
 
 import Maps from '../../../components/Map/Map'
@@ -25,8 +41,6 @@ import firebase from '../../../firebase'
 
 import Vertical from './Assets/vertical.png'
 import Horizontal from './Assets/horizontal.png'
-
-import Barchart from '../../../components/Charts/BarChart'
 
 // import { calculo } from './Calculo';
 
@@ -56,7 +70,6 @@ export default class pages extends Component {
     super(props);
     this.calculo = this.calculo.bind(this);
   }
-
 
   // requisitar clientes
   getUserData = () => {
@@ -208,40 +221,66 @@ export default class pages extends Component {
       console.log(placa)
       return (
         <Container className=''>
-          <div style={{width: '95%'}}>
+
+          <TopNavigation>
+
+            <NavigationRoute style={{ marginLeft: '100px' }} >
+              <RouteName active>DIMENSIONAMENTO</RouteName>
+              <NavigationButton active />
+            </NavigationRoute>
+
+              <HR1/>
+
+            <NavigationRoute>
+              <RouteName>ANÁLISE FINANCEIRA</RouteName>
+              <Link to='/payment'>
+                < NavigationButton />
+              </Link>
+            </NavigationRoute>
+
+              <HR2/>
+
+              <NavigationRoute style={{ marginRight: '165px'}} >
+              <RouteName>PROPOSTA</RouteName>
+              <NavigationButton />
+            </NavigationRoute>
+
+          </TopNavigation>
+
+          <MapsDiv style={{ width: '95%' }}>
             <Maps 
               googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs&libraries=places`} 
               loadingElement={<div style={{ height: `100%` }} />} 
-              containerElement={<div style={{ height: `400px` }} />}
-              mapElement={<div style={{ height: `100%` }} />}/>
-          </div>
-         
+              containerElement={<div style={{ height: `300px`}} />}
+              mapElement={<div style={{ height: `90%`, borderRadius: 8 }} />}
+            />
+          </MapsDiv>
 
-         <InternContainer> 
-        <hr style={{ width: '95%' }}/>
+          <Title>Orçamento Personalizado</Title>
+         
+         <InternContainer className='shadow'> 
                 <Form onSubmit={this.handleSubmit}> 
                   <input 
                     type='hidden'
                     ref='uid' />
-                    <Title> Informações do Cliente </Title>
-
                     <Divisor>
                       <div>
                         <label>Cliente:</label>
                         <small>Os clientes devem estar cadastrados no sistema.</small>
-                        <select  className="form-control" onChange={this.cliente} ref='client'>
+                        <ReactSearchBox
+                          placeholder="Digite o nome do cliente"
+                          data={data}
+                          onSelect={record => console.log(record)}
+                          onChange={value => console.log(value)} />
+                        {/* <select  className="form-control" onChange={this.cliente} ref='client'>
                         <option value=''></option>
                           {
                             clients.map(client => 
                                 <option key={client.uid} value={ client.name }>{ client.name }</option>
                               )
                           }
-                        </select>
-                        <ReactSearchBox
-                          placeholder="Teste"
-                          data={data}
-                          onSelect={record => console.log(record)}
-                          onChange={value => console.log(value)} />
+                        </select> */}
+                       
                       </div>
                       <div>
                         <label>Etapa de Venda:</label>
@@ -267,8 +306,8 @@ export default class pages extends Component {
                         </select>
                       </div>
                       
-                      <div style={{ display: 'flex', flexDirection: 'column',   }}>
-                        <label>Mensal: ( kWh )</label>
+                      <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <label style={{ color: '#FFF' }}>Mensal: ( kWh )</label>
                         <input 
                           type='text' 
                           className='form-control'
@@ -276,9 +315,55 @@ export default class pages extends Component {
                           ref='consumo'
                           value={this.state.consumo}
                           onChange={this.consumo}
-                          style={{width: '150px'}}
+                          style={{width: '100px'}}
                         /> 
-                        <button onClick={this.calculo}>Calcular</button>
+                      </div>
+
+                      <div>
+                        <label>Módulo:</label>
+                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '270px'}}>
+                          <option ></option>
+                          <option value='Kit1'>KIT 1</option>
+                          <option value='Kit2'>KIT 2</option>
+                          <option value='kit3'>KIT 3</option>
+                          <option value='kit4'>KIT 4</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label>Fab. Inversor:</label>
+                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '270px'}}>
+                          <option ></option>
+                          <option value='Kit1'>KIT 1</option>
+                          <option value='Kit2'>KIT 2</option>
+                          <option value='kit3'>KIT 3</option>
+                          <option value='kit4'>KIT 4</option>
+                        </select>
+                      </div>
+
+                      
+                      <div>
+                        <label>Kits:</label>
+                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '100px'}}>
+                          <option ></option>
+                          <option value='Kit1'>KIT 1</option>
+                          <option value='Kit2'>KIT 2</option>
+                          <option value='kit3'>KIT 3</option>
+                          <option value='kit4'>KIT 4</option>
+                        </select>
+                      </div>
+
+                     
+                    </Divisor> 
+                    <hr style={{ width: '95%' }}/>
+                    <Divisor>
+                    <div>
+                        <label>Tipo de Estrutura:</label>
+                        <select className="form-control" ref='fase'  style={{width: '150px'}}>
+                          <option ></option>
+                          <option >Bifásico</option>
+                          <option >Trifásico</option>
+                        </select>
                       </div>
 
                       <div>
@@ -289,18 +374,7 @@ export default class pages extends Component {
                           <option value='127 / 220'>220 / 380</option>
                         </select>
                       </div>
-
-                      <div>
-                        <label>Kits:</label>
-                        <select className="form-control" ref='kit' onChange={this.kits} style={{width: '150px'}}>
-                          <option ></option>
-                          <option value='Kit1'>KIT 1</option>
-                          <option value='Kit2'>KIT 2</option>
-                          <option value='kit3'>KIT 3</option>
-                          <option value='kit4'>KIT 4</option>
-                        </select>
-                      </div>
-
+                      
                       <div>
                         <label>Fases:</label>
                         <select className="form-control" ref='fase' onChange={this.fases} style={{width: '150px'}}>
@@ -309,18 +383,26 @@ export default class pages extends Component {
                           <option value='Bifásico'>Trifásico</option>
                         </select>
                       </div>
-                    </Divisor> 
+                    </Divisor>
+
+                    <GeneratePreView >
+                      <button>
+                        Visualizar
+                      </button>
+                    </GeneratePreView>
+                    
             </Form>  
           </InternContainer>
-
-          <hr style={{ width: '95%' }}/>
-            <FormPreView>
+            
+          <Title>Análise de itens</Title>
+            <FormPreView className='shadow'>
               <table className='table'>
                 <thead>
                   <tr>
                     <th scope="col">Código</th>
                     <th scope="col">Descrição do Produto</th>
                     <th scope="col">Quantidade</th>
+                    <th scope="col"/>
                   </tr>
                 </thead>
                 <tbody>
@@ -328,68 +410,69 @@ export default class pages extends Component {
                     <td scope="row">001</td>
                     <td>Descrição do produto que vem do estoque.</td>
                     <td>
-                      <Quantity>
-                        <button>
-                          +
-                        </button>
-                        <label>10</label>
-                        <button>
-                          -
-                        </button>
-                      </Quantity>
+                       <input type='number' className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                    </td>
+                    <td>
+                       <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                        <MdDelete size={30} color='#ff0000' />
+                      </button> 
                     </td>
                   </tr>
+
                 </tbody>
               </table>
             </FormPreView>
 
-            <hr style={{ width: '95%' }}/>   
 
             <Title>Disposição dos Módulos</Title>
+          <div style={{ padding:'20px', borderRadius: '4px', width: '95%' }} className='shadow'>
             <Dispositions>
               <DispositionsForm>
+                <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '50px' }}>
+                  <ButtonAddModule className='shadow'>
+                    <FiPlus color='#FFF' size={25} />
+                    <span>Novo Módulo</span>
+                  </ButtonAddModule>
+                  <ModuleQuantity className='shadow' >
+                    <h5 style={{ textAlign: 'center' }}>Modúlos: 12</h5>
+                  </ModuleQuantity>
+                </div>
+
+
                 <label>Número de Linhas:</label>
-                <input className='form-control' />
+                <input className='form-control' type='number'/>
 
                 <label>Número de Módulos por Linha:</label>
-                <input className='form-control' />
+                <input className='form-control' type='number' />
               </DispositionsForm>
               <ModuleSelection>
+              <button className='btn btn-danger mr-3' style={{ height: '40px', marginTop: '20px', width: '100px', backgroundColor: '#F54141', fontWeight: 'bold', border: 'none' }}>Excluir</button>
                 <div>
                   <DivisorButton>
-                    <label>Vertical</label>
-                    <button>
+                    <ModuleButton className='shadow'>
                       <img src={Vertical} />
-                    </button>
+                    </ModuleButton>
+                    <label>Vertical</label>
                   </DivisorButton>
-                  
+                </div>
+                <div>
                   <DivisorButton>
-                    <label>Horizontal</label>
-                    <button selected>
+                    <ModuleButton selected className='shadow'>
                       <img src={Horizontal} />
-                    </button>
+                    </ModuleButton>
+                    <label>Horizontal</label>
                   </DivisorButton>
                 </div>
               </ModuleSelection>
 
             </Dispositions>  
-          <button className='btn btn-danger mr-5'>Excluir</button>
-          <button className='btn btn-primary'>Recalcular</button>
+              <GeneratePreView >
+                <button>
+                  Recalcular
+                </button>
+            </GeneratePreView>
+          </div>
 
-          <hr style={{ width: '95%' }}/>   
-          <Title>Resultado</Title>
-          <Charts>
-            <Barchart />
-            <div>
-              <ul className='list-group'>
-                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
-                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
-                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
-                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
-                <li className='list-group-item'>kWh / kWp / Ano : 380</li>
-              </ul>
-            </div>                 
-          </Charts>
           <FinancialContainer>
             <Link to='/payment'>
               <FinancialButton>

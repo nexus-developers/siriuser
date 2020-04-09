@@ -83,7 +83,7 @@ class Contacts extends Component {
                   onClick={() => this.openModal()}
               >
                 <FiPlus color='#FFF' size={25} />
-                <span>Novo Cliente</span>
+                <span>Adicionar</span>
               </ButtonAddClients>
               <Filter>
                 <p>Filtro:</p>

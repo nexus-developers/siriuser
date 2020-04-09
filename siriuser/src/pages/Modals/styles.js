@@ -20,7 +20,7 @@ export const InternContainer = styled.div`
     background-color: #FFF;
     width: 80%;
     height: 80%;
-    margin-top: 40px;
+    margin-top: 0px;
     padding: 20px;
     border-radius: 4px;
     overflow: auto;

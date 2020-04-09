@@ -8,6 +8,59 @@ export const Table = styled.table`
         background-color: #00E700;
     }
 `
+export const TopNavigation = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+`
+
+export const RouteName = styled.p`
+    margin-bottom: 0;
+    color: ${ props => props.active ? '#00E700' : "#000" };
+    font-weight: bold;
+`
+
+export const HR1 = styled.hr`
+    width: 450px;
+    background-color: #00E700;
+    height: 4px;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 117px;
+    left: 490px;
+`
+
+export const HR2 = styled.hr`
+    width: 410px;
+    background-color: #00E700;
+    height: 4px;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 117px;
+    right: 215px;
+`
+
+export const NavigationRoute = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+`
+
+export const NavigationButton = styled.button`
+    margin-top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: ${props => props.active ? "#00E700" : "#FFFF"};
+    border-radius: 10px;
+    border: 2px solid #00E700;
+`
+
 export const Total = styled.h5`
     text-align: end;
     margin-right: 5%;
