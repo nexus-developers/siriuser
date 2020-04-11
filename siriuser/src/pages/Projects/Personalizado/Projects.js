@@ -63,7 +63,8 @@ export default class pages extends Component {
     type: [],
     sistema: 0,
     placa: 0,
-    placaW: 0
+    placaW: 0,
+    micros: 0
   }
 
   constructor(props){
@@ -98,7 +99,7 @@ export default class pages extends Component {
     //importação clientes para tela de projetos
     await this.getUserData();
 
-    const { clients, products } = this.state;
+    const { clients } = this.state;
     const infos = clients.map(item => ({
       ...item,
       value: item.name
@@ -135,7 +136,6 @@ export default class pages extends Component {
   }
 
   consumo = event => {
-    // const {products} = this.state;
     this.setState({
       consumo: event.target.value 
     });
@@ -201,24 +201,33 @@ export default class pages extends Component {
     this.refs.fase.value = '';
   }
 
-  calculo(){
+  async calculo(){
     const { placaW } = this.state;
     const consumo = this.refs.consumo.value;
     let sistema = 0;
     let placas = 0;
-    // console.log('consumo', consumo)
-    // console.log('placaW', placaW)
     while(consumo > sistema){
       placas++;
       sistema = sistema + placaW.producao;
     }
-    console.log(placas)
-    this.setState({placa: placas});
+    await this.setState({placa: placas});
+
+    let micro = 0;
+    let placaM = placas;
+    while(placaM > 0){
+      micro++
+      placaM = placaM - 4;
+      if(placaM < 0){
+        placaM = 0;
+      }
+    }
+    await this.setState({micros: micro});
   }
 
   render() {
-      const { clients, data, placa } = this.state;
-      console.log(placa)
+      const { data, placa, products, micros } = this.state;
+      console.log('placas', placa)
+      console.log('micros', micros)
       return (
         <Container className=''>
 
@@ -408,7 +417,39 @@ export default class pages extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  {
+                    placa > 0 ? (
+                      <tr>
+                        <td scope="row">{products[0].id}</td>
+                        <td>{products[0].title}</td>
+                        <td>
+                          <input type='number' value={placa} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                        </td>
+                        <td>
+                          <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                            <MdDelete size={30} color='#ff0000' />
+                          </button> 
+                        </td>
+                      </tr>
+                    ) : ( null )
+                  },
+                  {
+                    micros > 0 ? (
+                      <tr>
+                        <td scope="row">{products[1].id}</td>
+                        <td>{products[1].title}</td>
+                        <td>
+                          <input type='number' value={micros} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                        </td>
+                        <td>
+                          <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                            <MdDelete size={30} color='#ff0000' />
+                          </button> 
+                        </td>
+                      </tr>
+                    ) : ( null )
+                  }
+                  {/* <tr>
                     <td scope="row">001</td>
                     <td>Descrição do produto que vem do estoque.</td>
                     <td>
@@ -419,7 +460,7 @@ export default class pages extends Component {
                         <MdDelete size={30} color='#ff0000' />
                       </button> 
                     </td>
-                  </tr>
+                  </tr> */}
 
                 </tbody>
               </table>
@@ -436,7 +477,7 @@ export default class pages extends Component {
                     <span>Novo Módulo</span>
                   </ButtonAddModule>
                   <ModuleQuantity className='shadow' >
-                    <h5 style={{ textAlign: 'center' }}>Modúlos: 12</h5>
+                    <h5 style={{ textAlign: 'center' }}>Modúlos: {placa}</h5>
                   </ModuleQuantity>
                 </div>
 
