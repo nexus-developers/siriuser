@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { IoMdSpeedometer,  IoMdCalculator } from 'react-icons/io'
 
-import { FaUserAlt, FaMedal, FaCertificate } from 'react-icons/fa'
+import { FaUserAlt, FaMedal, FaCertificate, FaUserTie } from 'react-icons/fa'
 
 import { AiOutlineDownload } from 'react-icons/ai' 
 
@@ -69,6 +69,14 @@ export default class Sidebar extends Component {
                     Garantias
                   </Link>
                 </li>
+                <li>
+              <Link to='/profile'>
+                  <span className='mr-3'>
+                      <FaUserTie size={19} />
+                  </span>
+                    Perfil
+              </Link>
+            </li>
           </UlPages>
         </StickySidebar>
         </Sidebarr>

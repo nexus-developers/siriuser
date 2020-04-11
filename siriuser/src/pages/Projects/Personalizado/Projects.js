@@ -432,7 +432,7 @@ export default class pages extends Component {
                         </td>
                       </tr>
                     ) : ( null )
-                  },
+                  }
                   {
                     micros > 0 ? (
                       <tr>

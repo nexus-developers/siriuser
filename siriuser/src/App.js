@@ -19,13 +19,13 @@ import store from './store'
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes/>
-        <Header/>
-        <Sidebar/>
-      </BrowserRouter>
-      <GlobalStyle/>
-    </Provider>
-  );
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes/>
+          <Header/>
+          <Sidebar/>
+        </BrowserRouter>
+        <GlobalStyle/>
+      </Provider>
+    );
   }

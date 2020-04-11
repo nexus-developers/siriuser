@@ -4,30 +4,16 @@ import { Link } from 'react-router-dom'
  
 import Logo from '../../styles/GlobalAssets/logo.png'
 
-import { FaRegUserCircle, FaBell, FaRegQuestionCircle, FaMedal } from 'react-icons/fa'
+import { FaRegUserCircle, FaRegQuestionCircle, FaMedal } from 'react-icons/fa'
 
-import { Navbar, DropdownMenu } from './styles'
+import { GoSignOut } from 'react-icons/go'
+
+import { Navbar } from './styles'
 
 export default class Header extends Component {
-  state = {
-    showMenu: false
-  }
-
-  showMenu = () =>{
-    
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener('click', this.closeMenu);
-    });
-  }
-  
-  closeMenu = () =>{
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener('click', this.closeMenu);
-    });
-  }
+ 
 
   render(){
-  const { showMenu } = this.state 
 
     return (
 
@@ -45,51 +31,14 @@ export default class Header extends Component {
                         </Link>
                     </li>
                     <li className="nav-item text-nowrap ">
-                        <Link to='' className="nav-link active" style={{fontWeight: 'bold', color: '#D3D3D3'}}>
+                        <a href='http://siriuser.com/' className="nav-link active" style={{fontWeight: 'bold', color: '#D3D3D3'}}>
                           <FaRegQuestionCircle size={28}/>
-                        </Link>
+                        </a>
                     </li>
                     <li className="nav-item text-nowrap ">
-                        <Link to='' className="nav-link active" style={{fontWeight: 'bold', color: '#D3D3D3'}}>
-                          <FaBell size={28}/>
-                        </Link>
-                    </li>
-                    <li className="nav-item text-nowrap ">
-                        <button onClick={() => this.showMenu()} className="nav-link active" style={{fontWeight: 'bold', color: '#00CA00', background: 'none', outline: 'none', border: 'none'}}>
-                          <FaRegUserCircle size={28}/>
+                        <button onClick={() => this.showMenu()} className="nav-link active" style={{fontWeight: 'bold', marginTop: '2px' ,color: '#F54141', background: 'none', outline: 'none', border: 'none'}}>
+                          <GoSignOut size={28}/>
                         </button>
-
-                       {
-                          showMenu ? (
-                          <DropdownMenu className='shadow'>
-                            <ul>
-                              <li>
-                                <Link>
-                                 Meu Perfil
-                                </Link>
-                              </li>
-                              <li>
-                                <Link>
-                                  Meus Clientes
-                                </Link>
-                              </li>
-                              <li>
-                                <Link>
-                                  Meus Negócios
-                                </Link>
-                              </li>
-                              <li>
-                                <Link>
-                                  LogOut
-                                </Link>
-                              </li>
-                            </ul>
-                          </DropdownMenu>
-                         ) : (
-                           null
-                         )
-                       }
-
                     </li>
                 </ul>
           </Navbar> 
