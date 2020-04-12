@@ -2,13 +2,31 @@ import React, { Component } from 'react';
 
 import { Container } from '../../styles/Container'
 
-import { Cards, Card, RowCards, CardFull, Divisor, BtnGroup, ChartInformation, Title, InformationCard, Badge } from './styles'
+import { 
+  Card, 
+  RowCards, 
+  CardFull, 
+  Divisor, 
+  BtnGroup, 
+  ChartInformation, 
+  Title, 
+  CardContainer, 
+  CircleProgress, 
+  CircleContainer,
+  CircleText,
+  NoticiesCards,
+  NoticiesCard
+} from './styles'
 
-import { GoCheck, GoCalendar } from 'react-icons/go'
+import { GoCalendar } from 'react-icons/go'
 
 import firebase from '../../firebase';
 
 import BarChart from '../../components/Charts/BarChart'
+
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 
 export default class pages extends Component {
   state = {
@@ -72,15 +90,11 @@ export default class pages extends Component {
     }
 
     return (
-      <Container style={{width: '85%'}}>
-       <Title>
-        <GoCheck size={35} color='#6DEA0F'/>
-        <h2>DASHBOARD</h2>
-       </Title>
+      <Container>
+       <Title>DASHBOARD</Title>
 
-        <Cards className='col-12' >
-          <RowCards className='row'>
-            <Cards className='col-md-4'>
+        <CardContainer>
+          <RowCards>
               <Card className='shadow'>
                 <header>
                   <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
@@ -91,10 +105,7 @@ export default class pages extends Component {
                   </h1>
                 </div>
               </Card>
-            </Cards>
-  
-            <Cards className='col-sm-4'>
-              <Card className='shadow'>
+              <Card>
                 <header>
                   <h5 className='text-center'>VALOR TOTAL:</h5>
                 </header>
@@ -104,9 +115,7 @@ export default class pages extends Component {
                   </p>
                 </div>
               </Card>
-            </Cards>
 
-            <Cards className='col-sm-4'>
               <Card className='shadow'>
                 <header>
                   <h5 className='text-center'>POTÊNCIA TOTAL:</h5>
@@ -117,10 +126,11 @@ export default class pages extends Component {
                   </p>
                 </div>
               </Card>
-            </Cards>
-  
-          <Cards className='col-sm-12'>
-              <CardFull className='shadow'>
+        </RowCards>
+      </CardContainer>
+          
+          <CardContainer style={{ marginLeft: '20px' }}>
+            <CardFull className='shadow'>
                 <div>
                   <div>
                     <header>
@@ -130,7 +140,7 @@ export default class pages extends Component {
                     </header>
                   </div>
                     <Divisor>
-                      <select class="custom-select">
+                      <select class="custom-select" style={{ width: '300px' }}>
                         <option selected>2020</option>
                         <option value="1">2019</option>
                         <option value="2">2018</option>
@@ -138,8 +148,8 @@ export default class pages extends Component {
                       </select>
 
                       <BtnGroup class="btn-group btn-group-sm">
-                        <button type="button" class="btn">Ano</button>
-                        <button type="button" class="btn">Mês</button>
+                        <button type="button" className="btn mr-2">Ano</button>
+                        <button type="button" className="btn">Mês</button>
                       </BtnGroup>
                     </Divisor>
                 </div>
@@ -149,118 +159,121 @@ export default class pages extends Component {
                   pessoal={pessoais}
                   empresariais={empresariais}
                 />
-                <div>
-                  <h1 className='text-center'>1</h1>
-                  <p className='text-center'>Propostas Emitidas</p>
-
-                  <h1 className='text-center'>R$123.123.22</h1>
-                  <p className='text-center'>Valor das Propostas</p>
-
-                  <h1 className='text-center'>123,34 kWp</h1>
-                  <p className='text-center'>Potência das Propostas</p>
-                </div>
               </ChartInformation>
               </CardFull>
-            </Cards>
-            
-            <Title>
-              <GoCheck size={35} color='#6DEA0F'/>
-              <h2>NOTÍCIAS</h2>
-            </Title>
+            </CardContainer>
 
-            <Cards className='col-12' >
-              <RowCards className='row'>
-                <Cards className='col-md-3'>
-                  <InformationCard className='shadow'>
-                    <header>
-                      <h5 className='text-center'>Que tal financiar seu kit...</h5>
-                    </header>
-                      <p>
-                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                      </p>
+            <CircleProgress>
+              <CircleContainer className='shadow'>
+                <p>Propostas Emitidas</p>
+                <div style={{ width: "200px"}}>
+                  <div>
+                    <CircularProgressbarWithChildren
+                      value={projects.length}
+                      styles={buildStyles({
+                        pathColor: "#65E213",
+                        trailColor: "#E0FBCE"
+                      })}
+                    >
+                        <CircleText>{projects.length}</CircleText>
+                    </CircularProgressbarWithChildren>
+                  </div>
+                </div>
+              </CircleContainer>
 
-                      <div>
-                        <div>
-                          <GoCalendar size={20} color='#999999'/>
-                          <span>12/12/2020 12:40</span>
-                        </div>
-                        <div>
-                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
-                        </div>
-                      </div>
-                  </InformationCard>
-                </Cards>
+              <CircleContainer className='shadow'>
+                <p>Potência das Propostas</p>
+                <div style={{ width: "200px"}}>
+                  <div>
+                    <CircularProgressbarWithChildren
+                      value={80}
+                      styles={buildStyles({
+                        pathColor: "#65E213",
+                        trailColor: "#E0FBCE"
+                      })}
+                    >
+                        <CircleText>R$ 123.123.22</CircleText>
+                    </CircularProgressbarWithChildren>
+                  </div>
+                </div>
+              </CircleContainer>
 
-                  <Cards className='col-md-3'>
-                    <InformationCard className='shadow'>
-                      <header>
-                        <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
-                      </header>
+              <CircleContainer className='shadow'>
+                <p>Valor das Propostas</p>
+                <div style={{ width: "200px" }}>
+                  <div>
+                    <CircularProgressbarWithChildren
+                      value={60}
+                      styles={buildStyles({
+                        pathColor: "#65E213",
+                        trailColor: "#E0FBCE"
+                      })}
+                    >
+                        <CircleText>345.40 kWp</CircleText>
+                    </CircularProgressbarWithChildren>
+                  </div>
+                </div>
+              </CircleContainer>
+            </CircleProgress>
 
-                      <p>
-                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                      </p>
 
-                      <div>
-                        <div>
-                          <GoCalendar size={20} color='#999999'/>
-                          <span>12/12/2020 12:40</span>
-                        </div>
-                        <div>
-                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
-                        </div>
-                      </div>
+           <Title style={{ marginTop: '70px' }}>NOTÍCIAS</Title>
 
-                    </InformationCard>
-                  </Cards>
+           <NoticiesCards>
+              <NoticiesCard className='shadow'>
+                  <header>
+                    <p>Total das Propostas</p>
+                    <div>
+                      <p>Novo</p>
+                    </div>
+                  </header>
 
-                  <Cards className='col-md-3'>
-                    <InformationCard className='shadow'>
-                      <header>
-                        <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
-                      </header>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  </p>
 
-                      <p>
-                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                      </p>
+                  <div>
+                    <GoCalendar color='#5E5E5E' size={25} />
+                    <span>13/01/2020</span>
+                  </div>
+              </NoticiesCard>
 
-                      <div>
-                        <div>
-                          <GoCalendar size={20} color='#999999'/>
-                          <span>12/12/2020 12:40</span>
-                        </div>
-                        <div>
-                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
-                        </div>
-                      </div>
+              <NoticiesCard className='shadow'>
+                  <header>
+                    <p>Total das Propostas</p>
+                    <div>
+                      <p>Novo</p>
+                    </div>
+                  </header>
 
-                    </InformationCard>
-                  </Cards>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  </p>
 
-                  <Cards className='col-md-3'>
-                    <InformationCard className='shadow'>
-                      <header>
-                        <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
-                      </header>
-                      <p>
-                      s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                      </p>
+                  <div>
+                    <GoCalendar color='#5E5E5E' size={25} />
+                    <span>13/01/2020</span>
+                  </div>
+              </NoticiesCard>
 
-                      <div>
-                        <div>
-                          <GoCalendar size={20} color='#999999'/>
-                          <span>12/12/2020 12:40</span>
-                        </div>
-                        <div>
-                          <Badge class="badge" color='#6DEA0F'>Novo</Badge>
-                        </div>
-                      </div>
-                    </InformationCard>
-                  </Cards>
-              </RowCards>
-            </Cards>
-          </RowCards>
-        </Cards>
+              <NoticiesCard className='shadow'>
+                  <header>
+                    <p>Total das Propostas</p>
+                    <div>
+                      <p>Novo</p>
+                    </div>
+                  </header>
+
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  </p>
+
+                  <div>
+                    <GoCalendar color='#5E5E5E' size={25} />
+                    <span>13/01/2020</span>
+                  </div>
+              </NoticiesCard>
+           </NoticiesCards>   
       </Container>
     );
   }

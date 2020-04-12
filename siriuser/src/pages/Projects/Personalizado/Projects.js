@@ -52,6 +52,7 @@ import {
 export default class pages extends Component {
   state = {
     clients: [],
+    visualization: false,
     etapa: '',
     consumo: '',
     tensao: '',
@@ -159,6 +160,7 @@ export default class pages extends Component {
       fases: event.target.value
     })
   }
+
 
   handleSubmit = e => {
     e.preventDefault();
@@ -272,6 +274,7 @@ export default class pages extends Component {
                   <input 
                     type='hidden'
                     ref='uid' />
+                    
                     <Divisor>
                       <div>
                         <label>Cliente:</label>
@@ -297,7 +300,7 @@ export default class pages extends Component {
                         <label>Etapa de Venda:</label>
                         <small>Etapa de venda Integrador Cliente.</small>
                         <select className="form-control" ref='categoria' onChange={this.etapa}>
-                          <option ></option>
+                          <option></option>
                           <option value='Proposta Enviada'>Proposta Emitida</option>
                           <option value='Proposta Apresentada'>Proposta Apresentada</option>
                           <option value='Negociação'>Negociação</option>
@@ -397,75 +400,88 @@ export default class pages extends Component {
                     </Divisor>
 
                     <GeneratePreView >
-                      <button>
+                      <button
+                        onClick={() => this.setState({ visualization: true })}
+                      >
                         Visualizar
                       </button>
                     </GeneratePreView>
                     
             </Form>  
           </InternContainer>
-            
-          <Title>Análise de itens</Title>
-            <FormPreView className='shadow'>
-              <table className='table'>
-                <thead>
-                  <tr>
-                    <th scope="col">Código</th>
-                    <th scope="col">Descrição do Produto</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col"/>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    placa > 0 ? (
+          
+          {
+            this.state.visualization ? (
+              <>
+                <Title>Análise de itens</Title>
+                <FormPreView className='shadow'>
+                  <table className='table'>
+                    <thead>
                       <tr>
-                        <td scope="row">{products[0].id}</td>
-                        <td>{products[0].title}</td>
+                        <th scope="col">Código</th>
+                        <th scope="col">Descrição do Produto</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col"/>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        placa > 0 ? (
+                          <tr>
+                            <td scope="row">{products[0].id}</td>
+                            <td>{products[0].title}</td>
+                            <td>
+                              <input type='number' value={placa} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
+                      {
+                        micros > 0 ? (
+                          <tr>
+                            <td scope="row">{products[1].id}</td>
+                            <td>{products[1].title}</td>
+                            <td>
+                              <input type='number' value={micros} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
+                      {/* <tr>
+                        <td scope="row">001</td>
+                        <td>Descrição do produto que vem do estoque.</td>
                         <td>
-                          <input type='number' value={placa} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                          <input type='number' className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                         </td>
                         <td>
                           <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
                             <MdDelete size={30} color='#ff0000' />
                           </button> 
                         </td>
-                      </tr>
-                    ) : ( null )
-                  }
-                  {
-                    micros > 0 ? (
-                      <tr>
-                        <td scope="row">{products[1].id}</td>
-                        <td>{products[1].title}</td>
-                        <td>
-                          <input type='number' value={micros} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
-                        </td>
-                        <td>
-                          <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
-                            <MdDelete size={30} color='#ff0000' />
-                          </button> 
-                        </td>
-                      </tr>
-                    ) : ( null )
-                  }
-                  {/* <tr>
-                    <td scope="row">001</td>
-                    <td>Descrição do produto que vem do estoque.</td>
-                    <td>
-                       <input type='number' className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
-                    </td>
-                    <td>
-                       <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
-                        <MdDelete size={30} color='#ff0000' />
-                      </button> 
-                    </td>
-                  </tr> */}
-
-                </tbody>
-              </table>
-            </FormPreView>
-
+                      </tr> */}
+    
+                    </tbody>
+                  </table>
+                </FormPreView>
+              </>
+            ) : (
+              <div style={{ width: '95%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '40px' }}>
+                <hr style={{ width: '400px', color: '#6E6E6E', marginLeft: '30px', height: '3px' }}/>
+                  <p style={{ color: "#6E6E6E", fontWeight: 'bold' }}>Não há orçamentos para visualizar</p>
+                <hr style={{ width: '400px', color: '#6E6E6E', marginRight: '30px', height: '3px'  }}/>
+              </div>
+            )
+          }
 
             <Title>Disposição dos Módulos</Title>
           <div style={{ padding:'20px', borderRadius: '4px', width: '95%' }} className='shadow'>

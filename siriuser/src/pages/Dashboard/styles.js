@@ -1,41 +1,43 @@
 import styled from "styled-components";
 
-export const Title = styled.div`
-    display: flex;
-    flex-direction: row;
+export const Title = styled.h2`
     margin-bottom: 20px;
-
-    h2{
-        font-weight: 400;
-    }
+    color: #525252;
+    font-weight: bold;
 `
 
-export const Cards = styled.div`
-    display: flex;
-    justify-content: space-between;
+export const CardContainer = styled.div`
+    width: 95%;
 `
 
 export const Card = styled.div`
     width: 20rem;
     margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #65E213;
 
     header {
         margin-top: 10px;
 
         h5{
-            color: #000;
-            /* font-weight: bold; */
+            color: #fff;
+            font-weight: bold;
         }
     }
 
     div{
         h1{
             font-size: 60px;
+            font-weight: bold;
+            color: #FFF
         }
 
         p{
             font-size: 30px;
             margin-top: 10px;
+            font-weight: bold;
+            color: #FFF
         }
     }
 `
@@ -67,7 +69,11 @@ export const InformationCard = styled.div`
 
 `
 
-export const RowCards = styled.div``
+export const RowCards = styled.div`
+    display: flex;
+    justify-content: space-around;
+
+`
 
 export const CardTitle = styled.h1`
     font-size: 16px;
@@ -75,7 +81,7 @@ export const CardTitle = styled.h1`
 
 export const CardFull = styled.div`
     margin-bottom: 30px;
-    width: 93%;
+    width: 97%;
     
     div{
         display: flex;
@@ -92,12 +98,47 @@ export const CardFull = styled.div`
     
 `
 
+export const CircleProgress = styled.div`
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 30px;
+`
+
+export const CircleContainer = styled.div`
+    width: 300px; 
+    height: 300px;
+    display: flex; 
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    div{
+        margin: 0 auto;
+    }
+    
+
+    p{
+        text-align: start;
+        font-weight: bold;
+        color: #525252;
+    }
+`
+
+export const CircleText = styled.p`
+    color: #525252;
+    font-weight: bold;
+    font-size: 25px;
+`
+
 export const Divisor = styled.div`
 
     select{
         margin-right: 20px;
         margin-top: 20px;
-        width: 250px;
+        width: 25px;
 
     }
 `
@@ -154,10 +195,53 @@ export const CardBody = styled.div`
         justify-content: space-between
     }
 `
+export const NoticiesCards = styled.div`
+    display: flex;
+    justify-content: space-around;
+`
 
-export const Badge = styled.span`
-    background-color: #6DEA0F;
-    padding: 5px 10px 5px 10px;
-    color: #fff;
-    border-radius:10px;
+export const NoticiesCard = styled.div`
+    padding: 10px;
+    border-radius: 4px;
+    margin: 20px;
+
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        p{
+            color: #65E213;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        div{
+            background-color: #65E213;
+            padding: 2px;
+            border-radius: 3px;
+            height: 25px;
+
+            p{
+                color: #FFF;
+                font-weight: 100;
+                font-size: 15px;
+            }
+        }
+    }
+
+    p{
+        color: #979797;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    div{
+        span{
+            color: #979797;
+            margin-top: 8px;
+            margin-left: 5px;
+            font-size: 13px;
+        }
+    }
 `

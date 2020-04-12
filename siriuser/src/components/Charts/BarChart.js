@@ -31,8 +31,8 @@ export default class BarCharts extends Component {
   ];
     return (
         <BarChart 
-            width={800} 
-            height={300} 
+            width={1150} 
+            height={400} 
             data={data}
             margin={{top: 20, right: 30, left: 20, bottom: 5}}
         >
@@ -41,8 +41,8 @@ export default class BarCharts extends Component {
             <YAxis dataKey='value'/>
             <Tooltip/>
             {/* <Legend /> */}
-            <Bar dataKey="uv" fill="#8884d8" />
-            <Bar dataKey="pv" fill="#82ca9d" />
+            <Bar dataKey="uv" fill="#525252" />
+            <Bar dataKey="pv" fill="#65FC02" />
         </BarChart>
     );
     }
