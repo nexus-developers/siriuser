@@ -65,7 +65,9 @@ export default class pages extends Component {
     sistema: 0,
     placa: 0,
     placaW: 0,
-    micros: 0
+    micros: 0,
+    gTerminais: 0,
+    gIntermediarios: 0
   }
 
   constructor(props){
@@ -208,12 +210,14 @@ export default class pages extends Component {
     const consumo = this.refs.consumo.value;
     let sistema = 0;
     let placas = 0;
+    //calculo quantidade de placa
     while(consumo > sistema){
       placas++;
       sistema = sistema + placaW.producao;
     }
     await this.setState({placa: placas});
 
+    //calculo quantidade de micros
     let micro = 0;
     let placaM = placas;
     while(placaM > 0){
@@ -226,10 +230,22 @@ export default class pages extends Component {
     await this.setState({micros: micro});
   }
 
+  calculoLinhas(){
+    const { placa } = this.state
+    const linhas = this.refs.linhas.value;
+    const mLinhas = this.refs.mLinhas.value;
+
+    //calculo de gramps terminais
+    let gTerminais = 4 * linhas;
+    this.setState({ gTerminais })
+
+    //Calculo grampos intermediarios
+    let gIntermediarios = (placa - 1) * 2;
+    this.setState({ gIntermediarios })
+  }
+
   render() {
-      const { data, placa, products, micros } = this.state;
-      console.log('placas', placa)
-      console.log('micros', micros)
+      const { data, placa, products, micros, gTerminais, gIntermediarios } = this.state;
       return (
         <Container className=''>
 
@@ -284,7 +300,8 @@ export default class pages extends Component {
                             placeholder="Digite o nome do cliente"
                             data={data}
                             onSelect={record => console.log(record)}
-                            onChange={value => console.log(value)} />
+                            onChange={value => console.log(value)} 
+                            ref='client'/>
                         </div>
                         {/* <select  className="form-control" onChange={this.cliente} ref='client'>
                         <option value=''></option>
@@ -457,6 +474,38 @@ export default class pages extends Component {
                           </tr>
                         ) : ( null )
                       }
+                      {
+                        gIntermediarios > 0 ? (
+                          <tr>
+                            <td scope="row">{products[4].id}</td>
+                            <td>{products[4].title}</td>
+                            <td>
+                              <input type='number' value={gIntermediarios} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
+                      {
+                        gTerminais > 0 ? (
+                          <tr>
+                            <td scope="row">{products[5].id}</td>
+                            <td>{products[5].title}</td>
+                            <td>
+                              <input type='number' value={gTerminais} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
                       {/* <tr>
                         <td scope="row">001</td>
                         <td>Descrição do produto que vem do estoque.</td>
@@ -499,10 +548,10 @@ export default class pages extends Component {
 
 
                 <label>Número de Linhas:</label>
-                <input className='form-control' type='number'/>
+                <input className='form-control' type='number' ref='linhas' />
 
                 <label>Número de Módulos por Linha:</label>
-                <input className='form-control' type='number' />
+                <input className='form-control' type='number' ref='mLinhas' />
               </DispositionsForm>
               <ModuleSelection>
               <button className='btn btn-danger mr-3' style={{ height: '40px', marginTop: '20px', width: '100px', backgroundColor: '#F54141', fontWeight: 'bold', border: 'none' }}>Excluir</button>
@@ -526,7 +575,7 @@ export default class pages extends Component {
 
             </Dispositions>  
               <GeneratePreView >
-                <button>
+                <button onClick={() => this.calculoLinhas()}>
                   Recalcular
                 </button>
             </GeneratePreView>
