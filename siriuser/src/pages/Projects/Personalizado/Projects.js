@@ -67,7 +67,11 @@ export default class pages extends Component {
     placaW: 0,
     micros: 0,
     gTerminais: 0,
-    gIntermediarios: 0
+    gIntermediarios: 0,
+    dispModulo: '',
+    fixadores: 0,
+    perfis: 0,
+    juncoes: 0
   }
 
   constructor(props){
@@ -231,7 +235,7 @@ export default class pages extends Component {
   }
 
   calculoLinhas(){
-    const { placa } = this.state
+    const { placa, dispModulo } = this.state
     const linhas = this.refs.linhas.value;
     const mLinhas = this.refs.mLinhas.value;
 
@@ -242,10 +246,33 @@ export default class pages extends Component {
     //Calculo grampos intermediarios
     let gIntermediarios = (placa - 1) * 2;
     this.setState({ gIntermediarios })
+
+    //disposição de modulos
+    let dimensoes;
+    if(dispModulo === 'vertical'){
+      dimensoes = 1;
+    }
+    else{
+      dimensoes = 2;
+    }
+    
+    //calculo quantidades de fixadores
+    let fixadores = Math.trunc(((((placa * dimensoes)-1)/1,5)+1)*2)
+    this.setState({ fixadores })
+
+    //calculo de perfis
+    let perfis = Math.round(((placa * dimensoes)/4.2)*2)
+    this.setState({ perfis })
+
+    //calculo de junções
+    let juncoes = perfis - 2;
+    this.setState({ juncoes })
   }
 
   render() {
-      const { data, placa, products, micros, gTerminais, gIntermediarios } = this.state;
+      const { data, placa, products, micros, gTerminais, gIntermediarios, fixadores, perfis, juncoes } = this.state;
+      console.log('Quantidade de Perfis:', perfis)
+      console.log('Quantidade de Junções:', juncoes)
       return (
         <Container className=''>
 
@@ -477,8 +504,8 @@ export default class pages extends Component {
                       {
                         gIntermediarios > 0 ? (
                           <tr>
-                            <td scope="row">{products[4].id}</td>
-                            <td>{products[4].title}</td>
+                            <td scope="row">{products[3].id}</td>
+                            <td>{products[3].title}</td>
                             <td>
                               <input type='number' value={gIntermediarios} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
@@ -493,10 +520,26 @@ export default class pages extends Component {
                       {
                         gTerminais > 0 ? (
                           <tr>
+                            <td scope="row">{products[4].id}</td>
+                            <td>{products[4].title}</td>
+                            <td>
+                              <input type='number' value={gTerminais} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
+                      {
+                        fixadores > 0 ? (
+                          <tr>
                             <td scope="row">{products[5].id}</td>
                             <td>{products[5].title}</td>
                             <td>
-                              <input type='number' value={gTerminais} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                              <input type='number' value={fixadores} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
                             <td>
                               <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
@@ -557,15 +600,15 @@ export default class pages extends Component {
               <button className='btn btn-danger mr-3' style={{ height: '40px', marginTop: '20px', width: '100px', backgroundColor: '#F54141', fontWeight: 'bold', border: 'none' }}>Excluir</button>
                 <div>
                   <DivisorButton>
-                    <ModuleButton className='shadow'>
+                    <ModuleButton className='shadow' onClick={() => this.setState({ dispModulo: 'vertical' })} >
                       <img src={Vertical} />
                     </ModuleButton>
                     <label>Vertical</label>
                   </DivisorButton>
                 </div>
                 <div>
-                  <DivisorButton>
-                    <ModuleButton selected className='shadow'>
+                  <DivisorButton >
+                    <ModuleButton selected className='shadow' onClick={() => this.setState({ dispModulo: 'horizontal' })} >
                       <img src={Horizontal} />
                     </ModuleButton>
                     <label>Horizontal</label>
