@@ -11586,6 +11586,11 @@ react-google-maps@^9.4.5:
     scriptjs "^2.5.8"
     warning "^3.0.0"
 
+react-gradient-progress@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-gradient-progress/-/react-gradient-progress-1.0.2.tgz#5ee2ae8d785244eb5a546f36d45a427f568eec41"
+  integrity sha512-wAwqqAxF6fiv4Do7hByTLprqprjxhjWnps9dThLkvfZoMDoqi+M5VGHEcBbi28T29xA0Xg/U8XpmFPXq/GtIGw==
+
 react-icons@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.9.0.tgz#89a00f20a0e02e6bfd899977eaf46eb4624239d5"

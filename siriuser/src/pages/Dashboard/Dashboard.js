@@ -18,6 +18,8 @@ import {
   NoticiesCard
 } from './styles'
 
+import './styles.css'
+
 import { GoCalendar } from 'react-icons/go'
 
 import firebase from '../../firebase';
@@ -26,7 +28,6 @@ import BarChart from '../../components/Charts/BarChart'
 
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
 
 export default class pages extends Component {
   state = {
@@ -91,11 +92,11 @@ export default class pages extends Component {
 
     return (
       <Container>
-       <Title>DASHBOARD</Title>
+       <Title style={{ marginLeft: '20px'  }}>Dashboard</Title>
 
         <CardContainer>
           <RowCards>
-              <Card className='shadow'>
+              <Card className='shadow linear-gradient' style={{ marginLeft: '-26px' }}>
                 <header>
                   <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
                 </header>
@@ -105,7 +106,7 @@ export default class pages extends Component {
                   </h1>
                 </div>
               </Card>
-              <Card>
+              <Card className='linear-gradient shadow'>
                 <header>
                   <h5 className='text-center'>VALOR TOTAL:</h5>
                 </header>
@@ -116,7 +117,7 @@ export default class pages extends Component {
                 </div>
               </Card>
 
-              <Card className='shadow'>
+              <Card className='linear-gradient shadow'>
                 <header>
                   <h5 className='text-center'>POTÊNCIA TOTAL:</h5>
                 </header>
@@ -163,7 +164,7 @@ export default class pages extends Component {
               </CardFull>
             </CardContainer>
 
-            <CircleProgress>
+            <CircleProgress style={{ marginLeft: '-32px' }}>
               <CircleContainer className='shadow'>
                 <p>Propostas Emitidas</p>
                 <div style={{ width: "200px"}}>
@@ -217,8 +218,8 @@ export default class pages extends Component {
             </CircleProgress>
 
 
-           <Title style={{ marginTop: '70px' }}>NOTÍCIAS</Title>
 
+           <Title style={{ marginTop: '70px', marginLeft: '20px' }}>Notícias</Title>
            <NoticiesCards>
               <NoticiesCard className='shadow'>
                   <header>

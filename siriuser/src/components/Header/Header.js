@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
  
 import Logo from '../../styles/GlobalAssets/logo.png'
 
-import { FaRegUserCircle, FaRegQuestionCircle, FaMedal } from 'react-icons/fa'
+import { FaRegQuestionCircle, FaMedal } from 'react-icons/fa'
 
 import { GoSignOut } from 'react-icons/go'
 
@@ -21,7 +21,7 @@ export default class Header extends Component {
         <div>
           <Navbar className="navbar navbar-expand-lg navbar-light fixed-top flex-md-nowrap" style={{backgroundColor:'#fff' }}>
               <Link to='/' className="navbar-brand ml-2" style={{fontWeight: 'bold'}}>
-                  <img src={Logo} style={{width: '200px'}} alt="logo"/>
+                  <img src={Logo} style={{width: '120px'}} alt="logo"/>
               </Link>
                 <ul className="navbar-nav px-3 ml-auto">
                     <li className="nav-item text-nowrap ">

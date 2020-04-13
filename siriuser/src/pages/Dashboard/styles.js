@@ -15,7 +15,6 @@ export const Card = styled.div`
     margin-bottom: 30px;
     padding: 10px;
     border-radius: 4px;
-    background-color: #65E213;
 
     header {
         margin-top: 10px;

@@ -40,6 +40,8 @@ export const UlPages = styled.ul`
         margin-bottom: 15px;
         font-size: 16px;
         padding: 8px;
+        display: flex;
+        align-items: baseline;
 
 
 
@@ -52,7 +54,7 @@ export const UlPages = styled.ul`
         a{
             text-decoration: none;
             color: rgb(51, 51, 51);
-            font-weight: bold;
+            font-weight: 100;
             font-size: 16px;
         }
     }
