@@ -50,33 +50,32 @@ import {
 } from '../../../util/formt';
 
 export default class pages extends Component {
-  state = {
-    clients: [],
-    visualization: false,
-    etapa: '',
-    consumo: '',
-    tensao: '',
-    kits: '',
-    fases: '',
-    projects: [],
-    data: [],
-    products: [],
-    type: [],
-    sistema: 0,
-    placa: 0,
-    placaW: 0,
-    micros: 0,
-    gTerminais: 0,
-    gIntermediarios: 0,
-    dispModulo: '',
-    fixadores: 0,
-    perfis: 0,
-    juncoes: 0
-  }
-
   constructor(props){
     super(props);
     this.calculo = this.calculo.bind(this);
+    this.state = {
+      clients: [],
+      visualization: false,
+      etapa: '',
+      consumo: '',
+      tensao: '',
+      kits: '',
+      fases: '',
+      projects: [],
+      data: [],
+      products: [],
+      type: [],
+      sistema: 0,
+      placa: 0,
+      placaW: 0,
+      micros: 0,
+      gTerminais: 0,
+      gIntermediarios: 0,
+      dispModulo: '',
+      fixadores: 0,
+      perfis: 0,
+      juncoes: 0
+    }
   }
 
   // requisitar clientes
@@ -475,10 +474,10 @@ export default class pages extends Component {
                             <td scope="row">{products[0].id}</td>
                             <td>{products[0].title}</td>
                             <td>
-                              <input type='number' value={placa} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                              <input type='number' onInput={(e) => this.setState({placa: e.target.value})} value={placa} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
                             <td>
-                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                              <button onClick={() => this.setState({placa: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
                                 <MdDelete size={30} color='#ff0000' />
                               </button> 
                             </td>
@@ -491,10 +490,26 @@ export default class pages extends Component {
                             <td scope="row">{products[1].id}</td>
                             <td>{products[1].title}</td>
                             <td>
-                              <input type='number' value={micros} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                              <input type='number' onInput={(e) => this.setState({micros: e.target.value})} value={micros} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
                             <td>
-                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                              <button onClick={() => this.setState({micros: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
+                      {
+                        perfis > 0 ? (
+                          <tr>
+                            <td scope="row">{products[2].id}</td>
+                            <td>{products[2].title}</td>
+                            <td>
+                              <input type='number' onInput={(e) => this.setState({perfis: e.target.value})} value={perfis} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button onClick={() => this.setState({perfis: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
                                 <MdDelete size={30} color='#ff0000' />
                               </button> 
                             </td>
@@ -507,10 +522,10 @@ export default class pages extends Component {
                             <td scope="row">{products[3].id}</td>
                             <td>{products[3].title}</td>
                             <td>
-                              <input type='number' value={gIntermediarios} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                              <input type='number' onInput={(e) => this.setState({gIntermediarios: e.target.value})} value={gIntermediarios} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
                             <td>
-                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                              <button onClick={() => this.setState({gIntermediarios: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
                                 <MdDelete size={30} color='#ff0000' />
                               </button> 
                             </td>
@@ -523,10 +538,10 @@ export default class pages extends Component {
                             <td scope="row">{products[4].id}</td>
                             <td>{products[4].title}</td>
                             <td>
-                              <input type='number' value={gTerminais} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                              <input type='number' onInput={(e) => this.setState({gTerminais: e.target.value})} value={gTerminais} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
                             <td>
-                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                              <button onClick={() => this.setState({gTerminais: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
                                 <MdDelete size={30} color='#ff0000' />
                               </button> 
                             </td>
@@ -539,29 +554,32 @@ export default class pages extends Component {
                             <td scope="row">{products[5].id}</td>
                             <td>{products[5].title}</td>
                             <td>
-                              <input type='number' value={fixadores} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                              <input type='number' onInput={(e) => this.setState({fixadores: e.target.value})} value={fixadores} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
                             </td>
                             <td>
-                              <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                              <button onClick={() => this.setState({fixadores: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
                                 <MdDelete size={30} color='#ff0000' />
                               </button> 
                             </td>
                           </tr>
                         ) : ( null )
                       }
-                      {/* <tr>
-                        <td scope="row">001</td>
-                        <td>Descrição do produto que vem do estoque.</td>
-                        <td>
-                          <input type='number' className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
-                        </td>
-                        <td>
-                          <button style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
-                            <MdDelete size={30} color='#ff0000' />
-                          </button> 
-                        </td>
-                      </tr> */}
-    
+                      {
+                        juncoes > 0 ? (
+                          <tr>
+                            <td scope="row">{products[6].id}</td>
+                            <td>{products[6].title}</td>
+                            <td>
+                              <input type='number' onInput={(e) => this.setState({juncoes: e.target.value})} value={juncoes} className='form-control' style={{ height: '30px', width: '100px', marginTop: '0px' }} />
+                            </td>
+                            <td>
+                              <button onClick={() => this.setState({juncoes: 0})} style={{ border: 'none', backgroundColor: 'transparent', outline: 'none' }}>
+                                <MdDelete size={30} color='#ff0000' />
+                              </button> 
+                            </td>
+                          </tr>
+                        ) : ( null )
+                      }
                     </tbody>
                   </table>
                 </FormPreView>
