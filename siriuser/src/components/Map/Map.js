@@ -36,9 +36,11 @@ class Maps extends Component{
         return(
             <Container>
                 <ContainerMap>
+                    {/* maps com logalização padrao iniciada em boa viagem para teste */}
                     <GoogleMap defaultZoom={14} center={{lat: this.state.lat, lng: this.state.lng}} style={{width: '100%', height: 100}}/>
                 </ContainerMap>
                 <AutoComplete>
+                    {/* requisição da logalização e jogar ela em lat e lng */}
                     <PlacesAutocomplete value={this.state.address} onChange={this.address} onSelect={this.handleSelect} ref='address'>
                         {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
                             <div>

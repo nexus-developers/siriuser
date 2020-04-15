@@ -20,10 +20,13 @@ class Modal extends Component {
         projects: [],
     }
 
+    //gravar novo cliente
     writeUserData = () => {
         const { clients } = this.state;
+        //gravar no firebase
         firebase.database().ref('/').set(this.state);
         
+        //gravar no localstorage
         localStorage.setItem('clients', JSON.stringify(clients));
     }
 
@@ -33,6 +36,7 @@ class Modal extends Component {
         }
     }
 
+    //requisitar dados do localstorage
     getUserData = () => {
         const clients = localStorage.getItem('clients');
         
@@ -51,6 +55,7 @@ class Modal extends Component {
         this.getUserData();
       }
 
+    //função para gravar no banco de dados, criar um id e gravar os dados
     handleSubmit = e => {
         e.preventDefault();
     
