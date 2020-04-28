@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 
+//chaves e configs do firebase, mudar aki quando mudar de conta
 const firebaseConfig = {
     apiKey: "AIzaSyD7_bPvT5h2rMlVMADZwvPJoaydPsUBnJ8",
     authDomain: "sirius-teste.firebaseapp.com",
