@@ -274,7 +274,6 @@ class pages extends Component {
     this.setState({ juncoes })
   }
 
-  //transferir informações para analise financeira
   openAnalise = () => {
     const { placa, micros, gTerminais, gIntermediarios, fixadores, perfis, juncoes } = this.state;
     const { dispatch } = this.props;
@@ -352,14 +351,6 @@ class pages extends Component {
                             onChange={value => console.log(value)} 
                             ref='client'/>
                         </div>
-                        {/* <select  className="form-control" onChange={this.cliente} ref='client'>
-                        <option value=''></option>
-                          {
-                            clients.map(client => 
-                                <option key={client.uid} value={ client.name }>{ client.name }</option>
-                              )
-                          }
-                        </select> */}
                        
                       </div>
                       <div style={{ marginLeft: '240px' }}>
@@ -640,17 +631,33 @@ class pages extends Component {
               <button className='btn btn-danger mr-3' style={{ height: '40px', marginTop: '20px', width: '100px', backgroundColor: '#F54141', fontWeight: 'bold', border: 'none' }}>Excluir</button>
                 <div>
                   <DivisorButton>
-                    <ModuleButton className='shadow' onClick={() => this.setState({ dispModulo: 'vertical' })} >
-                      <img src={Vertical} />
-                    </ModuleButton>
+                    {
+                      this.state.dispModulo == 'vertical' ? (
+                      <ModuleButton className='shadow' selected onClick={() => this.setState({ dispModulo: 'vertical' })} >
+                        <img src={Vertical} />
+                      </ModuleButton>
+                      ) : (
+                      <ModuleButton className='shadow' onClick={() => this.setState({ dispModulo: 'vertical' })} >
+                        <img src={Vertical} />
+                      </ModuleButton>
+                      )
+                    }
                     <label>Vertical</label>
                   </DivisorButton>
                 </div>
                 <div>
                   <DivisorButton >
-                    <ModuleButton selected className='shadow' onClick={() => this.setState({ dispModulo: 'horizontal' })} >
-                      <img src={Horizontal} />
-                    </ModuleButton>
+                   {
+                     this.state.dispModulo == 'horizontal' ? (
+                      <ModuleButton className='shadow' selected onClick={() => this.setState({ dispModulo: 'horizontal' })} >
+                        <img src={Horizontal} />
+                      </ModuleButton>
+                     ) : (
+                      <ModuleButton className='shadow' onClick={() => this.setState({ dispModulo: 'horizontal' })} >
+                        <img src={Horizontal} />
+                      </ModuleButton>
+                     )
+                   }
                     <label>Horizontal</label>
                   </DivisorButton>
                 </div>
@@ -667,7 +674,7 @@ class pages extends Component {
           <FinancialContainer>
             <Link to='/payment'>
               <FinancialButton>
-                Ir para Análise Financeira
+                Análise Financeira
               </FinancialButton>
             </Link>
           </FinancialContainer>                 
