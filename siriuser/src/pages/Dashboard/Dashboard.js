@@ -35,7 +35,7 @@ export default class pages extends Component {
     clients: [],
   }
 
-  //requisetar projetos
+  //requisetar tudo firebase
   getUserData = () =>{
     const ref = firebase.database().ref('/');
     ref.on('value', snapshot => {
@@ -48,6 +48,7 @@ export default class pages extends Component {
     this.getUserData();
   }
 
+  //salvar dados requisitados no localstorage
   componentDidUpdate(_,prevState){
     const { projects, clients } = this.state;
 
@@ -63,8 +64,8 @@ export default class pages extends Component {
 
   render() {
     const { projects, clients } = this.state;
-    //contador proposta
     
+    //contador proposta
     var aprovado = 0;
     let rejeitado = 0;
     projects.forEach(contador);

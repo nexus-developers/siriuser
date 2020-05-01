@@ -22,15 +22,17 @@ class Contacts extends Component {
     projects: [],
   }
 
-  // gravar firebase
+  // gravar clientes
   writeUserData = () => {
     const { clients } = this.state;
+    //gravar clientes no firebase
     firebase.database().ref('/').set(this.state);
     
+    //gravar clientes no local storage
     localStorage.setItem('clients', JSON.stringify(clients));
   }
 
-  //requisição firebase
+  //requisição clientes
   getUserData = () => {
     const clients = localStorage.getItem('clients');
     
@@ -58,6 +60,7 @@ class Contacts extends Component {
     this.setState({ clients: newState });
   }
 
+  //abrir modal e passar estado dele
   openModal = () => {
     // this.setState({modal: true});
     const { dispatch } = this.props;
@@ -105,6 +108,7 @@ class Contacts extends Component {
             <UlClients>
 
                {
+                 //map para listagem de clientes
                  clients.map(client => (
                     <CardClient className='shadow' key={client.id}>
                       <div style={{marginLeft: '20px'}}>

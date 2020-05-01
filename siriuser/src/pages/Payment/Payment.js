@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import { Container } from '../../styles/Container'
 
 import { Link } from 'react-router-dom'
 
 import { Table, Total, ContentInformation, Content, TopNavigation, NavigationRoute, RouteName, NavigationButton, HR1, HR2, Title, FreteResult, ButtonGreen } from './styles';
 
-export default class Personalizado extends Component {
+class Personalizado extends Component {
     render(){
+        console.log(this.props.list)
         return (
             <Container>
                 <TopNavigation>
@@ -220,3 +223,8 @@ export default class Personalizado extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+  list: state.analise
+});
+export default connect(mapStateToProps)(Personalizado)

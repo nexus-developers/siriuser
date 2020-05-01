@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import ReactSearchBox from 'react-search-box'
 
+import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom'
 
 import { FiPlus } from 'react-icons/fi'
@@ -49,7 +51,7 @@ import {
   formatPrice 
 } from '../../../util/formt';
 
-export default class pages extends Component {
+class pages extends Component {
   constructor(props){
     super(props);
     this.calculo = this.calculo.bind(this);
@@ -123,6 +125,7 @@ export default class pages extends Component {
 
     this.setState({products: data});
 
+    //produção da modulo fotovoltaico
     const placaW = data.map(product => ({
       producao: product.producao
     }))
@@ -174,11 +177,12 @@ export default class pages extends Component {
     const client = this.refs.client.value;
     const etapa = this.refs.categoria.value;
     const consumo = this.refs.consumo.value;
-    const tensao = this.refs.tensao.value;
-    const kit = this.refs.kit.value;
-    const fase = this.refs.fase.value;
+    // const tensao = this.refs.tensao.value;
+    // const kit = this.refs.kit.value;
+    // const fase = this.refs.fase.value;
 
-    if(uid && client && etapa && consumo && tensao && kit && fase){
+    // if(uid && client && etapa && consumo && tensao && kit && fase){
+    if(uid && client && etapa && consumo){
       const { projects } = this.state;
       const projectIndex = projects.findIndex(data => {
         return data.uid = uid;
@@ -186,14 +190,16 @@ export default class pages extends Component {
       projects[projectIndex].client = client;
       projects[projectIndex].etapa = etapa;
       projects[projectIndex].consumo = consumo;
-      projects[projectIndex].tensao = tensao;
-      projects[projectIndex].kit = kit;
-      projects[projectIndex].fase = fase;
+      // projects[projectIndex].tensao = tensao;
+      // projects[projectIndex].kit = kit;
+      // projects[projectIndex].fase = fase;
     }
-     else if(uid ,client && etapa && consumo && tensao && kit && fase){
+    // else if(uid ,client && etapa && consumo && tensao && kit && fase){
+     else if(uid ,client && etapa && consumo){
       const uid = new Date().getTime().toString();
       const { projects } = this.state;
-      projects.push({ uid ,client, etapa, consumo, tensao, kit, fase });
+      // projects.push({ uid ,client, etapa, consumo, tensao, kit, fase });
+      projects.push({ uid ,client, etapa, consumo});
       this.setState({ projects });
     }
 
@@ -203,9 +209,9 @@ export default class pages extends Component {
     this.refs.client.value = '';
     this.refs.categoria.value = '';
     this.refs.consumo.value = '';
-    this.refs.tensao.value = '';
-    this.refs.kit.value = '';
-    this.refs.fase.value = '';
+    // this.refs.tensao.value = '';
+    // this.refs.kit.value = '';
+    // this.refs.fase.value = '';
   }
 
   async calculo(){
@@ -234,7 +240,7 @@ export default class pages extends Component {
   }
 
   calculoLinhas(){
-    const { placa, dispModulo } = this.state
+    const { placa, dispModulo} = this.state
     const linhas = this.refs.linhas.value;
     const mLinhas = this.refs.mLinhas.value;
 
@@ -268,11 +274,24 @@ export default class pages extends Component {
     this.setState({ juncoes })
   }
 
+  openAnalise = () => {
+    const { placa, micros, gTerminais, gIntermediarios, fixadores, perfis, juncoes } = this.state;
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'ANALISE_OPEN',
+      placa,
+      micros,
+      perfis,
+      gIntermediarios,
+      gTerminais,
+      fixadores,
+      juncoes
+    })
+  }
 
   render() {
-      const { data, placa, products, micros, gTerminais, gIntermediarios, fixadores, perfis, juncoes } = this.state;
-      console.log('Quantidade de Perfis:', perfis)
-      console.log('Quantidade de Junções:', juncoes)
+      const { data, placa, products, micros, gTerminais, gIntermediarios, fixadores, perfis, juncoes} = this.state;
       return (
         <Container className=''>
 
@@ -287,7 +306,7 @@ export default class pages extends Component {
 
             <NavigationRoute>
               <RouteName>ANÁLISE FINANCEIRA</RouteName>
-              <Link to='/payment'>
+              <Link onClick={() => this.openAnalise()} to='/payment'>
                 < NavigationButton />
               </Link>
             </NavigationRoute>
@@ -302,6 +321,7 @@ export default class pages extends Component {
           </TopNavigation>
 
           <MapsDiv style={{ width: '95%' }}>
+            {/* chamada do maps na pagina junto com apikey */}
             <Maps 
               googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAB-xvZm8wx8Doshepy284rjII_U2zZkfs&libraries=places`} 
               loadingElement={<div style={{ height: `100%` }} />} 
@@ -323,6 +343,7 @@ export default class pages extends Component {
                         <label>Cliente:</label>
                         <small>Os clientes devem estar cadastrados no sistema.</small>
                         <div style={{ position: 'absolute'}}>
+                          {/* pesquisar clientes pelo nome dele */}
                           <ReactSearchBox
                             placeholder="Digite o nome do cliente"
                             data={data}
@@ -369,7 +390,7 @@ export default class pages extends Component {
                         /> 
                       </div>
 
-                      <div>
+                      {/* <div>
                         <label>Módulo:</label>
                         <select className="form-control" ref='kit' onChange={this.kits} style={{width: '270px'}}>
                           <option ></option>
@@ -378,9 +399,9 @@ export default class pages extends Component {
                           <option value='kit3'>KIT 3</option>
                           <option value='kit4'>KIT 4</option>
                         </select>
-                      </div>
+                      </div> */}
 
-                      <div>
+                      {/* <div>
                         <label>Fab. Inversor:</label>
                         <select className="form-control" ref='kit' onChange={this.kits} style={{width: '270px'}}>
                           <option ></option>
@@ -389,10 +410,9 @@ export default class pages extends Component {
                           <option value='kit3'>KIT 3</option>
                           <option value='kit4'>KIT 4</option>
                         </select>
-                      </div>
-
+                      </div> */}
                       
-                      <div>
+                      {/* <div>
                         <label>Kits:</label>
                         <select className="form-control" ref='kit' onChange={this.kits} style={{width: '100px'}}>
                           <option ></option>
@@ -401,12 +421,11 @@ export default class pages extends Component {
                           <option value='kit3'>KIT 3</option>
                           <option value='kit4'>KIT 4</option>
                         </select>
-                      </div>
-
+                      </div> */}
                      
                     </Divisor> 
                     <hr style={{ width: '95%' }}/>
-                    <Divisor>
+                    {/* <Divisor>
                     <div>
                         <label>Tipo de Estrutura:</label>
                         <select className="form-control" ref='fase'  style={{width: '150px'}}>
@@ -433,7 +452,7 @@ export default class pages extends Component {
                           <option value='Bifásico'>Trifásico</option>
                         </select>
                       </div>
-                    </Divisor>
+                    </Divisor> */}
 
                     <GeneratePreView >
                       <button
@@ -461,6 +480,7 @@ export default class pages extends Component {
                       </tr>
                     </thead>
                     <tbody>
+                      {/* logica para mostrar components */}
                       {
                         placa > 0 ? (
                           <tr>
@@ -663,3 +683,4 @@ export default class pages extends Component {
   }
 }
 
+export default connect()(pages);
