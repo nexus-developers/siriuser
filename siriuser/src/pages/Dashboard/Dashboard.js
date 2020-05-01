@@ -98,7 +98,7 @@ export default class pages extends Component {
           <RowCards>
               <Card className='shadow linear-gradient' style={{ marginLeft: '-26px' }}>
                 <header>
-                  <h5 className='text-center'>TOTAL DAS PROPOSTAS</h5>
+                  <h5 className='text-center'>TOTAL DE PROPOSTAS</h5>
                 </header>
                 <div>
                   <h1 className='text-center'>
