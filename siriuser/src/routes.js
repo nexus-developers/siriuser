@@ -11,6 +11,8 @@ import Pontuacao from './pages/Pontuacao/Pontuacao'
 import Arquivos from './pages/Arquivos/Arquivos'
 import Payment from './pages/Payment/Payment'
 import Profile from './pages/Profile/Profile'
+import Checkout from './pages/Checkout/Checkout'
+import Finished from './pages/Checkout/Finished'
 
 // Navigation
 export default function routes() {
@@ -24,6 +26,8 @@ export default function routes() {
         <Route path='/arquivos' component={Arquivos}/>
         <Route path='/payment' component={Payment} />
         <Route path='/profile' component={Profile} />
+        <Route path='/checkout' exact component={Checkout}/> 
+        <Route path='/checkout/finished' exact component={Finished}/> 
     </Switch>
   );
 }
