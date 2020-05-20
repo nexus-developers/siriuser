@@ -13,10 +13,10 @@ export const Title = styled.h5`
 `
 
 export const InternContainer = styled.div`
-    width: 95%;
+    width: 100%;
     overflow-x: hidden;
     margin-top: 0px;
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 4px;
     margin-bottom: 40px;
 `
@@ -155,6 +155,11 @@ export const ContainerTextArea = styled.div`
         width: 100%;
         border: 1px solid #ccc;
         border-radius: 6px;
+        padding: 10px;
+    }
+
+    &.noPadding{
+        padding: 10px 0px!important;
     }
 
 `

@@ -49,6 +49,15 @@ export const Title = styled.h1`
   font-size: 30px;
   font-weight: bold;
   color: #979797;
+
+  &.medium{    font-size: 26px;
+
+  }
 `;
 
 
+export const ImageMobile = styled.img`
+    padding-top: 70px;
+    width:100%;
+
+`
